@@ -15,7 +15,7 @@ module.exports = {
         },
         {
             name: 'DevPost',
-            url: 'https://devpost.com/'
+            url: 'https://devpost.com/hongkuntian'
         }
     ],
     navLinks: [
