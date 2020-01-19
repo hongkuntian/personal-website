@@ -23,22 +23,8 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header/>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-          repellendus eum totam debitis incidunt asperiores quisquam animi quam
-          delectus beatae?
-        </p>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <Header>
+    </Header>
   )
 }
 
