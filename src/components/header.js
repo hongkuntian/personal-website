@@ -1,9 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import "../styles/header.scss"
-import SmoothScroll from "smooth-scroll"
-
-const _ = new SmoothScroll('a[href*="#"]');
 
 const Header = () => (
   <header>
@@ -14,10 +11,10 @@ const Header = () => (
         </div>
         <div className="navigation">
           <nav>
-            <a data-scroll href="#about">About</a>
-            <a data-scroll href="#experience">Experience</a>
-            <a data-scroll href="#projects">Projects</a>
-            <a data-scroll href="#contact">Contact</a>
+            <Link to="/#about">About</Link>
+            <Link to="/#experience">Experience</Link>
+            <Link to="/#projects">Projects</Link>
+            <Link to="/#contact">Contact</Link>
           </nav>
         </div>
       </div>
