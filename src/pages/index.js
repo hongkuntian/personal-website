@@ -16,11 +16,13 @@ import Header from "../components/header"
 const IndexPage = () => (
   <div>
     <Layout/>
-    <Hero/>
-    <About/>
-    <Experience/>
-    <Projects/>
-    <Contact/>
+    <div className="wrapper">
+      <Hero/>
+      <About/>
+      <Experience/>
+      <Projects/>
+      <Contact/>
+    </div>
   </div>
 )
 
