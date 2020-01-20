@@ -3,7 +3,7 @@ import React from "react"
 import "../styles/header.scss"
 import SmoothScroll from "smooth-scroll"
 
-const scroll = new SmoothScroll('a[href*="#"]');
+const _ = new SmoothScroll('a[href*="#"]');
 
 const Header = () => (
   <header>
