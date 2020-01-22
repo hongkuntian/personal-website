@@ -50,7 +50,6 @@ const IndexPage = () => {
         </div>
       <div className="section-container">
         <Hero />
-        <button onClick={openMenu}>Test!</button>
         <About />
         <Experience />
         <Projects />
