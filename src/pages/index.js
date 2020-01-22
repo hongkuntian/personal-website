@@ -41,7 +41,6 @@ const IndexPage = () => {
 
   return (
     <div>
-      
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu}/>
       </CheeseburgerMenu>
@@ -57,7 +56,6 @@ const IndexPage = () => {
         <Projects />
         <Contact />
       </div>
-      <div>Newly created functions: {functions.size - 2}</div>
     </div>
   )
 }
