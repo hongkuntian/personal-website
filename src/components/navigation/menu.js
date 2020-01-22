@@ -12,17 +12,17 @@ const Menu = props => {
   return (
     <div className={menuClasses}>
       <nav>
-        <Item name="About" id="about" />
-        <Item name="Experience" id="experience" />
-        <Item name="Projects" id="projects" />
-        <Item name="Contact" id="contact" />
+        <Item closeCallback={props.closeCallback} name="About" id="about" />
+        <Item closeCallback={props.closeCallback} name="Experience" id="experience" />
+        <Item closeCallback={props.closeCallback} name="Projects" id="projects" />
+        <Item closeCallback={props.closeCallback} name="Contact" id="contact" />
       </nav>
     </div>
   )
 }
 
 Menu.propTypes = {
-  dir: PropTypes.string.isRequired,
+  dir: PropTypes.string.isRequired
 }
 
 export default Menu

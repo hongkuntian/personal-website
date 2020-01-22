@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState, useCallback } from "react"
 import "../styles/base.scss"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 
 // Import components
 import Layout from "../components/layout"
@@ -12,18 +12,54 @@ import Projects from "../components/sections/projects.js"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Header from "../components/header"
+import CheeseburgerMenu from "cheeseburger-menu"
+import Menu from "../components/navigation/menu"
 
-const IndexPage = () => (
-  <div>
-    <Layout/>
-    <div className="wrapper">
-      <Hero/>
-      <About/>
-      <Experience/>
-      <Projects/>
-      <Contact/>
+import HamburgerMenu from "../components/navigation/hamburgerMenu"
+
+const functions = new Set();
+
+const IndexPage = () => {
+  const [isOpen, setisOpen] = useState(false);
+
+  const openMenu = useCallback(
+    () => {
+      setisOpen(true)
+    },
+    [],
+  )
+
+  const closeMenu = useCallback(
+    () => {
+      setisOpen(false)
+    },
+    [],
+  )
+
+  functions.add(openMenu);
+  functions.add(closeMenu);
+
+  return (
+    <div>
+      
+      <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
+        <Menu dir="1" closeCallback={closeMenu}/>
+      </CheeseburgerMenu>
+      <Layout />
+      <div class="ham">
+          <HamburgerMenu openCallback={openMenu}/>
+        </div>
+      <div className="section-container">
+        <Hero />
+        <button onClick={openMenu}>Test!</button>
+        <About />
+        <Experience />
+        <Projects />
+        <Contact />
+      </div>
+      <div>Newly created functions: {functions.size - 2}</div>
     </div>
-  </div>
-)
+  )
+}
 
 export default IndexPage

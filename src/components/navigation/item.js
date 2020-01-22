@@ -7,7 +7,7 @@ const Item = (props) => {
   const id = "/#" + props.id
 
   return (
-    <div className="menu-item">
+    <div onClick={props.closeCallback} className="menu-item">
       <Link to={id}>{name}</Link>
     </div>
   )
