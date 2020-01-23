@@ -19,7 +19,7 @@ body {
   max-width: 968px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 }
 
 .container-full {
@@ -47,9 +47,11 @@ p {
 // }
 
 .ham {
-  padding-right: 15px;
+  margin-right: 15px;
   height: 80px;
-  position: relative;
+  width: 100%;
+  top: 0px;
+  position: absolute;
   z-index: 11;
   display: flex;
   flex-direction: row-reverse;
