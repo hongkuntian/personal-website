@@ -38,12 +38,14 @@ const IndexPage = ({ data }) => {
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
       <Layout openCallback={openMenu}/>
-      <div className="section-container">
-        <Hero />
-        <About data={data} />
-        <Experience />
-        <Projects />
-        <Contact />
+      <div className="section-container"  id="top">
+        <div className="container">
+          <Hero />
+          <About data={data} />
+          <Experience />
+          <Projects />
+          <Contact />
+        </div>
       </div>
     </div>
   )

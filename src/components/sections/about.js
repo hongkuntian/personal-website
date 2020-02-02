@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import "../../styles/about.scss"
 
 const About = ({ data }) => (
-  <div className="container section">
+  <div className="section">
     <div className="section-title" id="about">
       <h1>About me</h1>
       <div className="content-container">
