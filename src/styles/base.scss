@@ -25,6 +25,7 @@ body {
 
 .container-full {
   height: 100vh;
+  min-height: 500px;
 }
 
 .section {
@@ -54,6 +55,9 @@ p {
 .ham {
   margin-right: 15px;
   height: 80px;
+  @media (max-width: 500px) {
+    height: 50px;
+  }
   width: 100%;
   min-width: 300px; //can be set as variable
   top: 0px;

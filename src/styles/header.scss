@@ -2,6 +2,12 @@
 
 header {
   height: 80px;
+  @media (max-width: 500px){
+    height: 50px;
+  }
+  @media (max-width: 1024px) and (orientation: landscape) {
+    height: 50px;
+  }
   width: 100%;
   min-width: 300px;
   top: 0px;
@@ -14,6 +20,12 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
+    @media (max-width: 500px) {
+      height: 50px;
+    }
+    @media (max-width: 1024px) and (orientation: landscape) {
+      height: 50px;
+    }
     .logo {
       a {
         font-size: x-large;
