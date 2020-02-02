@@ -34,6 +34,8 @@ body {
 }
 
 .section-container {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   margin: 30px;
   p {
     min-width: 250px;

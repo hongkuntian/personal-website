@@ -67,6 +67,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `viewport`,
+          content: `initial-scale=1, viewport-fit=cover`,
+        },
       ].concat(meta)}
     />
   )
