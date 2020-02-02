@@ -10,7 +10,8 @@ const Header = (props) => (
     <div className="header-container">
       <div className="inner-header">
         <div className="logo">
-          <Link to="/#top">HKT</Link>
+          {/* <Link to="/#top">HKT</Link> */}
+          <Link to="/">HKT</Link>
         </div>
         <Menu dir="0" />
         <div className="ham">
