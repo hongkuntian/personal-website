@@ -17,37 +17,31 @@ import Menu from "../components/navigation/menu"
 
 import HamburgerMenu from "../components/navigation/hamburgerMenu"
 
-const functions = new Set();
+const functions = new Set()
 
 const IndexPage = () => {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(false)
 
-  const openMenu = useCallback(
-    () => {
-      setisOpen(true)
-    },
-    [],
-  )
+  const openMenu = useCallback(() => {
+    setisOpen(true)
+  }, [])
 
-  const closeMenu = useCallback(
-    () => {
-      setisOpen(false)
-    },
-    [],
-  )
+  const closeMenu = useCallback(() => {
+    setisOpen(false)
+  }, [])
 
-  functions.add(openMenu);
-  functions.add(closeMenu);
+  functions.add(openMenu)
+  functions.add(closeMenu)
 
   return (
-    <div>
+    <SEO>
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
-        <Menu dir="1" closeCallback={closeMenu}/>
+        <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
       <Layout />
       <div class="ham">
-          <HamburgerMenu openCallback={openMenu}/>
-        </div>
+        <HamburgerMenu openCallback={openMenu} />
+      </div>
       <div className="section-container">
         <Hero />
         <About />
@@ -55,7 +49,7 @@ const IndexPage = () => {
         <Projects />
         <Contact />
       </div>
-    </div>
+    </SEO>
   )
 }
 
