@@ -25,7 +25,7 @@ body {
 
 .container-full {
   height: 100vh;
-  min-height: 500px;
+  min-height: 400px;
 }
 
 .section {
@@ -55,7 +55,10 @@ p {
 .ham {
   margin-right: 15px;
   height: 80px;
-  @media (max-width: 500px) {
+  @media (max-height: 400px), (max-width: 500px) {
+    height: 50px;
+  }
+  @media only screen and (max-height: 400px) and (max-width: 1024px) and (orientation: landscape) {
     height: 50px;
   }
   width: 100%;
