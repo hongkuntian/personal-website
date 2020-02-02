@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react"
 import "../styles/base.scss"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 // Import components
 import Layout from "../components/layout"
@@ -17,49 +17,53 @@ import Menu from "../components/navigation/menu"
 
 import HamburgerMenu from "../components/navigation/hamburgerMenu"
 
-const functions = new Set();
+const functions = new Set()
 
-const IndexPage = () => {
-  const [isOpen, setisOpen] = useState(false);
+const IndexPage = ({ data }) => {
+  const [isOpen, setisOpen] = useState(false)
 
-  const openMenu = useCallback(
-    () => {
-      setisOpen(true)
-    },
-    [],
-  )
+  const openMenu = useCallback(() => {
+    setisOpen(true)
+  }, [])
 
-  const closeMenu = useCallback(
-    () => {
-      setisOpen(false)
-    },
-    [],
-  )
+  const closeMenu = useCallback(() => {
+    setisOpen(false)
+  }, [])
 
-  functions.add(openMenu);
-  functions.add(closeMenu);
+  functions.add(openMenu)
+  functions.add(closeMenu)
 
   return (
-    
     <div>
       <SEO />
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
-        <Menu dir="1" closeCallback={closeMenu}/>
+        <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
       <Layout />
-      <div class="ham">
-          <HamburgerMenu openCallback={openMenu}/>
-        </div>
+      <div className="ham">
+        <HamburgerMenu openCallback={openMenu} />
+      </div>
       <div className="section-container">
         <Hero />
-        <About />
+        <About data={data} />
         <Experience />
         <Projects />
         <Contact />
       </div>
     </div>
-    
   )
 }
+
+export const query = graphql`
+  {
+    profileImage: file(relativePath: { eq: "profile-square.jpeg" }) {
+      childImageSharp {
+        fixed(width: 250, quality: 90) {
+          ...GatsbyImageSharpFixed_tracedSVG
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

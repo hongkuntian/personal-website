@@ -10,7 +10,7 @@ const Hero = () => (
         <span>Hong Kun</span> <span>Tian</span>
       </h1>
       <p>Software Developer</p>
-      <p>Mind your step! Still under construction...</p>
+      <p>Mind your step! Site is still under construction...</p>
     </div>
   </div>
 )

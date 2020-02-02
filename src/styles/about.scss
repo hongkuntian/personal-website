@@ -1,0 +1,23 @@
+
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  .profile-image {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
+    margin: 50px;
+  }
+  .about-text {
+    flex: 1 1 100px;
+    max-width: 570px;
+    min-width: 250px;
+    p {
+      width: 100%;
+    }
+  }
+}
