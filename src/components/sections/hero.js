@@ -5,15 +5,13 @@ import "../../styles/hero.scss"
 const Hero = () => (
   <div className="container container-full vertical-center">
     <div className="landing">
-          <h3>Hello there, I'm</h3>
-          <h1>Hong Kun Tian</h1>
-          <p>
-            Mind your step!
-          </p>
-          <p>
-            Still under construction...
-          </p>
-      </div>
+      <p className="greetings">Hello there, I'm</p>
+      <h1>
+        <span>Hong Kun</span> <span>Tian</span>
+      </h1>
+      <p>Software Developer</p>
+      <p>Mind your step! Still under construction...</p>
+    </div>
   </div>
 )
 
