@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
-      <SEO />
+      <SEO title="Hong Kun Tian" />
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
