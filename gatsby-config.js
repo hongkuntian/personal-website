@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: `/personal-website`,
   siteMetadata: {
     title: `Hong Kun Tian`,
-    description: `Personal website with a cherry on top`,
+    description: `Hong Kun's personal website and portfolio`,
     author: ``,
   },
   plugins: [
@@ -20,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Hong Kun Tian's website`,
+        short_name: `Portfolio`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        // background_color: `#663399`,
+        // theme_color: `#663399`,
         display: `minimal-ui`,
-        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/h-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
