@@ -1,18 +1,18 @@
 @import "./abstract/variables";
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0px;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   min-width: 300px;
 }
-
-
 
 .container {
   margin: 0 auto;
@@ -52,24 +52,12 @@ p {
 //   transform: translateY(-50%);
 // }
 
-.ham {
-  margin-right: 15px;
-  height: 80px;
-  @media (max-height: 400px), (max-width: 500px) {
-    height: 50px;
+.section-title {
+  padding-top: 80px;
+  @media (max-height: 414px), (max-width: 500px) {
+    padding-top: 50px;
   }
-  @media only screen and (max-height: 400px) and (max-width: 1024px) and (orientation: landscape) {
-    height: 50px;
-  }
-  width: 100%;
-  min-width: 300px; //can be set as variable
-  top: 0px;
-  position: absolute;
-  z-index: 11;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  @media only screen and (min-width: 501px) {
-    display: none;
+  @media only screen and (max-height: 414px) and (max-width: 1024px) and (orientation: landscape) {
+    padding-top: 50px;
   }
 }

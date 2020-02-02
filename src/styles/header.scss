@@ -2,7 +2,7 @@
 
 header {
   height: 80px;
-  @media (max-height: 400px), (max-width: 500px) {
+  @media (max-height: 414px), (max-width: 500px) {
     height: 50px;
   }
   @media only screen and (max-height: 400px) and (max-width: 1024px) and (orientation: landscape) {
@@ -11,7 +11,7 @@ header {
   width: 100%;
   min-width: 300px;
   top: 0px;
-  position: absolute;
+  position: sticky;
   z-index: 10;
   box-shadow: 0px 0px 10px grey;
   background-color: whitesmoke;
@@ -20,7 +20,7 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    @media (max-height: 400px), (max-width: 500px) {
+    @media (max-height: 414px), (max-width: 500px) {
       height: 50px;
     }
     @media only screen and (max-height: 400px) and (max-width: 1024px) and (orientation: landscape) {
@@ -36,5 +36,21 @@ header {
         padding-left: 15px;
       }
     }
+  }
+}
+
+.ham {
+  height: 80px;
+  @media (max-height: 414px), (max-width: 500px) {
+    height: 50px;
+  }
+  @media only screen and (max-height: 414px) and (max-width: 1024px) and (orientation: landscape) {
+    height: 50px;
+  }
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  @media only screen and (min-width: 501px) {
+    display: none;
   }
 }

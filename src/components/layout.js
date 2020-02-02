@@ -16,11 +16,14 @@ if (typeof window !== "undefined") {
   require("smooth-scroll")('a[href*="#"]')
 }
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <Header>
-    </Header>
+    <Header openCallback={props.openCallback} />
   )
+}
+
+Layout.propTypes = {
+  openCallback: PropTypes.func.isRequired,
 }
 
 export default Layout

@@ -15,9 +15,7 @@ import Header from "../components/header"
 import CheeseburgerMenu from "cheeseburger-menu"
 import Menu from "../components/navigation/menu"
 
-import HamburgerMenu from "../components/navigation/hamburgerMenu"
-
-const functions = new Set()
+// const functions = new Set()
 
 const IndexPage = ({ data }) => {
   const [isOpen, setisOpen] = useState(false)
@@ -30,8 +28,8 @@ const IndexPage = ({ data }) => {
     setisOpen(false)
   }, [])
 
-  functions.add(openMenu)
-  functions.add(closeMenu)
+  // functions.add(openMenu)
+  // functions.add(closeMenu)
 
   return (
     <div>
@@ -39,10 +37,7 @@ const IndexPage = ({ data }) => {
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
-      <Layout />
-      <div className="ham">
-        <HamburgerMenu openCallback={openMenu} />
-      </div>
+      <Layout openCallback={openMenu}/>
       <div className="section-container">
         <Hero />
         <About data={data} />
