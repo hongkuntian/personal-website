@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: `/personal-website`,
   siteMetadata: {
-    title: `Hong Kun Tian`,
+    title: `Home`,
     description: `Hong Kun's personal website and portfolio`,
     author: ``,
   },

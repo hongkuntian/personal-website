@@ -13,9 +13,14 @@ const Header = (props) => (
           {/* <Link to="/#top">HKT</Link> */}
           <Link to="/">HKT</Link>
         </div>
-        <Menu dir="0" />
-        <div className="ham">
-          <HamburgerMenu openCallback={props.openCallback} />
+        <div className="menu-container">
+          <div>
+            <a href="/hongkun-resume.pdf" target="_blank" rel="noopener noreferrer" className="button">Resume</a>
+          </div>
+          <Menu dir="0" />
+          <div className="ham">
+            <HamburgerMenu openCallback={props.openCallback} />
+          </div>
         </div>
       </div>
     </div>

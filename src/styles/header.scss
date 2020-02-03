@@ -38,6 +38,20 @@ header {
         padding-left: 15px;
       }
     }
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        margin: 0 15px;
+        text-decoration: none;
+        letter-spacing: 1.7px;
+        color: black;
+      }
+      .button {
+        margin-right: 20px;
+      }
+    }
   }
 }
 
@@ -52,7 +66,7 @@ header {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  @media only screen and (min-width: 501px) {
+  @media only screen and (min-width: 631px) {
     display: none;
   }
 }

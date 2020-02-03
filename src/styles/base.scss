@@ -68,3 +68,14 @@ p {
     padding-top: 50px;
   }
 }
+
+.button {
+  // justify-content: center;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 3px;
+  &:hover {
+    color: navy !important;
+    border-color: navy;
+  }
+}
