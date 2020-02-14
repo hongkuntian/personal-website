@@ -1,6 +1,7 @@
 import React from "react"
 
 import "../../styles/base.scss"
+import "../../styles/experience.scss"
 
 const Experience = () => (
   <div className="section">
@@ -9,24 +10,13 @@ const Experience = () => (
     </h1>
     <div className="section-content">
       <div className="content-text-container">
-        <p>
-          [Work in progress] Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Eveniet aut accusantium perferendis explicabo nemo, quibusdam ea
-          hic voluptates repellat in et, quo fuga? Accusamus qui eligendi,
-          magnam asperiores similique consequuntur quos cumque debitis
-          dignissimos veniam nesciunt ab voluptatibus porro consectetur odit
-          distinctio excepturi recusandae animi? Quasi, ea laudantium? Sed
-          perspiciatis asperiores consequuntur. Neque quisquam unde molestias
-          autem recusandae optio deleniti doloremque, non nisi expedita
-          veritatis dolorem. Amet at repudiandae numquam possimus modi veniam
-          sint hic explicabo doloribus, dolor optio libero quod officiis?
-          Impedit culpa deserunt non debitis ipsum laboriosam unde fuga error
-          minus in, voluptatum praesentium ducimus soluta. Assumenda, molestias.
-        </p>
-        <p>
-          Testing para 2 Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Exercitationem, ipsa?
-        </p>
+        <h2>UMAknow</h2>
+        <h3> Software Development Intern</h3>
+        <ul>
+          <li>Developed a RESTful API for Cloudockit using ASP.NET Framework</li>
+          <li>Built an interactive page using HTML, CSS, and Javascript through which end consumers can visualize and interact with the API’s endpoints</li>
+          <li>Developed test cases that detected irregularities and unwanted changes within template documents and generated documents using Aspose file management APIs</li>
+        </ul>
       </div>
     </div>
   </div>
