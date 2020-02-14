@@ -1,10 +1,16 @@
 .section {
-    .section-content {
-        h2 {
-            margin: 10px 0px;
-        }
-        h3 {
-            margin: 5px 0px;
-        }
+  .section-content {
+      justify-content: space-between;
+    h2 {
+      margin: 10px 0px;
     }
+    h3 {
+      margin: 5px 0px;
+    }
+    li {
+      letter-spacing: 1px;
+      line-height: 1.6;
+      margin: 0 0 15px 0;
+    }
+  }
 }

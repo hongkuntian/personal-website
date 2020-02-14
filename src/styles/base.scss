@@ -89,13 +89,19 @@ p {
   // align-items: center;
 }
 
+.clickable {
+  color: #404044;
+  :hover {
+    color: #3040ba !important;
+    border-color: #3040ba;
+    transition: all ease-in-out;
+    transition-duration: 0.2s;
+  }
+}
+
 .button {
   // justify-content: center;
   padding: 8px;
   border: 2px solid black;
   border-radius: 3px;
-  &:hover {
-    color: navy !important;
-    border-color: navy;
-  }
 }

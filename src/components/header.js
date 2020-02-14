@@ -15,7 +15,7 @@ const Header = (props) => (
         </div>
         <div className="menu-container">
           <div>
-            <a href="/hongkun-resume.pdf" target="_blank" rel="noopener noreferrer" className="button">Resume</a>
+            <a href="/hongkun-resume.pdf" target="_blank" rel="noopener noreferrer" className="button clickable">Resume</a>
           </div>
           <Menu dir="0" />
           <div className="ham">

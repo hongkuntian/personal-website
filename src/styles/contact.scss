@@ -1,0 +1,21 @@
+.section {
+  .section-content {
+    justify-content: center;
+    align-items: center;
+    .contact-buttons-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      .clickable {
+        a {
+          color: #404044;
+          :visited {
+            color: #404044;
+          }
+        }
+      }
+    }
+  }
+}
