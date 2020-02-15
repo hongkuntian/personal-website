@@ -11,7 +11,8 @@ const Experience = () => (
     <div className="section-content">
       <div className="content-text-container">
         <h2><a href="https://umaknow.com" className="un">UMAknow</a></h2>
-        <h3> Software Development Intern</h3>
+        <h3>Software Development Intern</h3>
+        <p>June 2019 — August 2019</p>
         <ul>
           <li>Developed a RESTful API for <a href="https://cloudockit.com" className="un">Cloudockit</a> using ASP.NET Framework</li>
           <li>Built an interactive page using HTML, CSS, and Javascript through which end consumers can visualize and interact with the API’s endpoints</li>
