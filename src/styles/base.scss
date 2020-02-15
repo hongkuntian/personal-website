@@ -42,28 +42,10 @@ body {
   }
 }
 
-// .content-container {
-//   // top: 0px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   p {
-//     width: 100%;
-//   }
-// }
-
 p {
   letter-spacing: 1px;
   line-height: 1.6;
 }
-
-// .vertical-center {
-//   position: absolute;
-//   top: 50%;
-//   -ms-transform: translateY(-50%);
-//   transform: translateY(-50%);
-// }
 
 .section-title {
   @media (max-height: 414px), (max-width: 500px) {
@@ -91,10 +73,13 @@ p {
 
 .clickable {
   color: #404044;
+  a {
+    color: #404044;
+  }
   :hover {
     color: #3040ba !important;
     border-color: #3040ba;
-    transition: all ease-in-out;
+    transition: all ease-in;
     transition-duration: 0.2s;
   }
 }
@@ -104,4 +89,10 @@ p {
   padding: 8px;
   border: 2px solid black;
   border-radius: 3px;
+  &:hover {
+    color: #3040ba !important;
+    border-color: #3040ba;
+    transition: all ease-in;
+    transition-duration: 0.2s;
+  }
 }

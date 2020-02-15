@@ -1,5 +1,6 @@
 .section {
   .section-content {
+    display: flex;
     justify-content: center;
     align-items: center;
     .contact-buttons-container {
@@ -8,14 +9,7 @@
       justify-content: space-between;
       align-items: center;
       width: 300px;
-      .clickable {
-        a {
-          color: #404044;
-          :visited {
-            color: #404044;
-          }
-        }
-      }
+      height: 50px;
     }
   }
 }
