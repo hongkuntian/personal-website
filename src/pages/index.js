@@ -55,7 +55,7 @@ export const query = graphql`
   {
     profileImage: file(relativePath: { eq: "profile-square.jpeg" }) {
       childImageSharp {
-        fixed(width: 250, quality: 90) {
+        fixed(width: 250, quality: 100) {
           ...GatsbyImageSharpFixed_tracedSVG
         }
       }

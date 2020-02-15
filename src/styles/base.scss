@@ -34,7 +34,7 @@ body {
   min-height: 500px;
   // max-height: 2000px;
   // height: auto;
-  margin: 0px 30px;
+  margin: 0px 30px 100px 30px;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   p {
@@ -45,6 +45,27 @@ body {
 p {
   letter-spacing: 1px;
   line-height: 1.6;
+}
+
+.un {
+  display: inline-block;
+  text-decoration: none;
+  color: #3040ba;
+}
+
+.un:after {
+  content: '';
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: #3040ba;
+  position: relative;
+  bottom: 3px;
+  transition: 400ms;
+}
+
+.un:hover:after {
+  width: 100%;
 }
 
 .section-title {
@@ -61,7 +82,7 @@ p {
 }
 
 .section-content {
-  padding: 0px 25px;
+  // padding: 0px 25px;
   flex-direction: column;
   justify-content: center;
   align-items: center;

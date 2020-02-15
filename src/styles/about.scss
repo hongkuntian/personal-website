@@ -1,23 +1,44 @@
 #about-section {
   .section-content {
     padding: 0;
+    .content-flow-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-flow: row wrap;
+      margin: 0 -15px;
+      padding-bottom: 40px;
+      .profile-image {
+        flex: 0 0 auto;
+        width: 250px;
+        height: 250px;
+        padding: 0 15px;
+        // padding: 25px 25px 0px 25px;
+      }
+      .about-text {
+        flex: 1 1 100px;
+        max-width: 570px;
+        min-width: 250px;
+        padding: 0 15px;
+        // padding: 25px;
+        p {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .content-flow-container-non-centered {
     display: flex;
     flex-direction: column;
     flex-flow: row wrap;
-    .profile-image {
-      flex: 0 0 auto;
-      width: 250px;
-      height: 250px;
-      padding: 25px 25px 0px 25px;
-    }
-    .about-text {
-      flex: 1 1 100px;
-      max-width: 570px;
-      min-width: 250px;
-      padding: 25px;
-      p {
-        width: 100%;
-      }
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 -30px;
+    .courses-container {
+      flex: 1 1 200px;
+      padding: 0 30px;
     }
   }
 }
