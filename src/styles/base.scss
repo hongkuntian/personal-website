@@ -48,11 +48,15 @@ p {
 }
 
 .section-title {
+  padding-top: 90px;
+  margin-top: -90px;
   @media (max-height: 414px), (max-width: 500px) {
-    padding-top: 50px;
+    padding-top: 60px;
+    margin-top: -60px;
   }
-  @media only screen and (max-height: 414px) and (max-width: 1024px) and (orientation: landscape) {
-    padding-top: 80px;
+  @media (max-height: 414px) and (max-width: 1024px) and (orientation: landscape) {
+    padding-top: 60px;
+    margin-top: -60px;
   }
 }
 

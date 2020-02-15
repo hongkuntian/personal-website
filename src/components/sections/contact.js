@@ -12,28 +12,28 @@ const Contact = () => (
     </div>
     <div className="section-content">
       <div className="contact-buttons-container">
-        <div className="clickable">
-          <a href="mailto: hongkun.tian@hotmail.com">
-            <IoIosMail size={40} />
-          </a>
-        </div>
-        <div className="clickable">
-          <a href="https://www.github.com/hongkuntian">
-            <FaGithubSquare size={35} />
-          </a>
-        </div>
-        <div className="clickable">
-          <a href="https://www.linkedin.com/in/hongkuntian">
-            <FaLinkedin size={35} />
-          </a>
-        </div>
-        <div className="clickable">
-          <a href="https://www.facebook.com/hongkuntian">
-            <FaFacebookSquare size={35} />
-          </a>
+          <div className="clickable">
+            <a href="mailto: hongkun.tian@hotmail.com">
+              <IoIosMail size={40} />
+            </a>
+          </div>
+          <div className="clickable">
+            <a href="https://www.github.com/hongkuntian">
+              <FaGithubSquare size={35} />
+            </a>
+          </div>
+          <div className="clickable">
+            <a href="https://www.linkedin.com/in/hongkuntian">
+              <FaLinkedin size={35} />
+            </a>
+          </div>
+          <div className="clickable">
+            <a href="https://www.facebook.com/hongkuntian">
+              <FaFacebookSquare size={35} />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 )
 
