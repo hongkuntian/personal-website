@@ -1,6 +1,10 @@
 .hamburger-menu {
   margin-right: 15px;
+  :hover{
+    cursor: pointer;
+  }
   .bar-container {
+    
     div {
       width: 35px;
       height: 2px;
