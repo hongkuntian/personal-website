@@ -8,9 +8,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      max-width: 300px;
+      max-width: 400px;
       min-width: 200px;
       width: 100%;
+      svg {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
 }

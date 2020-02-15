@@ -94,14 +94,19 @@ p {
 
 .clickable {
   color: #404044;
-  a {
-    color: #404044;
+  // a {
+  //   color: #404044;
+    
+  // }
+  // a:hover {
+  //   color: #3040ba !important;
+  //   border-color: #3040ba;
+  // }
+  svg {
+    fill: #404044;
   }
-  :hover {
-    color: #3040ba !important;
-    border-color: #3040ba;
-    transition: all ease-in;
-    transition-duration: 0.2s;
+  svg:hover {
+    fill: #3040ba;
   }
 }
 
