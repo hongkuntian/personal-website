@@ -10,10 +10,10 @@ const Experience = () => (
     </h1>
     <div className="section-content">
       <div className="content-text-container">
-        <h2>UMAknow</h2>
+        <h2><a href="https://umaknow.com" className="un">UMAknow</a></h2>
         <h3> Software Development Intern</h3>
         <ul>
-          <li>Developed a RESTful API for Cloudockit using ASP.NET Framework</li>
+          <li>Developed a RESTful API for <a href="https://cloudockit.com" className="un">Cloudockit</a> using ASP.NET Framework</li>
           <li>Built an interactive page using HTML, CSS, and Javascript through which end consumers can visualize and interact with the API’s endpoints</li>
           <li>Developed test cases that detected irregularities and unwanted changes within template documents and generated documents using Aspose file management APIs</li>
         </ul>
