@@ -3,8 +3,6 @@ import React from "react"
 import { FaGithubSquare, FaLinkedin, FaFacebookSquare } from "react-icons/fa"
 import { IoIosMail } from "react-icons/io"
 
-import devpost from "../../assets/devpost-icon.svg"
-
 import "../../styles/contact.scss"
 
 const Contact = () => (
