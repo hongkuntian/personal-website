@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useRef } from "react"
 import "../styles/base.scss"
 import { graphql } from "gatsby"
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
@@ -17,15 +17,15 @@ import Menu from "../components/navigation/menu"
 // const functions = new Set()
 
 const IndexPage = ({ data }) => {
-  const bodyEl = window.getComputedStyle(document.body);
+  const pageRef = useRef(null);
   const [isOpen, setisOpen] = useState(false);
 
   const openMenu = useCallback(() => {
-    disableBodyScroll(bodyEl, {
+    disableBodyScroll(pageRef.current, {
       reserveScrollBarGap: true,
     })
     setisOpen(true)
-  }, [bodyEl])
+  }, [])
 
   const closeMenu = useCallback(() => {
     clearAllBodyScrollLocks()
@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
   // functions.add(closeMenu)
 
   return (
-    <div>
+    <div ref={pageRef}>
       <SEO title="Hong Kun Tian" />
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu} />
