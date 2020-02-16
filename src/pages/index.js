@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useRef } from "react"
+import React, { useState, useCallback } from "react"
 import "../styles/base.scss"
-import { Link, graphql } from "gatsby"
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { graphql } from "gatsby"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
 // Import components
 import Layout from "../components/layout"
@@ -10,32 +10,29 @@ import Contact from "../components/sections/contact.js"
 import Experience from "../components/sections/experience.js"
 import Hero from "../components/sections/hero.js"
 import Projects from "../components/sections/projects.js"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
-import Header from "../components/header"
+// import Header from "../components/header"
 import CheeseburgerMenu from "cheeseburger-menu"
 import Menu from "../components/navigation/menu"
-
-const options = {
-  reserveScrollBarGap: true
-}
-
 
 // const functions = new Set()
 
 const IndexPage = ({ data }) => {
-  const targetEl = useRef(null);
-  const [isOpen, setisOpen] = useState(false)
+  const bodyEl = window.getComputedStyle(document.body);
+  const [isOpen, setisOpen] = useState(false);
 
   const openMenu = useCallback(() => {
-    disableBodyScroll(targetEl.current, options);
+    disableBodyScroll(bodyEl, {
+      reserveScrollBarGap: true,
+    })
     setisOpen(true)
-  }, [])
+  }, [bodyEl])
 
   const closeMenu = useCallback(() => {
-    enableBodyScroll(targetEl.current);
+    enableBodyScroll(bodyEl)
     setisOpen(false)
-  }, [])
+  }, [bodyEl])
 
   // functions.add(openMenu)
   // functions.add(closeMenu)
@@ -46,8 +43,8 @@ const IndexPage = ({ data }) => {
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
-      <Layout openCallback={openMenu}/>
-      <div className="section-container"  id="top">
+      <Layout openCallback={openMenu} />
+      <div className="section-container" id="top">
         <div className="container">
           <Hero />
           <About data={data} />
