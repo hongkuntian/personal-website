@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react"
 import "../styles/base.scss"
 import { graphql } from "gatsby"
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 
 // Import components
 import Layout from "../components/layout"
@@ -30,9 +30,9 @@ const IndexPage = ({ data }) => {
   }, [bodyEl])
 
   const closeMenu = useCallback(() => {
-    enableBodyScroll(bodyEl)
+    clearAllBodyScrollLocks()
     setisOpen(false)
-  }, [bodyEl])
+  }, [])
 
   // functions.add(openMenu)
   // functions.add(closeMenu)
