@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useRef } from "react"
 import "../styles/base.scss"
 import { Link, graphql } from "gatsby"
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 // Import components
 import Layout from "../components/layout"
@@ -15,16 +16,24 @@ import Header from "../components/header"
 import CheeseburgerMenu from "cheeseburger-menu"
 import Menu from "../components/navigation/menu"
 
+const options = {
+  reserveScrollBarGap: true
+}
+
+
 // const functions = new Set()
 
 const IndexPage = ({ data }) => {
+  const targetEl = useRef(null);
   const [isOpen, setisOpen] = useState(false)
 
   const openMenu = useCallback(() => {
+    disableBodyScroll(targetEl.current, options);
     setisOpen(true)
   }, [])
 
   const closeMenu = useCallback(() => {
+    enableBodyScroll(targetEl.current);
     setisOpen(false)
   }, [])
 
