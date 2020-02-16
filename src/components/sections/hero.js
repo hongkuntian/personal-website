@@ -3,7 +3,7 @@ import React from "react"
 import "../../styles/hero.scss"
 
 const Hero = () => (
-  <div className="container-full vertical-center section">
+  <div className="vertical-center container-full">
     <div className="landing">
       <div className="landing-content-container">
         <p className="greetings">Hello there, I'm</p>

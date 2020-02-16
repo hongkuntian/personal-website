@@ -26,7 +26,9 @@ body {
 }
 
 .container-full {
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 80px);
   min-height: 400px;
 }
 
@@ -35,6 +37,7 @@ body {
   // max-height: 2000px;
   // height: auto;
   margin: 0px 30px 100px 30px;
+  // margin: 0px 30px;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   p {

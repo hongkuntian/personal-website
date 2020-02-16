@@ -11,6 +11,7 @@ const Contact = () => (
       <h1>Contact me</h1>
     </div>
     <div className="section-content">
+      <p>I'm always open to new opportunities and exciting adventures to embark on, so don't hesitate to get in touch!</p>
       <div className="contact-buttons-container">
         <div className="clickable">
           <a href="mailto: hongkun.tian@hotmail.com">
