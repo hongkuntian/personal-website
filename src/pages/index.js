@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => {
           <Projects />
           <Contact />
         </div>
-      </div>
+      </div>    
     </div>
   )
 }
