@@ -13,7 +13,10 @@ const Hero = () => (
         <p>Software Developer</p>
         <p>Mind your step! Site is still under construction...</p>
       </div>
-      </div>
+    </div>
+    <div className="bg-name">
+      Hong Kun
+    </div>
   </div>
 )
 
