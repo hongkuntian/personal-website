@@ -15,7 +15,7 @@ const Hero = () => (
       </div>
     </div>
     <div className="bg-name">
-      Hong Kun
+      <p>HKT</p>
     </div>
   </div>
 )

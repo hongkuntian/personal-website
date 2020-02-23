@@ -26,9 +26,12 @@
 .bg-name {
   z-index: -10;
   position: absolute;
-  top: 15vh;
-  left: 40vw;
-  font-size: 35vh;
+  top: -50%;
+  left: 30vw;
+  width: 70vw;
+  font-size: 60vh;
   font-weight: 900;
-  color: rgb(240, 240, 240);
+  color: rgb(245, 245, 245);
+  overflow-x: hidden;
+  line-break: 0;
 }
