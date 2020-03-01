@@ -4,6 +4,9 @@ import "../../styles/hero.scss"
 
 const Hero = () => (
   <div className="vertical-center container-full">
+    <div className="bg-name">
+      <p>HKT</p>
+    </div>
     <div className="landing">
       <div className="landing-content-container">
         <p className="greetings">Hello there, I'm</p>
@@ -14,9 +17,6 @@ const Hero = () => (
         <p>Software Developer</p>
         <p>Mind your step! Site is still under construction...</p>
       </div>
-    </div>
-    <div className="bg-name">
-      <p>HKT</p>
     </div>
   </div>
 )

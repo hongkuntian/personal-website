@@ -27,7 +27,7 @@
       @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
         font-size: 3em;
       }
-      
+      font-weight: 700;
     }
     p {
       line-height: normal;
@@ -36,14 +36,25 @@
 }
 
 .bg-name {
-  z-index: -10;
+  height: inherit;
+  min-height: 400px;
   position: absolute;
-  top: -50%;
-  left: 30vw;
-  width: 70vw;
-  font-size: 60vh;
+  top: 0;
+  left: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 50em;
+  @media (max-height: 1024px), (max-width: 1024px) {
+    font-size: 30em;
+  }
+  @media (max-height: 415px), (max-width: 515px) {
+    font-size: 20em;
+  }
+  @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+    font-size: 20em;
+  }
   font-weight: 900;
   color: rgb(245, 245, 245);
-  overflow-x: hidden;
-  line-break: 0;
 }
