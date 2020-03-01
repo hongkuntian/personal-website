@@ -36,8 +36,10 @@
 }
 
 .bg-name {
+  z-index: -10;
   height: inherit;
   min-height: 400px;
+  width: 60vw;
   position: absolute;
   top: 0;
   left: 40%;
@@ -57,4 +59,8 @@
   }
   font-weight: 900;
   color: rgb(245, 245, 245);
+  p {
+    margin: 0;
+    overflow-x: hidden;
+  }
 }
