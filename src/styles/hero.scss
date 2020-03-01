@@ -11,11 +11,23 @@
     // min-height: 400px;
     .greetings {
       font-family: "Courier New", Courier, monospace;
+      font-size: 1.5em;
       font-weight: bold;
       margin: 0px;
     }
     h1 {
       margin: 10px 0px;
+      font-size: 8em;
+      @media (max-height: 1024px), (max-width: 1024px) {
+        font-size: 5em;
+      }
+      @media (max-height: 415px), (max-width: 515px) {
+        font-size: 3em;
+      }
+      @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+        font-size: 3em;
+      }
+      
     }
     p {
       line-height: normal;

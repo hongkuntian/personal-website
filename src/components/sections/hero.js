@@ -8,7 +8,8 @@ const Hero = () => (
       <div className="landing-content-container">
         <p className="greetings">Hello there, I'm</p>
         <h1>
-          <span>Hong Kun</span> <span>Tian</span>
+          Hong Kun <br />
+          Tian
         </h1>
         <p>Software Developer</p>
         <p>Mind your step! Site is still under construction...</p>
