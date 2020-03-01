@@ -71,10 +71,10 @@
 .project {
   position: relative;
   top: 0px;
+  border-radius: 2px;
   box-shadow: unset;
   transition: all 300ms;
   background-color: #f6f6f6;
-  margin-top: 20px;
   margin-bottom: 1em;
   &:hover {
     top: -5px;
@@ -87,21 +87,20 @@
 }
 
 .projects-container {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  .project {
+    margin-bottom: 2em;
+  }
 }
 
 @media screen and (min-width: 600px) {
-  .projects-container {
-    justify-content: space-between;
-  }
-
   .project {
     display: flex;
-    flex: 0 1 calc(50% - 0.5em);
-    margin-bottom: 1em;
+    flex: 0 1 calc(50% - 0.3em);
+    margin-bottom: 2em;
   }
 }
 
@@ -109,11 +108,11 @@
   .projects-container {
     &:after {
       content: "";
-      flex: 0 1 calc(33% - 1em);
+      flex: 0 1 calc(33% - 0.3em);
     }
   }
   .project {
-    flex: 0 1 calc(33% - 1em);
+    flex: 0 1 calc(33% - 0.3em);
     margin-bottom: 2em;
   }
 }
