@@ -13,7 +13,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   min-width: 300px;
-  background-color: #f0f0f0;
+  background-color: #fafafa;
 }
 
 .container {
@@ -129,20 +129,20 @@ p {
 }
 
 //neuphormism button test
-.fancy-button {
-  // justify-content: center;
-  padding: 9px;
-  border: 1px solid rgb(236, 236, 236);
-  border-radius: 10px;
-  background-color: rgb(238, 238, 238);
-  box-shadow: 3px 3px 4px #c8c8c8, -3px -3px 4px #ffffff;
+// .fancy-button {
+//   // justify-content: center;
+//   padding: 9px;
+//   border: 1px solid #f0f0f0;
+//   border-radius: 10px;
+//   background-color: rgb(238, 238, 238);
+//   box-shadow: 3px 3px 4px #c8c8c8, -3px -3px 4px #ffffff;
 
-  transition: all;
-  transition-duration: 0.2s;
-  &:hover {
-    color: #3040ba !important;
-    // border-color: #3040ba;
-    transition: all;
-    transition-duration: 0.2s;
-  }
-}
+//   transition: all;
+//   transition-duration: 0.2s;
+//   &:hover {
+//     color: #3040ba !important;
+//     // border-color: #3040ba;
+//     transition: all;
+//     transition-duration: 0.2s;
+//   }
+// }
