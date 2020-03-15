@@ -15,7 +15,9 @@ const Hero = () => (
           Tian
         </h1>
         <p>Software Developer</p>
-        <p>Mind your step! Site is still under construction...</p>
+        {/* <p>Mind your step! Site is still under construction...</p> */}
+        <br/>
+        <a href="mailto:hongkun.tian@hotmail.com" className="fancy-button">Get In Touch</a>
       </div>
     </div>
   </div>
