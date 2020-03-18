@@ -31,15 +31,11 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   height: 100vh;
-  min-height: 400px;
+  // min-height: 400px;
 }
 
 .section {
-  min-height: 500px;
-  // max-height: 2000px;
-  // height: auto;
-  margin: 0px 30px 100px 30px;
-  // margin: 0px 30px;
+  margin: 0px 30px 70px 30px;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   p {
@@ -146,3 +142,13 @@ p {
 //     transition-duration: 0.2s;
 //   }
 // }
+
+.info-container {
+  background-color: white;
+  padding: 30px 0;
+  // margin: 0 10px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

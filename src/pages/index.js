@@ -45,10 +45,12 @@ const IndexPage = ({ data }) => {
       <div className="section-container" id="top">
         <div className="container">
           <Hero />
-          <About data={data} />
-          <Experience />
-          <Projects />
-          <Contact />
+          <div className="info-container">
+            <About data={data} />
+            <Experience />
+            <Projects />
+            <Contact />
+          </div>
         </div>
       </div>    
     </div>

@@ -75,7 +75,7 @@
   border: 1px solid #eaeaea;
   box-shadow: unset;
   transition: all 300ms;
-  background-color: #ffffff;
+  background-color: #fafafa;
   margin-bottom: 1em;
   &:hover {
     top: -3px;
@@ -92,9 +92,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  .project {
-    // margin-bottom: 2em;
-  }
+  // .project {
+  //   // margin-bottom: 2em;
+  // }
 }
 
 @media screen and (min-width: 600px) {
