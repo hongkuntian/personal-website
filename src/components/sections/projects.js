@@ -279,11 +279,9 @@ const Projects = () => (
                 </div>
                 <div className="project-content-desc">
                   <p>
-                    Toxicity detection model that accurately distinguishes
-                    between toxic and non-toxic comments. An accompanied website
-                    uses the model along with emotional analysis and confidence
-                    metrics to detect harmful behaviour and disrespectful
-                    speech.
+                    Toxicity detection model that classifies comments' toxicity.
+                    An accompanied website uses it along with emotional analysis
+                    and confidence metrics to detect harmful speech.
                   </p>
                 </div>
               </div>
