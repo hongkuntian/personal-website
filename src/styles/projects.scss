@@ -23,7 +23,7 @@
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        margin-top: -20px;
+        margin-top: 20px;
         margin-bottom: 10px;
       }
       .project-title {
@@ -78,7 +78,7 @@
   background-color: #ffffff;
   margin-bottom: 1em;
   &:hover {
-    top: -5px;
+    top: -3px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
   a {
@@ -93,15 +93,15 @@
   flex-wrap: wrap;
   justify-content: space-between;
   .project {
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
   }
 }
 
 @media screen and (min-width: 600px) {
   .project {
     display: flex;
-    flex: 0 1 calc(50% - 0.3em);
-    margin-bottom: 2em;
+    flex: 0 1 calc(50% - 0.5em);
+    margin-bottom: 0.8em;
   }
 }
 
@@ -109,11 +109,11 @@
   .projects-container {
     &:after {
       content: "";
-      flex: 0 1 calc(33% - 0.3em);
+      flex: 0 1 calc(33% - 0.5em);
     }
   }
   .project {
-    flex: 0 1 calc(33% - 0.3em);
-    margin-bottom: 2em;
+    flex: 0 1 calc(33% - 0.5em);
+    margin-bottom: 1em;
   }
 }
