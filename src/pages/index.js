@@ -17,8 +17,8 @@ import Menu from "../components/navigation/menu"
 // const functions = new Set()
 
 const IndexPage = ({ data }) => {
-  const pageRef = useRef(null);
-  const [isOpen, setisOpen] = useState(false);
+  const pageRef = useRef(null)
+  const [isOpen, setisOpen] = useState(false)
 
   const openMenu = useCallback(() => {
     disableBodyScroll(pageRef.current, {
@@ -41,18 +41,19 @@ const IndexPage = ({ data }) => {
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
-      <Layout openCallback={openMenu} />
-      <div className="section-container" id="top">
-        <div className="container">
-          <Hero />
-          <div className="info-container">
-            <About data={data} />
-            <Experience />
-            <Projects />
-            <Contact />
+      <Layout openCallback={openMenu}>
+        <div className="section-container" id="top">
+          <div className="container">
+            <Hero />
+            <div className="info-container">
+              <About data={data} />
+              <Experience />
+              <Projects />
+              <Contact />
+            </div>
           </div>
         </div>
-      </div>    
+      </Layout>
     </div>
   )
 }
