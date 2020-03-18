@@ -1,9 +1,12 @@
 .footer-container {
-    width: 100%;
-    height: 40px;
-    background-color: #eeeeee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9em;
+  min-height: 40px;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  letter-spacing: 1px;
+  line-height: 1.6;
+  padding: 5px;
 }

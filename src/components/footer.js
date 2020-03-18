@@ -10,12 +10,10 @@ function currYear() {
 const Footer = () => (
   <footer>
     <div className="footer-container">
-      <p>Copyright &copy; {currYear()} Hong Kun Tian.&nbsp;</p>
-      <p>
+      <div><small>Copyright &copy; {currYear()} Hong Kun Tian.&nbsp;</small></div>
       <a href="https://github.com/hongkuntian/personal-website" className="un">
-        Built with Gatsby
+        <small>Built with Gatsby</small>    
       </a>
-      </p>
     </div>
   </footer>
 )
