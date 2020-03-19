@@ -36,15 +36,15 @@
     .button {
       padding: 13px;
       color: inherit;
-      font-size: 2em;
+      font-size: 1.5em;
       @media (max-height: 1024px), (max-width: 1024px) {
-        font-size: 1.5em;
+        font-size: 1.25em;
       }
       @media (max-height: 415px), (max-width: 515px) {
-        font-size: 1.25em;
+        font-size: 1em;
       }
       @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
-        font-size: 1.25em;
+        font-size: 1em;
       }
       // font-weight: 200;
       text-decoration: none;
