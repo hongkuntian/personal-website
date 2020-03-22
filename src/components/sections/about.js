@@ -24,8 +24,7 @@ const About = ({ data }) => (
             <a href="https://www.mcgill.ca" className="un">
               McGill University
             </a>
-            's Honours Computer Science program and have a cumulative GPA of
-            3.64/4.00. <Emoji symbol="✨" /> I've been introduced to programming
+            's Honours Computer Science program. I've been introduced to programming
             in high school and have ever since fallen in love with it. I'm super
             analytical and detail-oriented, so it's pretty much a match made in
             heaven!

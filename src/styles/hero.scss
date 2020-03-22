@@ -55,7 +55,7 @@
 .bg-name {
   z-index: -10;
   height: inherit;
-  min-height: 400px;
+  min-height: 375px;
   width: 55%;
   position: absolute;
   top: 0;
@@ -75,7 +75,7 @@
     font-size: 20em;
   }
   font-weight: 900;
-  color: #00000018;
+  color: #00000010;
   p {
     margin: 0;
     overflow-x: hidden;
@@ -87,10 +87,13 @@
   left: calc(50% - 30px);
   bottom: 0;
   width: 60px;
-  height: 60px;
+  height: 10vh;
+  min-height: 40px;
+  max-height: 60px;
   text-align: center;
   padding-top: 20px;
 }
+
 .scroll-down {
   display: inline-block;
   width: 16px;
@@ -118,4 +121,11 @@
   }
 }
 
-.container-full {}
+.landing-container {
+  position: relative;
+  // margin: 0;
+  // padding-left: env(safe-area-inset-left);
+  // padding-right: env(safe-area-inset-right);
+  height: 95vh;
+  min-height: 375px;
+}
