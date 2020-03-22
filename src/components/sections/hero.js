@@ -22,7 +22,7 @@ const Hero = () => (
         </a>
       </div>
     </div>
-    <a class="smoothscroll" href="#about">
+    <a class="scroll-clickable" href="#about">
       <div class="scroll-down"></div>
     </a>
   </div>
