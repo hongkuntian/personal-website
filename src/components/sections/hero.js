@@ -16,10 +16,15 @@ const Hero = () => (
         </h1>
         <p>Software Developer</p>
         {/* <p>Mind your step! Site is still under construction...</p> */}
-        <br/>
-        <a href="mailto:hongkun.tian@hotmail.com" className="button">Get In Touch</a>
+        <br />
+        <a href="mailto:hongkun.tian@hotmail.com" className="button">
+          Get In Touch
+        </a>
       </div>
     </div>
+    <a class="smoothscroll" href="#about">
+      <div class="scroll-down"></div>
+    </a>
   </div>
 )
 
