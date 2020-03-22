@@ -82,36 +82,38 @@
   }
 }
 
+// .scroll-down-container {
+//   display: block;
+//   width: 15px;
+//   height: 20px;
+//   position: absolute;
+//   left: 50%;
+// }
 .scroll-down {
   position: absolute;
   left: 50%;
-  bottom: 3vh;
-  display: block;
-  text-align: center;
-  font-size: 20px;
-  z-index: 100;
-  text-decoration: none;
-  text-shadow: 0;
-  width: 13px;
-  height: 13px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  z-index: 9;
+  bottom: 5vh;
+  width: 14px;
+  height: 14px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
   transform: translate(-50%, 0%) rotate(45deg);
-  animation: fade_move_down 2s ease-in-out infinite;
+  animation: fade_move_down 2.5s ease-in-out infinite;
 }
 
-/*animated scroll arrow animation*/
 @keyframes fade_move_down {
   0% {
-    transform: translate(0, -10px) rotate(45deg);
+    transform: translate(0, -9px) rotate(45deg);
     opacity: 0;
   }
-  50% {
+  40% {
+    opacity: 1;
+  }
+  60% {
     opacity: 1;
   }
   100% {
-    transform: translate(0, 10px) rotate(45deg);
+    transform: translate(0, 9px) rotate(45deg);
     opacity: 0;
   }
 }
