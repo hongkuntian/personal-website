@@ -1,5 +1,6 @@
 .landing {
   margin: 0px 30px;
+  // padding-top: 5vh;
   height: 100%;
   min-height: 400px;
   display: flex;
@@ -58,6 +59,7 @@
   min-height: 375px;
   width: 55%;
   position: absolute;
+  // top: 5vh;
   top: 0;
   left: 45%;
   display: flex;
@@ -126,6 +128,6 @@
   // margin: 0;
   // padding-left: env(safe-area-inset-left);
   // padding-right: env(safe-area-inset-right);
-  height: 95vh;
+  height: 92vh;
   min-height: 375px;
 }
