@@ -27,8 +27,8 @@ body {
 
 .container-full {
   margin: 0;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  // padding-left: env(safe-area-inset-left);
+  // padding-right: env(safe-area-inset-right);
   height: 91vh;
   min-height: 375px;
 }
@@ -145,7 +145,8 @@ p {
   padding: 60px 0;
   margin-left: env(safe-area-inset-left);
   margin-right: env(safe-area-inset-right);
-  margin-bottom: 70px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   border-radius: 20px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);

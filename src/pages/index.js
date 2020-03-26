@@ -42,9 +42,9 @@ const IndexPage = ({ data }) => {
         <Menu dir="1" closeCallback={closeMenu} />
       </CheeseburgerMenu>
       <Layout openCallback={openMenu}>
-        <div className="section-container" id="top">
+      <Hero id="top"/>
+        <div className="section-container" >
           <div className="container">
-            <Hero />
             <div className="info-container">
               <About data={data} />
               <Experience />
