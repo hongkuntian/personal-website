@@ -11,7 +11,7 @@ import "../../styles/projects.scss"
 //TODO: Encapsulate project cards
 
 const Projects = () => (
-  <div className="section">
+  <div className="section" id="projects-section">
     <h1 className="section-title" id="projects">
       Some projects I've worked on
     </h1>

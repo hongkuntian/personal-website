@@ -6,7 +6,7 @@ import { IoIosMail } from "react-icons/io"
 import "../../styles/contact.scss"
 
 const Contact = () => (
-  <div className="section">
+  <div className="section" id="contact-section">
     <div className="section-title" id="contact">
       <h1>Contact me</h1>
     </div>

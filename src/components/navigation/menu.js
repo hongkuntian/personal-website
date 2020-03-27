@@ -13,7 +13,7 @@ const Menu = props => {
   return (
     <div className={menuClasses}>
       <nav>
-        <Scrollspy items={["about", "experience", "projects", "contact"]} currentClassName="current-nav-item">
+        <Scrollspy items={["about-section", "experience-section", "projects-section", "contact-section"]} currentClassName="current-nav-item" offset={-90}>
           <li>
             <Item
               closeCallback={props.closeCallback}

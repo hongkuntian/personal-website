@@ -4,7 +4,7 @@ import "../../styles/base.scss"
 import "../../styles/experience.scss"
 
 const Experience = () => (
-  <div className="section">
+  <div className="section" id="experience-section">
     <h1 className="section-title" id="experience">
       Work Experience
     </h1>
