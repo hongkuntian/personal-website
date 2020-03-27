@@ -21,7 +21,6 @@ body.light-mode {
     color: #404044;
     svg {
       fill: #404044;
-      transition: fill 1s ease-in-out;
     }
     svg:hover {
       fill: #3040ba;
@@ -73,7 +72,6 @@ body.dark-mode {
     color: #e5e9f5;
     svg {
       fill: #e5e9f5;
-      transition: fill 1s ease-in-out;
     }
     svg:hover {
       fill: #aeb6ff;
