@@ -41,7 +41,7 @@ body.dark-mode {
   .landing-content-container {
     .greetings {
       font-family: "Courier New", Courier, monospace;
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-weight: bold;
       margin: 0px;
       transition: color 1s ease-in-out;
@@ -61,7 +61,7 @@ body.dark-mode {
       font-weight: 700;
     }
     p {
-      line-height: normal;
+      line-height: 0.5;
     }
     .button {
       padding: 13px;
@@ -73,6 +73,7 @@ body.dark-mode {
         font-size: 1em;
       }
       @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+        padding: 8px;
         font-size: 1em;
       }
       text-decoration: none;
@@ -163,7 +164,7 @@ body.dark-mode {
 .landing-outer-container {
   margin: 0;
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
   background-image: linear-gradient(to right, #eaeef3, #b0c6d6);
   z-index: 1;
   position: relative;
