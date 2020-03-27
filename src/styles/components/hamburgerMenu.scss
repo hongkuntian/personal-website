@@ -1,3 +1,24 @@
+body.light-mode {
+  .hamburger-menu {
+    .bar-container {
+      div {
+        background-color: black;
+      }
+    }
+  }
+}
+
+body.dark-mode {
+  .hamburger-menu {
+    .bar-container {
+      div {
+        background-color: #eeeeee;
+      }
+    }
+  }
+}
+
+
 .hamburger-menu {
   margin-right: 15px;
   :hover{
@@ -8,7 +29,6 @@
     div {
       width: 35px;
       height: 2px;
-      background-color: black;
       margin: 8px 0;
       border-radius: 1px;
     }

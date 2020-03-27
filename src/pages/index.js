@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
     <div ref={pageRef}>
       <SEO title="Hong Kun Tian" />
       <CheeseburgerMenu isOpen={isOpen} closeCallback={closeMenu} right={true}>
-        <Menu dir="1" closeCallback={closeMenu} />
+        <Menu dir="1" closeCallback={closeMenu} showToggle={true}/>
       </CheeseburgerMenu>
       <Layout openCallback={openMenu}>
       <Hero id="top"/>

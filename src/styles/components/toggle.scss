@@ -1,0 +1,43 @@
+.toggle-control {
+    position: relative;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type='checkbox'].dmcheck {
+    width: 30px;
+    height: 20px;
+    background: #555;
+    position: relative;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    vertical-align: 0px;
+    outline: none;
+  
+    &:checked + label {
+      left: 20px;
+    }
+  
+    &:focus-visible {
+      outline: solid 2px white;
+    }
+  
+    & + label {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: absolute;
+      left: 2px;
+      // background: rgb(13, 27, 77);
+      // opacity: 1;
+      background-color: #c6c6ca;
+    }
+  }
+  

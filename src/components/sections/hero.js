@@ -4,7 +4,7 @@ import "../../styles/hero.scss"
 
 const Hero = () => (
   <div className="vertical-center container-full">
-    <div className="landing-outer-container">
+    <div className="landing-outer-container landing-outer-container-light ">
       <div className="landing-container">
         <div className="landing">
           <div className="landing-content-container">

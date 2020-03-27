@@ -1,5 +1,102 @@
 @import "./abstract/variables";
 
+
+//------------ Dark/Light Mode Colours ------------
+body.light-mode {
+  background-color: #f9fafc;
+  color: #333;
+  transition: background-color 0.5s ease-in-out, color 1s ease-in-out;
+
+  // a {
+  //   color: black;
+  //   transition: inh
+  // }
+
+  .info-container, .navigation, header, footer {
+    background-color: white;
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .clickable {
+    color: #404044;
+    svg {
+      fill: #404044;
+      transition: fill 1s ease-in-out;
+    }
+    svg:hover {
+      fill: #3040ba;
+    }
+  }
+
+  .un {
+    background-image: linear-gradient(#3040ba, #3040ba);
+    color: #3040ba;
+  }
+
+  .button {
+    color: black;
+    &:hover {
+      color: #3040ba !important;
+      border-color: #3040ba;
+      transition: color 0.2s, border-color 0.2s;
+    }
+  }
+}
+
+body.dark-mode {
+  background-color: #10171d;
+  color: #eeeeee;
+  transition: background-color 0.5s ease-in-out, color 1s ease-in-out;
+
+  .dark-mode-toggle > button {
+    color: #999;
+    &:last-child {
+      color: lightblue;
+    }
+  }
+
+  .info-container {
+    background-color: rgb(10, 10, 10);
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  // a {
+  //   color: #eeeeee;
+  // }
+  
+  .navigation, header, footer {
+    background-color: #1b2938;
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .clickable {
+    color: #e5e9f5;
+    svg {
+      fill: #e5e9f5;
+      transition: fill 1s ease-in-out;
+    }
+    svg:hover {
+      fill: #aeb6ff;
+    }
+  }
+
+  .un {
+    color: #aeb6ff;
+    background-image: linear-gradient(#aeb6ff, #aeb6ff);
+  }
+
+  .button {
+    color: #eeeeee;
+    &:hover {
+      color: #aeb6ff !important;
+      border-color: #aeb6ff;
+      transition: color 0.2s, border-color 0.2s;
+    }
+  }
+}
+
+
+
 html,
 body {
   height: 100%;
@@ -13,7 +110,6 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   min-width: 300px;
-  background-color: #f9fafc;
 }
 
 .container {
@@ -48,14 +144,13 @@ p {
 .un {
   // display: inline-block;
   text-decoration: none;
-  color: #3040ba;
-  background-image: linear-gradient(#3040ba, #3040ba);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
   margin: -3px 0;
   padding: 3px 0;
-  transition: background-size .3s;
+  transition: background-size .3s, background-image 0.5s ease-in-out, color 1s ease-in-out;
+
 }
 
 .un:hover, .un:focus {
@@ -90,58 +185,17 @@ p {
   // align-items: center;
 }
 
-.clickable {
-  color: #404044;
-  // a {
-  //   color: #404044;
-    
-  // }
-  // a:hover {
-  //   color: #3040ba !important;
-  //   border-color: #3040ba;
-  // }
-  svg {
-    fill: #404044;
-  }
-  svg:hover {
-    fill: #3040ba;
-  }
-}
+
 
 .button {
-  // justify-content: center;
   padding: 8px;
-  border: 2px solid black;
+  border: 2px solid;
   border-radius: 3px;
-  transition: all 0.2s;
-  &:hover {
-    color: #3040ba !important;
-    border-color: #3040ba;
-    transition: all 0.2s;
-  }
+  transition: color 1s ease-in-out;
 }
 
-//neuphormism button test
-// .fancy-button {
-//   // justify-content: center;
-//   padding: 9px;
-//   border: 1px solid #f0f0f0;
-//   border-radius: 10px;
-//   background-color: rgb(238, 238, 238);
-//   box-shadow: 3px 3px 4px #c8c8c8, -3px -3px 4px #ffffff;
-
-//   transition: all;
-//   transition-duration: 0.2s;
-//   &:hover {
-//     color: #3040ba !important;
-//     // border-color: #3040ba;
-//     transition: all;
-//     transition-duration: 0.2s;
-//   }
-// }
-
 .info-container {
-  background-color: white;
+  
   padding: 60px 0;
   margin-left: env(safe-area-inset-left);
   margin-right: env(safe-area-inset-right);

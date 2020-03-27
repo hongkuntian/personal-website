@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Item from "./item.js"
 import Scrollspy from "react-scrollspy"
+import DarkModeToggle from "../dark/darkmodetoggle"
 
 import "../../styles/menu.scss"
 
@@ -47,6 +48,9 @@ const Menu = props => {
             />
           </li>
         </Scrollspy>
+        {props.showToggle ?
+        (<DarkModeToggle />) : (<div></div>)
+        }
       </nav>
     </div>
   )
@@ -54,6 +58,7 @@ const Menu = props => {
 
 Menu.propTypes = {
   dir: PropTypes.string.isRequired,
+  showToggle: PropTypes.bool.isRequired,
 }
 
 export default Menu
