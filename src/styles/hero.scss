@@ -52,10 +52,10 @@ body.dark-mode {
       @media (max-height: 1024px), (max-width: 1024px) {
         font-size: 5em;
       }
-      @media (max-height: 415px), (max-width: 515px) {
+      @media (max-height: 615px), (max-width: 515px) {
         font-size: 3em;
       }
-      @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+      @media only screen and (max-height: 615px) and (max-width: 1024px) and (orientation: landscape) {
         font-size: 3em;
       }
       font-weight: 700;
@@ -69,10 +69,10 @@ body.dark-mode {
       @media (max-height: 1024px), (max-width: 1024px) {
         font-size: 1.25em;
       }
-      @media (max-height: 415px), (max-width: 515px) {
+      @media (max-height: 615px), (max-width: 515px) {
         font-size: 1em;
       }
-      @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+      @media only screen and (max-height: 615px) and (max-width: 1024px) and (orientation: landscape) {
         padding: 8px;
         font-size: 1em;
       }
@@ -83,11 +83,13 @@ body.dark-mode {
 }
 
 .bg-name {
+  overflow-x: hidden;
+  overflow-y: hidden;
   user-select: none;
   z-index: -1;
   height: 100%;
-  min-height: 375px;
-  width: 52.8vw;
+  min-height: 400px;
+  width: 55%;
   position: absolute;
   top: 0;
   left: 45%;
@@ -99,10 +101,10 @@ body.dark-mode {
   @media (max-height: 1024px), (max-width: 1024px) {
     font-size: 30em;
   }
-  @media (max-height: 415px), (max-width: 515px) {
+  @media (max-height: 615px), (max-width: 515px) {
     font-size: 20em;
   }
-  @media only screen and (max-height: 415px) and (max-width: 1024px) and (orientation: landscape) {
+  @media only screen and (max-height: 615px) and (max-width: 1024px) and (orientation: landscape) {
     font-size: 20em;
   }
   font-weight: 900;
@@ -164,6 +166,7 @@ body.dark-mode {
 
 .landing-outer-container {
   margin: 0;
+  min-height: 350px;
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
   background-image: linear-gradient(to right, #eaeef3, #b0c6d6);
