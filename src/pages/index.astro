@@ -1,0 +1,609 @@
+---
+import { earlierRoles } from "../data/experience/earlier-roles"
+import { primaryExperienceEntry } from "../data/experience"
+import { profile } from "../data/profile"
+import { projectEntries } from "../data/projects"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { formatDateRange, getFeaturedProjects } from "../utils/content"
+
+const selectedWork = getFeaturedProjects(projectEntries)
+const mobileHeadline =
+  "Distributed systems, backend platforms, and developer tooling."
+---
+
+<BaseLayout
+  meta={{
+    title: "Hong Kun Tian",
+    description: profile.summary,
+    path: "/",
+  }}
+>
+  <section class="homeHero">
+    <div class="homeHeroIntro">
+      <div class="heroIdentity">
+        <p class="heroName">{profile.name}</p>
+        <p class="heroRole">Software Engineer</p>
+      </div>
+      <h1 class="heroHeadlineDesktop">{profile.headline}</h1>
+      <h1 class="heroHeadlineMobile">{mobileHeadline}</h1>
+      <p class="homeLead">{profile.subheadline}</p>
+      <p class="homeSummary">{profile.summary}</p>
+
+      <div class="heroActions">
+        <a
+          class="button"
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Resume
+        </a>
+        <a
+          class="buttonSecondary"
+          href={`/experience/${primaryExperienceEntry.slug}/`}
+        >
+          AWS detail
+        </a>
+        <a class="buttonSecondary" href={`mailto:${profile.email}`}> Email </a>
+      </div>
+    </div>
+
+    <div class="heroRail">
+      <div class="heroSignalPanel">
+        <p class="finePrint">Current focus</p>
+        <div class="heroSignalList">
+          {
+            profile.highlights.map((highlight) => (
+              <article class="heroSignal">
+                <span class="heroSignalValue">{highlight.value}</span>
+                <p>{highlight.label}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="heroFocusPanel">
+        <p class="finePrint">Focus areas</p>
+        <div class="tagList">
+          {profile.focusAreas.map((area) => <span class="tag">{area}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectionShell" id="about">
+    <div class="sectionHeading">
+      <p class="eyebrow">About</p>
+      <h2 class="sectionTitle">
+        Technical work shaped around systems clarity and useful tooling.
+      </h2>
+    </div>
+
+    <div class="aboutPanel">
+      <div class="stack">
+        {profile.about.map((paragraph) => <p class="aboutCopy">{paragraph}</p>)}
+      </div>
+      <div class="aboutAside">
+        <p class="finePrint">Education</p>
+        <p>{profile.education}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectionShell" id="experience">
+    <div class="sectionHeading sectionHeadingRow">
+      <div class="stack">
+        <p class="eyebrow">Experience</p>
+        <h2 class="sectionTitle">
+          Current work centers on AWS Step Functions.
+        </h2>
+      </div>
+      <a class="inlineLink" href="/experience/"> All experience &rarr; </a>
+    </div>
+
+    <article class="primaryExperience">
+      <div class="primaryExperienceTop">
+        <div>
+          <p class="finePrint">Primary role</p>
+          <h3>{primaryExperienceEntry.role}</h3>
+          <p class="primaryExperienceMeta">
+            {primaryExperienceEntry.company} · {primaryExperienceEntry.location} ·
+            {
+              formatDateRange(
+                primaryExperienceEntry.start,
+                primaryExperienceEntry.end
+              )
+            }
+          </p>
+        </div>
+        <a
+          class="buttonSecondary"
+          href={`/experience/${primaryExperienceEntry.slug}/`}
+        >
+          View grouped detail
+        </a>
+      </div>
+
+      <p class="primaryExperienceSummary">{primaryExperienceEntry.summary}</p>
+
+      <div class="primaryExperienceGrid">
+        <section class="primaryExperienceBlock">
+          <p class="finePrint">Highlights</p>
+          <ul class="detailList">
+            {
+              primaryExperienceEntry.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <aside class="primaryExperienceAside">
+          <p class="finePrint">Areas</p>
+          <div class="tagList">
+            {
+              primaryExperienceEntry.tech.map((item) => (
+                <span class="tag">{item}</span>
+              ))
+            }
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <section class="earlierExperience">
+      <div class="sectionHeading">
+        <p class="eyebrow">Earlier experience</p>
+        <p class="earlierLead">
+          Earlier roles built the same foundations that still show up in the
+          current work: UI systems, automation, APIs, and testing.
+        </p>
+      </div>
+
+      <div class="earlierRoleList">
+        {
+          earlierRoles.map((role) => (
+            <article class="earlierRole">
+              <h3>{role.company}</h3>
+              <p class="earlierRoleMeta">{role.role}</p>
+              <p>{role.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </section>
+
+  <section class="sectionShell" id="projects">
+    <div class="sectionHeading sectionHeadingRow">
+      <div class="stack">
+        <p class="eyebrow">Selected Work</p>
+        <h2 class="sectionTitle">Recent systems work and internal tooling.</h2>
+      </div>
+      <a class="inlineLink" href="/projects/"> Full projects page &rarr; </a>
+    </div>
+
+    <div class="selectedWorkGrid">
+      {
+        selectedWork.map((project) => (
+          <article class="selectedWorkCard">
+            <p class="selectedWorkKicker">{project.tagline}</p>
+            <h3>
+              <a href={`/projects/${project.slug}/`}>{project.name}</a>
+            </h3>
+            <p class="selectedWorkSummary">{project.summary}</p>
+
+            {project.highlights && (
+              <ul class="detailList">
+                {project.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            )}
+
+            <div class="tagList">
+              {project.tech.map((item) => (
+                <span class="tag">{item}</span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="sectionShell" id="contact">
+    <div class="ctaPanel homeCta">
+      <div class="stack">
+        <p class="eyebrow">Contact</p>
+        <h2 class="sectionTitle">
+          Open to engineering roles with real platform and infrastructure depth.
+        </h2>
+        <p>{profile.availability}</p>
+      </div>
+      <div class="ctaActions">
+        <a class="button" href={`mailto:${profile.email}`}> Email me </a>
+        <a
+          class="buttonSecondary"
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open resume
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .homeHero {
+    width: min(var(--max-width), calc(100vw - 2rem));
+    margin: 0 auto;
+    padding: 3.5rem 0 2rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    gap: 1.4rem;
+  }
+
+  .homeHeroIntro,
+  .heroSignalPanel,
+  .heroFocusPanel,
+  .aboutPanel,
+  .primaryExperience,
+  .selectedWorkCard,
+  .earlierRole {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(212, 114, 74, 0.04), transparent 42%),
+      var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .homeHeroIntro {
+    display: grid;
+    gap: 1.1rem;
+    padding: 1.75rem;
+    min-height: 24rem;
+  }
+
+  .heroIdentity {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .heroName {
+    margin: 0;
+    font-size: clamp(2.7rem, 5.5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-copy);
+    line-height: 0.98;
+  }
+
+  .heroRole {
+    margin: 0;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .homeHeroIntro::after,
+  .heroSignalPanel::after,
+  .heroFocusPanel::after,
+  .aboutPanel::after,
+  .primaryExperience::after,
+  .selectedWorkCard::after,
+  .earlierRole::after {
+    content: "";
+    position: absolute;
+    inset: auto auto 0 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-accent), transparent 72%);
+    opacity: 0.28;
+  }
+
+  .homeHeroIntro h1 {
+    margin: 0;
+    max-width: 11ch;
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .heroHeadlineMobile {
+    display: none;
+  }
+
+  .homeLead {
+    margin: 0;
+    max-width: 34rem;
+    font-size: 1.04rem;
+    color: var(--color-copy);
+    line-height: 1.55;
+  }
+
+  .homeSummary {
+    margin: 0;
+    max-width: 34rem;
+    font-size: 0.98rem;
+    color: color-mix(in srgb, var(--color-copy) 76%, var(--color-muted));
+    line-height: 1.72;
+  }
+
+  .heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .heroRail {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .heroSignalPanel,
+  .heroFocusPanel,
+  .aboutPanel,
+  .primaryExperience,
+  .selectedWorkCard,
+  .earlierRole {
+    padding: 1.3rem;
+  }
+
+  .heroSignalList {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .heroSignal {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .heroSignal p {
+    margin: 0;
+    color: var(--color-muted);
+    max-width: 22ch;
+  }
+
+  .heroSignalValue {
+    font-size: 1.45rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--color-copy);
+  }
+
+  .aboutPanel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.7fr);
+    gap: 1.5rem;
+  }
+
+  .aboutCopy {
+    max-width: 58ch;
+    font-size: 1.04rem;
+    line-height: 1.78;
+  }
+
+  .aboutAside {
+    display: grid;
+    align-content: start;
+    gap: 0.6rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .aboutAside p {
+    margin: 0;
+  }
+
+  .primaryExperience {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .primaryExperienceTop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .primaryExperienceTop h3,
+  .selectedWorkCard h3,
+  .earlierRole h3 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.45rem;
+    line-height: 1.14;
+    font-weight: 700;
+  }
+
+  .primaryExperienceMeta,
+  .earlierRoleMeta,
+  .selectedWorkKicker {
+    margin: 0.2rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  .primaryExperienceSummary,
+  .selectedWorkSummary,
+  .earlierLead {
+    margin: 0;
+    color: var(--color-copy);
+    line-height: 1.72;
+  }
+
+  .primaryExperienceGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .primaryExperienceBlock,
+  .primaryExperienceAside {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .primaryExperienceAside {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--color-border);
+  }
+
+  .earlierExperience {
+    display: grid;
+    gap: 1.15rem;
+    margin-top: 1.5rem;
+  }
+
+  .earlierRoleList,
+  .selectedWorkGrid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .earlierRole {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .earlierRole p {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.72;
+  }
+
+  .selectedWorkCard {
+    display: grid;
+    gap: 1.15rem;
+    align-content: start;
+  }
+
+  .selectedWorkCard .detailList {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+  }
+
+  .selectedWorkCard .tagList {
+    gap: 0.6rem;
+    margin-top: 0.15rem;
+  }
+
+  .selectedWorkCard h3 a {
+    transition: color var(--transition-base);
+  }
+
+  .selectedWorkCard h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  .homeCta {
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .homeHero,
+    .aboutPanel,
+    .primaryExperienceGrid,
+    .earlierRoleList,
+    .selectedWorkGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .homeHero {
+      padding-top: 0.9rem;
+      gap: 0.85rem;
+    }
+
+    .homeHeroIntro,
+    .heroSignalPanel,
+    .heroFocusPanel,
+    .aboutPanel,
+    .primaryExperience,
+    .selectedWorkCard,
+    .earlierRole {
+      padding: 0.95rem;
+    }
+
+    .homeHeroIntro {
+      gap: 0.95rem;
+      min-height: 0;
+    }
+
+    .heroIdentity {
+      gap: 0.25rem;
+    }
+
+    .heroHeadlineDesktop {
+      display: none;
+    }
+
+    .heroHeadlineMobile {
+      display: block;
+      max-width: 11ch;
+      font-size: clamp(1.58rem, 7.4vw, 2rem);
+      line-height: 1.02;
+    }
+
+    .heroName {
+      font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+
+    .homeLead,
+    .homeSummary,
+    .aboutCopy,
+    .primaryExperienceSummary,
+    .selectedWorkSummary,
+    .earlierLead {
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .heroActions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .heroActions a:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .selectedWorkCard .detailList {
+      font-size: 0.88rem;
+    }
+
+    .primaryExperienceTop {
+      grid-template-columns: 1fr;
+    }
+
+    .aboutAside {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1rem;
+    }
+  }
+</style>

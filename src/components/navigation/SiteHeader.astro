@@ -1,0 +1,191 @@
+---
+import { primaryNavigation, secondaryNavigation } from "../../data/navigation"
+import { profile } from "../../data/profile"
+import styles from "./SiteHeader.module.css"
+---
+
+<header class={styles.header}>
+  <div class={styles.inner}>
+    <a class={styles.brand} href="/">HKT</a>
+
+    <nav class={styles.nav} aria-label="Primary navigation">
+      {
+        primaryNavigation.map((item) => (
+          <a class={styles.link} href={item.href}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class={styles.actions}>
+      <div class={styles.secondary}>
+        {
+          secondaryNavigation.map((item) => (
+            <a class={styles.secondaryLink} href={item.href}>
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+      <button
+        class={styles.themeToggle}
+        data-theme-toggle
+        type="button"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <svg
+          class={styles.themeIconSun}
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg
+          class={styles.themeIconMoon}
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <a
+        class={styles.resumeBtn}
+        href={profile.resumeUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Resume
+      </a>
+      <button
+        class={styles.menuToggle}
+        id="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class={styles.menuLine}></span>
+        <span class={styles.menuLine}></span>
+        <span class={styles.menuLine}></span>
+      </button>
+    </div>
+  </div>
+
+  <div class={styles.mobilePanel} id="mobile-nav">
+    <div class={styles.mobilePanelInner}>
+      <nav class={styles.mobileNav} aria-label="Mobile navigation">
+        {
+          primaryNavigation.map((item) => (
+            <a class={styles.mobileLink} href={item.href}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class={styles.mobileSecondary}>
+        {
+          secondaryNavigation.map((item) => (
+            <a class={styles.mobileSecondaryLink} href={item.href}>
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+      <button
+        class={styles.mobileThemeToggle}
+        data-theme-toggle
+        type="button"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span>Toggle theme</span>
+        <svg
+          class={styles.themeIconSun}
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg
+          class={styles.themeIconMoon}
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  ;(function () {
+    var header = document.querySelector("header")
+    var toggle = document.getElementById("menu-toggle")
+    var panel = document.getElementById("mobile-nav")
+
+    if (!header || !toggle || !panel) return
+
+    function setOpen(open) {
+      header.setAttribute("data-menu-open", open ? "true" : "false")
+      toggle.setAttribute("aria-expanded", open ? "true" : "false")
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(header.getAttribute("data-menu-open") !== "true")
+    })
+
+    panel.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setOpen(false)
+      })
+    })
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) setOpen(false)
+    })
+  })()
+</script>

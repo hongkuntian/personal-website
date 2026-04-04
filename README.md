@@ -1,18 +1,48 @@
-# My Portfolio Website
-Visit my website at <a href="https://hongkuntian.com" text-align="center">hongkuntian.com</a>
+# Hong Kun Tian Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/696a0ded-91bb-4329-9574-594b4b0416f7/deploy-status)](https://app.netlify.com/sites/hongkuntian/deploys)
+Modernized personal website built with Astro, TypeScript, and Netlify-friendly static output.
 
-![Sample Light](./images/sample-light.png)
+## Stack
 
-![Sample Dark](./images/sample-dark.png)
+- Astro 5
+- TypeScript
+- CSS variables + CSS Modules
+- Vitest + Playwright
+- Plausible-ready analytics
 
-## Features
+## Local development
 
-* Responsive design that works well on any device (heavily leveraging the use of flexboxes)
-* Dark mode that adapts to device preference and also retains user preference on browser local storage
+```bash
+npm install
+npm run dev
+```
 
-## Planned improvements and additions
+## Commands
 
-* Design and implement a more scalable display for Experience section such that multiple entries are easily viewable
-* Add education history
+- `npm run dev` starts the Astro dev server
+- `npm run build` creates the production build in `dist/`
+- `npm run preview` serves the built site locally
+- `npm run check` runs Astro type/content checks
+- `npm run test:unit` runs unit tests
+- `npm run test:e2e` runs Playwright smoke tests
+- `npm run format` formats the repo with Prettier
+
+## Analytics
+
+The site includes Plausible only in production and only when `PUBLIC_PLAUSIBLE_DOMAIN` is set.
+
+Example:
+
+```bash
+PUBLIC_PLAUSIBLE_DOMAIN=hongkuntian.com npm run build
+```
+
+Optionally override the script source with `PUBLIC_PLAUSIBLE_SRC`.
+
+## Deploy
+
+`netlify.toml` is configured for static Astro output:
+
+- build command: `npm run build`
+- publish directory: `dist`
+- redirects for `/resume/` and legacy `/personal-website` paths

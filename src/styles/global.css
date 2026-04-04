@@ -1,0 +1,339 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  margin: 0;
+  color: var(--color-copy);
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  line-height: 1.65;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.siteChrome {
+  min-height: 100vh;
+}
+
+/* ── Layout shells ─────────────────────────────────────── */
+
+.pageShell,
+.heroShell,
+.sectionShell,
+.pageIntro,
+.detailShell {
+  width: min(var(--max-width), calc(100vw - 2rem));
+  margin: 0 auto;
+}
+
+.pageShell {
+  padding-top: 5.25rem;
+}
+
+.heroShell {
+  padding-bottom: 2rem;
+}
+
+.sectionShell,
+.pageIntro,
+.detailShell {
+  padding: 2.25rem 0;
+}
+
+.pageIntro {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+}
+
+.pageIntro h1,
+.detailShell h1,
+.sectionTitle {
+  margin: 0;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.pageIntro h1,
+.detailShell h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.pageIntro p,
+.detailShell p,
+.stack p {
+  margin: 0;
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.sectionHeadingRow {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+/* ── Typography helpers ────────────────────────────────── */
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  max-width: 24ch;
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+
+.button,
+.buttonSecondary,
+.chipLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.3rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.button {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 0 20px var(--color-accent-pale);
+}
+
+.button:hover {
+  background: var(--color-accent-strong);
+  box-shadow: 0 0 30px rgba(212, 114, 74, 0.3);
+}
+
+.buttonSecondary,
+.chipLink {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-copy);
+}
+
+.buttonSecondary:hover,
+.chipLink:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.inlineLink {
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: color var(--transition-base);
+}
+
+.inlineLink:hover {
+  color: var(--color-accent-strong);
+}
+
+/* ── Card grids ────────────────────────────────────────── */
+
+.cardGrid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cardGridTight {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ── Tags ──────────────────────────────────────────────── */
+
+.tagList,
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.5rem;
+  background: rgba(212, 114, 74, 0.1);
+  border: 1px solid rgba(212, 114, 74, 0.14);
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Panels ────────────────────────────────────────────── */
+
+.splitPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.8fr);
+  gap: 1.5rem;
+  padding: 1.6rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.asidePanel {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  background: var(--color-surface-alt);
+}
+
+.asideTitle,
+.finePrint,
+.detailLead {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ctaPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  gap: 1.5rem;
+  padding: 1.8rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.ctaActions {
+  display: grid;
+  align-content: center;
+  gap: 0.9rem;
+}
+
+/* ── Detail pages ──────────────────────────────────────── */
+
+.detailShell {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 56rem;
+}
+
+.detailSummary {
+  font-size: 1.05rem;
+  color: var(--color-copy);
+}
+
+.detailSection {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.detailSection h2 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.detailList {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--color-muted);
+}
+
+.detailList li + li {
+  margin-top: 0.6rem;
+}
+
+.detailMedia {
+  display: inline-flex;
+  width: fit-content;
+  padding: 1rem 1.4rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.detailImage {
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .cardGridTight {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .splitPanel,
+  .ctaPanel,
+  .sectionHeadingRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .cardGrid,
+  .cardGridTight {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionShell,
+  .pageIntro,
+  .detailShell {
+    padding: 1.6rem 0;
+  }
+}

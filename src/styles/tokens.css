@@ -1,0 +1,45 @@
+/* ─────────────────────────────────────────────────────────
+   Design tokens — Style 9 "Dusk Forge"
+   Dark-first. Light overrides via [data-theme="light"].
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* Colour */
+  --color-bg:            #1a1612;
+  --color-surface:       #252018;
+  --color-surface-alt:   #1e1912;
+  --color-copy:          #e0d5c6;
+  --color-muted:         #9a8d7e;
+  --color-border:        #3a332a;
+  --color-border-strong: #4a4038;
+  --color-accent:        #d4724a;
+  --color-accent-strong: #e07a52;
+  --color-accent-pale:   rgba(212, 114, 74, 0.15);
+
+  /* Shadow */
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-display: 'Instrument Serif', 'Georgia', serif;
+  --font-body:    'DM Sans', -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width:       980px;
+  --radius-panel:    0px;
+  --transition-base: 160ms ease;
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --color-bg:            #f0e8df;
+  --color-surface:       #faf5ef;
+  --color-surface-alt:   #ede5da;
+  --color-copy:          #2b2520;
+  --color-muted:         #7a6e63;
+  --color-border:        #c4baa9;
+  --color-border-strong: #b0a898;
+  --color-accent:        #c4572a;
+  --color-accent-strong: #a84520;
+  --color-accent-pale:   rgba(196, 87, 42, 0.1);
+  --shadow-soft:         0 18px 48px rgba(48, 35, 24, 0.12);
+}

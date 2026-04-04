@@ -1,0 +1,227 @@
+---
+import { earlierRoles } from "../../data/experience/earlier-roles"
+import { primaryExperienceEntry } from "../../data/experience"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { formatDateRange } from "../../utils/content"
+---
+
+<BaseLayout
+  meta={{
+    title: "Experience",
+    description:
+      "AWS Step Functions work centered on workflow platform features, rollout reliability, and internal tooling, with earlier experience condensed into supporting context.",
+    path: "/experience/",
+  }}
+>
+  <section class="pageIntro">
+    <p class="eyebrow">Experience</p>
+    <h1>AWS Step Functions is the center of my recent work.</h1>
+    <p>
+      The work spans workflow platform features, rollout reliability during
+      region expansion, and internal tooling for operating production systems.
+    </p>
+    <a href="/" class="inlineLink">&larr; Back home</a>
+  </section>
+
+  <section class="sectionShell experiencePageSection">
+    <article class="experienceFeature">
+      <div class="experienceFeatureHeader">
+        <div class="stack">
+          <p class="eyebrow">Primary experience</p>
+          <h2>{primaryExperienceEntry.role}</h2>
+          <p class="experienceFeatureMeta">
+            {primaryExperienceEntry.company} · {primaryExperienceEntry.location} ·
+            {
+              formatDateRange(
+                primaryExperienceEntry.start,
+                primaryExperienceEntry.end
+              )
+            }
+          </p>
+        </div>
+        <a
+          class="buttonSecondary"
+          href={`/experience/${primaryExperienceEntry.slug}/`}
+        >
+          Open AWS detail page
+        </a>
+      </div>
+
+      <p class="experienceFeatureSummary">{primaryExperienceEntry.summary}</p>
+
+      <div class="experienceFeatureGrid">
+        <section class="experienceFeaturePanel">
+          <p class="finePrint">Highlights</p>
+          <ul class="detailList">
+            {
+              primaryExperienceEntry.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <aside class="asidePanel">
+          <p class="finePrint">Core themes</p>
+          <div class="tagList">
+            {
+              primaryExperienceEntry.impact.map((item) => (
+                <span class="tag">{item}</span>
+              ))
+            }
+          </div>
+        </aside>
+      </div>
+
+      <div class="experienceNarrative">
+        {
+          primaryExperienceEntry.detailSections.map((section) => (
+            <section class="experienceNarrativeBlock">
+              <h3>{section.title}</h3>
+              <div class="stack">
+                {section.body.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </section>
+
+  <section class="sectionShell">
+    <div class="sectionHeading">
+      <p class="eyebrow">Earlier experience</p>
+      <h2 class="sectionTitle">
+        Earlier roles established the same engineering themes.
+      </h2>
+      <p>
+        Those roles covered UI systems, automation, APIs, and testing, all of
+        which still show up in the current work.
+      </p>
+    </div>
+
+    <div class="earlierRoleList">
+      {
+        earlierRoles.map((role) => (
+          <article class="earlierRole">
+            <div class="stack">
+              <h3>{role.company}</h3>
+              <p class="earlierRoleMeta">{role.role}</p>
+            </div>
+            <p>{role.summary}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .experiencePageSection {
+    padding-top: 0;
+  }
+
+  .experienceFeature,
+  .experienceNarrativeBlock,
+  .earlierRole {
+    background:
+      linear-gradient(180deg, rgba(212, 114, 74, 0.04), transparent 36%),
+      var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .experienceFeature {
+    display: grid;
+    gap: 1.4rem;
+    padding: 1.6rem;
+  }
+
+  .experienceFeatureHeader {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .experienceFeatureHeader h2,
+  .experienceNarrativeBlock h3,
+  .earlierRole h3 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .experienceFeatureHeader h2 {
+    font-size: clamp(1.7rem, 3vw, 2.15rem);
+  }
+
+  .experienceFeatureMeta,
+  .earlierRoleMeta {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+  }
+
+  .experienceFeatureSummary {
+    margin: 0;
+    max-width: 64ch;
+    font-size: 1.02rem;
+    line-height: 1.72;
+  }
+
+  .experienceFeatureGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.75fr);
+    gap: 1.25rem;
+  }
+
+  .experienceFeaturePanel {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .experienceNarrative {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .experienceNarrativeBlock {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.25rem;
+  }
+
+  .experienceNarrativeBlock h3 {
+    font-size: 1.2rem;
+  }
+
+  .earlierRoleList {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .earlierRole {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.15rem 1.25rem;
+  }
+
+  .earlierRole p {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.72;
+  }
+
+  @media (max-width: 900px) {
+    .experienceFeatureHeader,
+    .experienceFeatureGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

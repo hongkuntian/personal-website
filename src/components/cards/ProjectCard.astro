@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets"
+import type { ProjectEntry } from "../../types/content"
+import styles from "./ProjectCard.module.css"
+
+interface Props {
+  project: ProjectEntry
+}
+
+const { project } = Astro.props
+const hasImage = Boolean(project.image && project.imageAlt)
+const categoryLabel =
+  project.category === "selected-work" ? "Selected work" : "Archive"
+const categorySummary =
+  project.category === "selected-work"
+    ? "Recent systems work"
+    : "Older public project"
+---
+
+<article class:list={[styles.card, !hasImage && styles.cardTextOnly]}>
+  {
+    hasImage ? (
+      <a class={styles.imageWrap} href={`/projects/${project.slug}/`}>
+        <Image
+          src={project.image!}
+          alt={project.imageAlt!}
+          widths={[240]}
+          sizes="240px"
+          class={styles.image}
+        />
+      </a>
+    ) : (
+      <div class={styles.metaPanel}>
+        <p class={styles.metaLabel}>{categoryLabel}</p>
+        <p class={styles.metaValue}>{categorySummary}</p>
+      </div>
+    )
+  }
+
+  <div class={styles.body}>
+    <p class={styles.kicker}>{project.tagline}</p>
+    <h3 class={styles.title}>
+      <a href={`/projects/${project.slug}/`}>{project.name}</a>
+    </h3>
+    <p class={styles.summary}>{project.summary}</p>
+
+    {
+      project.highlights && (
+        <ul class={styles.highlights}>
+          {project.highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    <div class="tagList">
+      {project.tech.map((item) => <span class="tag">{item}</span>)}
+    </div>
+  </div>
+
+  <div class={styles.footer}>
+    <span class={styles.kind}>{categoryLabel}</span>
+    <a class={styles.cta} href={`/projects/${project.slug}/`}> View details </a>
+  </div>
+</article>

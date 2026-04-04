@@ -1,0 +1,32 @@
+---
+import { profile } from "../../data/profile"
+import styles from "./SiteFooter.module.css"
+
+const year = new Date().getFullYear()
+---
+
+<footer class={styles.footer}>
+  <div class={styles.inner}>
+    <div class={styles.left}>
+      <p class={styles.name}>{profile.name}</p>
+      <p class={styles.tagline}>{profile.headline}</p>
+    </div>
+
+    <div class={styles.links}>
+      {
+        profile.socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith("http") ? "_blank" : undefined}
+            rel="noreferrer"
+            class={styles.link}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <p class={styles.copy}>&copy; {year} {profile.name}</p>
+  </div>
+</footer>

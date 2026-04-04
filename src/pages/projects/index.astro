@@ -1,0 +1,57 @@
+---
+import ProjectCard from "../../components/cards/ProjectCard.astro"
+import { projectEntries } from "../../data/projects"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { getProjectsByCategory } from "../../utils/content"
+
+const selectedWork = getProjectsByCategory(projectEntries, "selected-work")
+const archiveProjects = getProjectsByCategory(projectEntries, "archive")
+---
+
+<BaseLayout
+  meta={{
+    title: "Projects",
+    description:
+      "Recent selected systems work first, with older public hackathon and student projects collected in an archive.",
+    path: "/projects/",
+  }}
+>
+  <section class="pageIntro">
+    <p class="eyebrow">Projects</p>
+    <h1>Recent systems work alongside an archive of older public projects.</h1>
+    <p>
+      The first section focuses on recent platform and tooling work. The archive
+      keeps earlier hackathon and student projects available as additional
+      context.
+    </p>
+    <a href="/" class="inlineLink">&larr; Back home</a>
+  </section>
+
+  <section class="sectionShell">
+    <div class="sectionHeading">
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="sectionTitle">
+        Three recent areas that best represent the current engineering work.
+      </h2>
+    </div>
+
+    <div class="cardGrid cardGridTight">
+      {selectedWork.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="sectionShell">
+    <div class="sectionHeading">
+      <p class="eyebrow">Archive</p>
+      <h2 class="sectionTitle">Older public projects.</h2>
+      <p>
+        These are earlier hackathon and student builds that still show product
+        instincts and technical range.
+      </p>
+    </div>
+
+    <div class="cardGrid cardGridTight">
+      {archiveProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

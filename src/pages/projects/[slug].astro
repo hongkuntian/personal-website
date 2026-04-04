@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets"
+import { projectEntries } from "../../data/projects"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+export function getStaticPaths() {
+  return projectEntries.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }))
+}
+
+const { project } = Astro.props
+const sectionLabel =
+  project.category === "selected-work" ? "Selected Work" : "Archive Project"
+---
+
+<BaseLayout
+  meta={{
+    title: project.name,
+    description: project.summary,
+    path: `/projects/${project.slug}/`,
+  }}
+>
+  <article class="detailShell">
+    <p class="eyebrow">{sectionLabel}</p>
+    <h1>{project.name}</h1>
+    <p class="detailLead">{project.tagline}</p>
+    <p class="detailSummary">{project.summary}</p>
+
+    {
+      project.image && project.imageAlt && (
+        <div class="detailMedia">
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            widths={[320]}
+            sizes="(max-width: 900px) 70vw, 320px"
+            class="detailImage"
+          />
+        </div>
+      )
+    }
+
+    <div class="tagList">
+      {project.tech.map((item) => <span class="tag">{item}</span>)}
+    </div>
+
+    {
+      project.highlights && (
+        <section class="detailSection">
+          <h2>Highlights</h2>
+          <ul class="detailList">
+            {project.highlights.map((highlight) => (
+              <li>{highlight}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      project.descriptionSections.map((section) => (
+        <section class="detailSection">
+          <h2>{section.title}</h2>
+          <div class="stack">
+            {section.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    {
+      project.links.length > 0 && (
+        <section class="detailSection">
+          <h2>Links</h2>
+          <div class="chipRow">
+            {project.links.map((link) => (
+              <a
+                class="chipLink"
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <a class="inlineLink" href="/projects/"> Back to all projects </a>
+  </article>
+</BaseLayout>

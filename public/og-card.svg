@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Hong Kun Tian portfolio</title>
+  <desc id="desc">Software engineer focused on distributed systems and developer-facing products.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbf6ef" />
+      <stop offset="100%" stop-color="#efe2d2" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c65d23" />
+      <stop offset="100%" stop-color="#8f3f1d" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="32" />
+  <circle cx="1080" cy="110" r="140" fill="#efc6a8" fill-opacity="0.4" />
+  <circle cx="170" cy="90" r="120" fill="#c65d23" fill-opacity="0.12" />
+  <rect x="90" y="90" width="126" height="126" rx="28" fill="url(#accent)" />
+  <text x="153" y="168" fill="#fffaf4" font-family="'Avenir Next Condensed', 'Trebuchet MS', sans-serif" font-size="62" font-weight="700" text-anchor="middle">HKT</text>
+  <text x="90" y="318" fill="#1f2330" font-family="'Avenir Next Condensed', 'Trebuchet MS', sans-serif" font-size="78" font-weight="700">Hong Kun Tian</text>
+  <text x="90" y="390" fill="#1f2330" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="34">Software engineer focused on distributed systems</text>
+  <text x="90" y="435" fill="#1f2330" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="34">and developer-facing products.</text>
+  <text x="90" y="525" fill="#596171" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="26">hongkuntian.com</text>
+</svg>

@@ -1,0 +1,30 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "20"
+
+[[redirects]]
+from = "/resume"
+to = "/hk_resume.pdf"
+status = 301
+force = true
+
+[[redirects]]
+from = "/resume/"
+to = "/hk_resume.pdf"
+status = 301
+force = true
+
+[[redirects]]
+from = "/personal-website"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/personal-website/*"
+to = "/:splat"
+status = 301
+force = true

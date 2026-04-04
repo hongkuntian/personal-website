@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Build distinctive production-grade frontend interfaces"
+  default_prompt: "Create a polished, memorable frontend interface with a clear aesthetic direction and production-ready implementation."

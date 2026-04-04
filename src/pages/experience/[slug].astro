@@ -1,0 +1,70 @@
+---
+import { experienceEntries } from "../../data/experience"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { formatDateRange } from "../../utils/content"
+
+export function getStaticPaths() {
+  return experienceEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+---
+
+<BaseLayout
+  meta={{
+    title: `${entry.role} at ${entry.company}`,
+    description: entry.summary,
+    path: `/experience/${entry.slug}/`,
+  }}
+>
+  <article class="detailShell">
+    <p class="eyebrow">Experience</p>
+    <h1>{entry.role}</h1>
+    <p class="detailLead">
+      {entry.company} · {entry.location} · {formatDateRange(entry.start, entry.end)}
+    </p>
+    <p class="detailSummary">{entry.summary}</p>
+
+    <div class="tagList">
+      {entry.tech.map((item) => (
+        <span class="tag">{item}</span>
+      ))}
+    </div>
+
+    <section class="detailSection">
+      <h2>Highlights</h2>
+      <ul class="detailList">
+        {entry.highlights.map((highlight) => (
+          <li>{highlight}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="detailSection">
+      <h2>Core impact</h2>
+      <div class="tagList">
+        {entry.impact.map((item) => (
+          <span class="tag">{item}</span>
+        ))}
+      </div>
+    </section>
+
+    {entry.detailSections.map((section) => (
+      <section class="detailSection">
+        <h2>{section.title}</h2>
+        <div class="stack">
+          {section.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <a class="inlineLink" href="/experience/">
+      Back to all experience
+    </a>
+  </article>
+</BaseLayout>
