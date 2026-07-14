@@ -34,7 +34,7 @@ The site includes Plausible only in production and only when `PUBLIC_PLAUSIBLE_D
 Example:
 
 ```bash
-PUBLIC_PLAUSIBLE_DOMAIN=hongkuntian.com npm run build
+PUBLIC_PLAUSIBLE_DOMAIN=hongkuntian.me npm run build
 ```
 
 Optionally override the script source with `PUBLIC_PLAUSIBLE_SRC`.

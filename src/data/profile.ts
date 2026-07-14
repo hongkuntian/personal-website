@@ -12,7 +12,7 @@ export const profile: Profile = {
     "Backend and distributed-systems engineer with 4+ years on AWS Step Functions, building workflow-platform capabilities and tooling for a large-scale serverless service.",
   location: "Vancouver, BC",
   availability:
-    "Open to backend, distributed-systems, and platform engineering opportunities.",
+    "Open to backend and platform engineering roles in New York City, Seattle, Vancouver, Montreal, and Toronto.",
   resumeUrl: "/hk_resume.pdf",
   email: "hongkun.tian@hotmail.com",
   socialLinks: [

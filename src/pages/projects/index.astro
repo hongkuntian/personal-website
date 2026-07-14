@@ -6,6 +6,18 @@ import { getProjectsByCategory } from "../../utils/content"
 
 const selectedWork = getProjectsByCategory(projectEntries, "selected-work")
 const archiveProjects = getProjectsByCategory(projectEntries, "archive")
+const archivePriority = new Map([
+  ["nlpure", 1],
+  ["painttrix", 2],
+  ["mindbook", 3],
+])
+const prioritizedArchiveProjects = [...archiveProjects].sort(
+  (left, right) =>
+    (archivePriority.get(left.slug) ?? 99) -
+    (archivePriority.get(right.slug) ?? 99)
+)
+const featuredArchiveProjects = prioritizedArchiveProjects.slice(0, 3)
+const remainingArchiveProjects = prioritizedArchiveProjects.slice(3)
 ---
 
 <BaseLayout
@@ -22,9 +34,9 @@ const archiveProjects = getProjectsByCategory(projectEntries, "archive")
       Workflow platforms, production reliability, and operational tooling.
     </h1>
     <p>
-      Selected work reflects the strongest themes and quantified impact from my
-      current resume. Earlier hackathon and student projects remain available in
-      the archive.
+      Selected work highlights recent impact across workflow platforms,
+      production reliability, global rollouts, and operational tooling. Earlier
+      hackathon and student projects are collected below.
     </p>
     <a href="/" class="inlineLink">&larr; Back home</a>
   </section>
@@ -53,7 +65,56 @@ const archiveProjects = getProjectsByCategory(projectEntries, "archive")
     </div>
 
     <div class="cardGrid cardGridTight">
-      {archiveProjects.map((project) => <ProjectCard project={project} />)}
+      {
+        featuredArchiveProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
     </div>
+
+    {
+      remainingArchiveProjects.length > 0 && (
+        <details class="archiveDisclosure">
+          <summary>
+            View {remainingArchiveProjects.length} more earlier projects
+          </summary>
+          <div class="cardGrid cardGridTight archiveExtraGrid">
+            {remainingArchiveProjects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </details>
+      )
+    }
   </section>
 </BaseLayout>
+
+<style>
+  .archiveDisclosure {
+    margin-top: 1.25rem;
+  }
+
+  .archiveDisclosure summary {
+    width: fit-content;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+  }
+
+  .archiveDisclosure summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .archiveDisclosure summary::after {
+    content: " +";
+  }
+
+  .archiveDisclosure[open] summary::after {
+    content: " -";
+  }
+
+  .archiveExtraGrid {
+    margin-top: 1.25rem;
+  }
+</style>

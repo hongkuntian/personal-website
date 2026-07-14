@@ -33,32 +33,6 @@
   object-fit: contain;
 }
 
-.metaPanel {
-  display: grid;
-  gap: 0.3rem;
-  min-height: 5rem;
-  padding: 0.9rem 1rem;
-  background: var(--color-accent-pale);
-  border: 1px solid var(--color-border);
-  align-content: center;
-}
-
-.metaLabel {
-  margin: 0;
-  color: var(--color-accent);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.metaValue {
-  margin: 0;
-  color: var(--color-copy);
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
 .body {
   display: grid;
   gap: 0.6rem;

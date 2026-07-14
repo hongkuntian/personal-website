@@ -1,5 +1,5 @@
 ---
-import { primaryNavigation, secondaryNavigation } from "../../data/navigation"
+import { primaryNavigation } from "../../data/navigation"
 import { profile } from "../../data/profile"
 import styles from "./SiteHeader.module.css"
 ---
@@ -19,21 +19,12 @@ import styles from "./SiteHeader.module.css"
     </nav>
 
     <div class={styles.actions}>
-      <div class={styles.secondary}>
-        {
-          secondaryNavigation.map((item) => (
-            <a class={styles.secondaryLink} href={item.href}>
-              {item.label}
-            </a>
-          ))
-        }
-      </div>
       <button
         class={styles.themeToggle}
         data-theme-toggle
         type="button"
-        aria-label="Toggle dark mode"
-        title="Toggle dark mode"
+        aria-label="Switch theme"
+        title="Switch theme"
       >
         <svg
           class={styles.themeIconSun}
@@ -93,7 +84,7 @@ import styles from "./SiteHeader.module.css"
     </div>
   </div>
 
-  <div class={styles.mobilePanel} id="mobile-nav">
+  <div class={styles.mobilePanel} id="mobile-nav" aria-hidden="true" inert>
     <div class={styles.mobilePanelInner}>
       <nav class={styles.mobileNav} aria-label="Mobile navigation">
         {
@@ -105,23 +96,14 @@ import styles from "./SiteHeader.module.css"
         }
       </nav>
 
-      <div class={styles.mobileSecondary}>
-        {
-          secondaryNavigation.map((item) => (
-            <a class={styles.mobileSecondaryLink} href={item.href}>
-              {item.label}
-            </a>
-          ))
-        }
-      </div>
       <button
         class={styles.mobileThemeToggle}
         data-theme-toggle
         type="button"
-        aria-label="Toggle dark mode"
-        title="Toggle dark mode"
+        aria-label="Switch theme"
+        title="Switch theme"
       >
-        <span>Toggle theme</span>
+        <span data-theme-label>Switch theme</span>
         <svg
           class={styles.themeIconSun}
           width="16"
@@ -172,6 +154,8 @@ import styles from "./SiteHeader.module.css"
     function setOpen(open) {
       header.setAttribute("data-menu-open", open ? "true" : "false")
       toggle.setAttribute("aria-expanded", open ? "true" : "false")
+      panel.setAttribute("aria-hidden", open ? "false" : "true")
+      panel.inert = !open
     }
 
     toggle.addEventListener("click", function () {

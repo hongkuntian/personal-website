@@ -25,6 +25,28 @@ a {
   text-decoration: none;
 }
 
+:where(a, button):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skipLink {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 700;
+  transform: translateY(-180%);
+  transition: transform var(--transition-base);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -141,7 +163,7 @@ main {
 
 .button {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-on-accent);
   box-shadow: 0 0 20px var(--color-accent-pale);
 }
 
@@ -335,5 +357,18 @@ main {
   .pageIntro,
   .detailShell {
     padding: 1.6rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

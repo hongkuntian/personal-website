@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hongkuntian.com/sitemap-index.xml
+Sitemap: https://hongkuntian.me/sitemap-index.xml

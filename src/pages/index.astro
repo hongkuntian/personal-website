@@ -13,9 +13,10 @@ const mobileHeadline =
 
 <BaseLayout
   meta={{
-    title: "Hong Kun Tian",
+    title: "Hong Kun Tian | Backend & Distributed Systems Engineer",
     description: profile.summary,
     path: "/",
+    absoluteTitle: true,
   }}
 >
   <section class="homeHero">
@@ -24,10 +25,10 @@ const mobileHeadline =
         <p class="heroName">{profile.name}</p>
         <p class="heroRole">Software Engineer · {profile.location}</p>
       </div>
+      <p class="availabilitySignal">{profile.availability}</p>
       <h1 class="heroHeadlineDesktop">{profile.headline}</h1>
       <h1 class="heroHeadlineMobile">{mobileHeadline}</h1>
       <p class="homeLead">{profile.subheadline}</p>
-      <p class="homeSummary">{profile.summary}</p>
 
       <div class="heroActions">
         <a
@@ -42,7 +43,7 @@ const mobileHeadline =
           class="buttonSecondary"
           href={`/experience/${primaryExperienceEntry.slug}/`}
         >
-          AWS detail
+          View experience
         </a>
         <a class="buttonSecondary" href={`mailto:${profile.email}`}> Email </a>
       </div>
@@ -121,7 +122,7 @@ const mobileHeadline =
           class="buttonSecondary"
           href={`/experience/${primaryExperienceEntry.slug}/`}
         >
-          View grouped detail
+          View full experience
         </a>
       </div>
 
@@ -132,9 +133,9 @@ const mobileHeadline =
           <p class="finePrint">Highlights</p>
           <ul class="detailList">
             {
-              primaryExperienceEntry.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))
+              primaryExperienceEntry.highlights
+                .slice(0, 3)
+                .map((highlight) => <li>{highlight}</li>)
             }
           </ul>
         </section>
@@ -198,7 +199,7 @@ const mobileHeadline =
 
             {project.highlights && (
               <ul class="detailList">
-                {project.highlights.map((highlight) => (
+                {project.highlights.slice(0, 2).map((highlight) => (
                   <li>{highlight}</li>
                 ))}
               </ul>
@@ -220,7 +221,7 @@ const mobileHeadline =
       <div class="stack">
         <p class="eyebrow">Contact</p>
         <h2 class="sectionTitle">
-          Open to engineering roles with real platform and infrastructure depth.
+          Open to backend and platform roles with meaningful systems ownership.
         </h2>
         <p>{profile.availability}</p>
       </div>
@@ -294,6 +295,19 @@ const mobileHeadline =
     font-weight: 700;
   }
 
+  .availabilitySignal {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
+    background: var(--color-accent-pale);
+    color: var(--color-copy);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
   .homeHeroIntro::after,
   .heroSignalPanel::after,
   .heroFocusPanel::after,
@@ -330,14 +344,6 @@ const mobileHeadline =
     font-size: 1.04rem;
     color: var(--color-copy);
     line-height: 1.55;
-  }
-
-  .homeSummary {
-    margin: 0;
-    max-width: 34rem;
-    font-size: 0.98rem;
-    color: color-mix(in srgb, var(--color-copy) 76%, var(--color-muted));
-    line-height: 1.72;
   }
 
   .heroActions {
@@ -574,7 +580,6 @@ const mobileHeadline =
     }
 
     .homeLead,
-    .homeSummary,
     .aboutCopy,
     .primaryExperienceSummary,
     .selectedWorkSummary,

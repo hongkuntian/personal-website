@@ -1,23 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Hong Kun Tian portfolio</title>
-  <desc id="desc">Software engineer focused on distributed systems and developer-facing products.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#fbf6ef" />
-      <stop offset="100%" stop-color="#efe2d2" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#c65d23" />
-      <stop offset="100%" stop-color="#8f3f1d" />
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)" rx="32" />
-  <circle cx="1080" cy="110" r="140" fill="#efc6a8" fill-opacity="0.4" />
-  <circle cx="170" cy="90" r="120" fill="#c65d23" fill-opacity="0.12" />
-  <rect x="90" y="90" width="126" height="126" rx="28" fill="url(#accent)" />
-  <text x="153" y="168" fill="#fffaf4" font-family="'Avenir Next Condensed', 'Trebuchet MS', sans-serif" font-size="62" font-weight="700" text-anchor="middle">HKT</text>
-  <text x="90" y="318" fill="#1f2330" font-family="'Avenir Next Condensed', 'Trebuchet MS', sans-serif" font-size="78" font-weight="700">Hong Kun Tian</text>
-  <text x="90" y="390" fill="#1f2330" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="34">Software engineer focused on distributed systems</text>
-  <text x="90" y="435" fill="#1f2330" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="34">and developer-facing products.</text>
-  <text x="90" y="525" fill="#596171" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="26">hongkuntian.com</text>
+  <desc id="desc">Backend and distributed-systems engineer building reliable workflow platforms and developer tooling.</desc>
+  <rect width="1200" height="630" fill="#f0e8df" />
+  <rect x="64" y="64" width="1072" height="502" fill="#faf5ef" stroke="#c4baa9" stroke-width="2" />
+  <rect x="64" y="64" width="12" height="502" fill="#a84520" />
+
+  <text x="112" y="132" fill="#a84520" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">SOFTWARE ENGINEER · VANCOUVER, BC</text>
+  <text x="112" y="232" fill="#2b2520" font-family="Arial, sans-serif" font-size="72" font-weight="700">Hong Kun Tian</text>
+  <text x="112" y="322" fill="#2b2520" font-family="Arial, sans-serif" font-size="42" font-weight="700">Backend &amp; distributed-systems engineer</text>
+  <text x="112" y="378" fill="#2b2520" font-family="Arial, sans-serif" font-size="42" font-weight="700">building reliable workflow platforms.</text>
+
+  <rect x="112" y="430" width="212" height="46" fill="#ede5da" stroke="#c4baa9" />
+  <text x="218" y="460" fill="#a84520" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">DISTRIBUTED SYSTEMS</text>
+  <rect x="340" y="430" width="224" height="46" fill="#ede5da" stroke="#c4baa9" />
+  <text x="452" y="460" fill="#a84520" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">PRODUCTION RELIABILITY</text>
+  <rect x="580" y="430" width="184" height="46" fill="#ede5da" stroke="#c4baa9" />
+  <text x="672" y="460" fill="#a84520" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">AGENTIC TOOLING</text>
+
+  <text x="112" y="526" fill="#7a6e63" font-family="Arial, sans-serif" font-size="24">hongkuntian.me</text>
+  <text x="1088" y="526" fill="#a84520" font-family="Georgia, serif" font-size="32" text-anchor="end">HKT</text>
 </svg>

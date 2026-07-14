@@ -44,7 +44,7 @@ import { formatDateRange } from "../../utils/content"
           class="buttonSecondary"
           href={`/experience/${primaryExperienceEntry.slug}/`}
         >
-          Open AWS detail page
+          View detailed AWS impact
         </a>
       </div>
 
@@ -55,9 +55,9 @@ import { formatDateRange } from "../../utils/content"
           <p class="finePrint">Highlights</p>
           <ul class="detailList">
             {
-              primaryExperienceEntry.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))
+              primaryExperienceEntry.highlights
+                .slice(0, 3)
+                .map((highlight) => <li>{highlight}</li>)
             }
           </ul>
         </section>
@@ -72,21 +72,6 @@ import { formatDateRange } from "../../utils/content"
             }
           </div>
         </aside>
-      </div>
-
-      <div class="experienceNarrative">
-        {
-          primaryExperienceEntry.detailSections.map((section) => (
-            <section class="experienceNarrativeBlock">
-              <h3>{section.title}</h3>
-              <div class="stack">
-                {section.body.map((paragraph) => (
-                  <p>{paragraph}</p>
-                ))}
-              </div>
-            </section>
-          ))
-        }
       </div>
     </article>
   </section>
@@ -127,7 +112,6 @@ import { formatDateRange } from "../../utils/content"
   }
 
   .experienceFeature,
-  .experienceNarrativeBlock,
   .earlierRole {
     background:
       linear-gradient(180deg, rgba(212, 114, 74, 0.04), transparent 36%),
@@ -149,7 +133,6 @@ import { formatDateRange } from "../../utils/content"
   }
 
   .experienceFeatureHeader h2,
-  .experienceNarrativeBlock h3,
   .earlierRole h3 {
     margin: 0;
     font-family: var(--font-body);
@@ -187,21 +170,6 @@ import { formatDateRange } from "../../utils/content"
   .experienceFeaturePanel {
     display: grid;
     gap: 0.9rem;
-  }
-
-  .experienceNarrative {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .experienceNarrativeBlock {
-    display: grid;
-    gap: 0.8rem;
-    padding: 1.25rem;
-  }
-
-  .experienceNarrativeBlock h3 {
-    font-size: 1.2rem;
   }
 
   .earlierRoleList {

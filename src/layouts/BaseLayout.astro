@@ -1,6 +1,7 @@
 ---
 import SiteFooter from "../components/navigation/SiteFooter.astro"
 import SiteHeader from "../components/navigation/SiteHeader.astro"
+import { profile } from "../data/profile"
 import type { SeoMeta } from "../types/content"
 import "../styles/tokens.css"
 import "../styles/global.css"
@@ -10,16 +11,33 @@ interface Props {
 }
 
 const { meta } = Astro.props
-const site = Astro.site ?? new URL("https://hongkuntian.com")
+const site = Astro.site ?? new URL("https://hongkuntian.me")
 const canonical = new URL(meta.path, site).toString()
-const image = new URL(meta.image ?? "/og-card.svg", site).toString()
-const title =
-  meta.title === "Hong Kun Tian" ? meta.title : `${meta.title} | Hong Kun Tian`
+const image = new URL(meta.image ?? "/og-card.png", site).toString()
+const title = meta.absoluteTitle ? meta.title : `${meta.title} | Hong Kun Tian`
 const plausibleDomain = import.meta.env.PROD
   ? import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN
   : undefined
 const plausibleScript =
   import.meta.env.PUBLIC_PLAUSIBLE_SRC ?? "https://plausible.io/js/script.js"
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  givenName: profile.givenName,
+  familyName: profile.familyName,
+  url: site.toString(),
+  email: `mailto:${profile.email}`,
+  jobTitle: "Backend and distributed-systems engineer",
+  homeLocation: {
+    "@type": "Place",
+    name: profile.location,
+  },
+  sameAs: profile.socialLinks
+    .filter((link) => link.href.startsWith("https://"))
+    .map((link) => link.href),
+  knowsAbout: profile.focusAreas,
+}
 ---
 
 <!doctype html>
@@ -64,11 +82,25 @@ const plausibleScript =
     <meta property="og:description" content={meta.description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta
+      property="og:image:alt"
+      content="Hong Kun Tian - backend and distributed-systems engineer"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={meta.description} />
     <meta name="twitter:image" content={image} />
+    <meta
+      name="twitter:image:alt"
+      content="Hong Kun Tian - backend and distributed-systems engineer"
+    />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(personJsonLd)}
+    />
 
     {
       plausibleDomain && (
@@ -82,9 +114,10 @@ const plausibleScript =
     }
   </head>
   <body>
+    <a class="skipLink" href="#main-content">Skip to content</a>
     <div class="siteChrome">
       <SiteHeader />
-      <main class="pageShell">
+      <main class="pageShell" id="main-content">
         <slot />
       </main>
       <SiteFooter />
@@ -96,15 +129,26 @@ const plausibleScript =
 
         function applyTheme(theme) {
           document.documentElement.setAttribute("data-theme", theme)
+          updateThemeControls(theme)
         }
 
-        function getTheme() {
-          var stored = localStorage.getItem(STORAGE_KEY)
-          if (stored === "dark" || stored === "light") return stored
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light"
+        function updateThemeControls(theme) {
+          var next = theme === "dark" ? "light" : "dark"
+          var label = `Switch to ${next} mode`
+
+          document
+            .querySelectorAll("[data-theme-toggle]")
+            .forEach(function (btn) {
+              btn.setAttribute("aria-label", label)
+              btn.setAttribute("title", label)
+              var text = btn.querySelector("[data-theme-label]")
+              if (text) text.textContent = label
+            })
         }
+
+        updateThemeControls(
+          document.documentElement.getAttribute("data-theme") || "light"
+        )
 
         document
           .querySelectorAll("[data-theme-toggle]")

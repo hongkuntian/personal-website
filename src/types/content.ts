@@ -26,6 +26,7 @@ export interface SeoMeta {
   path: string
   image?: string
   noindex?: boolean
+  absoluteTitle?: boolean
 }
 
 export interface ProfileHighlight {

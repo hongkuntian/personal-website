@@ -9,17 +9,11 @@ interface Props {
 
 const { project } = Astro.props
 const hasImage = Boolean(project.image && project.imageAlt)
-const categoryLabel =
-  project.category === "selected-work" ? "Selected work" : "Archive"
-const categorySummary =
-  project.category === "selected-work"
-    ? "Recent systems work"
-    : "Older public project"
 ---
 
 <article class:list={[styles.card, !hasImage && styles.cardTextOnly]}>
   {
-    hasImage ? (
+    hasImage && (
       <a class={styles.imageWrap} href={`/projects/${project.slug}/`}>
         <Image
           src={project.image!}
@@ -29,11 +23,6 @@ const categorySummary =
           class={styles.image}
         />
       </a>
-    ) : (
-      <div class={styles.metaPanel}>
-        <p class={styles.metaLabel}>{categoryLabel}</p>
-        <p class={styles.metaValue}>{categorySummary}</p>
-      </div>
     )
   }
 
