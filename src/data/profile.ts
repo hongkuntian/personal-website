@@ -5,14 +5,14 @@ export const profile: Profile = {
   givenName: "Hong Kun",
   familyName: "Tian",
   headline:
-    "Software engineer focused on distributed systems, backend platform work, and developer tooling.",
+    "Backend and distributed-systems engineer building reliable workflow platforms and developer tooling.",
   subheadline:
-    "Recent work spans AWS Step Functions, platform reliability, and tooling for engineers operating production systems.",
+    "I work on AWS Step Functions, owning production reliability, workflow-platform capabilities, global region launches, deployment automation, and operational tooling.",
   summary:
-    "I build distributed systems, developer-facing platform features, and tooling that makes backend systems easier to ship and operate.",
-  location: "United States",
+    "Backend and distributed-systems engineer with 4+ years on AWS Step Functions, building workflow-platform capabilities and tooling for a large-scale serverless service.",
+  location: "Vancouver, BC",
   availability:
-    "Open to software engineering opportunities with strong product and infrastructure depth.",
+    "Open to backend, distributed-systems, and platform engineering opportunities.",
   resumeUrl: "/hk_resume.pdf",
   email: "hongkun.tian@hotmail.com",
   socialLinks: [
@@ -32,29 +32,29 @@ export const profile: Profile = {
   highlights: [
     {
       value: "4+ yrs",
-      label: "shipping distributed systems and backend platform work",
+      label: "on AWS Step Functions and large-scale serverless systems",
     },
     {
-      value: "AWS",
-      label:
-        "recent focus on workflow orchestration, rollout reliability, and service tooling",
+      value: "Reliability",
+      label: "production infrastructure, monitoring, and rollout safety",
     },
     {
-      value: "Tooling",
-      label: "recent work includes agent workflows and operational automation",
+      value: "Agentic tooling",
+      label: "LLM agents and human-reviewed operational automation",
     },
   ],
   about: [
-    "I work primarily on distributed systems, with a focus on backend platform design and reliability. Much of that work is about making workflows easier to validate, safer to deploy, and easier to operate when things go wrong. I also build developer tooling for debugging, automation, and day-to-day service ownership. More recently, that has included agent workflows that help with triage, reporting, and operational tasks.",
+    "I work primarily on distributed systems and backend platforms. At AWS Step Functions, I have built customer-facing workflow capabilities, modernized production infrastructure, supported launches across global AWS Regions, and created operational tooling that makes service changes safer to deploy and easier to review.",
   ],
   focusAreas: [
     "Distributed systems",
-    "Backend platform and reliability",
-    "Developer tooling",
     "Workflow orchestration",
-    "Operational automation",
-    "Agent workflows",
-    "TypeScript and Java ecosystems",
+    "Backend services",
+    "Service reliability",
+    "Infrastructure automation",
+    "Developer tooling",
+    "LLM agents",
   ],
-  education: "B.Sc. Honours Computer Science, McGill University",
+  education:
+    "B.Sc. Honours Computer Science, McGill University - GPA 4.00/4.00; Alan Shaver Scholarship",
 }

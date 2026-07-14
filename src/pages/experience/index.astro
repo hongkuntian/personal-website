@@ -9,7 +9,7 @@ import { formatDateRange } from "../../utils/content"
   meta={{
     title: "Experience",
     description:
-      "AWS Step Functions work centered on workflow platform features, rollout reliability, and internal tooling, with earlier experience condensed into supporting context.",
+      "AWS Step Functions experience spanning workflow-platform capabilities, production reliability, global region launches, deployment automation, and operational tooling.",
     path: "/experience/",
   }}
 >
@@ -17,8 +17,9 @@ import { formatDateRange } from "../../utils/content"
     <p class="eyebrow">Experience</p>
     <h1>AWS Step Functions is the center of my recent work.</h1>
     <p>
-      The work spans workflow platform features, rollout reliability during
-      region expansion, and internal tooling for operating production systems.
+      The work spans customer-facing workflow capabilities, production
+      reliability, global region launches, deployment automation, and
+      operational tooling for a large-scale serverless service.
     </p>
     <a href="/" class="inlineLink">&larr; Back home</a>
   </section>
@@ -108,7 +109,9 @@ import { formatDateRange } from "../../utils/content"
           <article class="earlierRole">
             <div class="stack">
               <h3>{role.company}</h3>
-              <p class="earlierRoleMeta">{role.role}</p>
+              <p class="earlierRoleMeta">
+                {role.role} · {formatDateRange(role.start, role.end)}
+              </p>
             </div>
             <p>{role.summary}</p>
           </article>

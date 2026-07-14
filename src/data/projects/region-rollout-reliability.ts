@@ -2,39 +2,39 @@ import type { ProjectEntry } from "../../types/content"
 
 const regionRolloutReliability: ProjectEntry = {
   slug: "region-rollout-reliability",
-  name: "Region rollout reliability",
+  name: "Global rollout and production reliability",
   category: "selected-work",
   tagline:
-    "Reliability work around launches, deployment paths, and service dependencies.",
+    "Infrastructure modernization and safe launches across global AWS Regions.",
   summary:
-    "Worked on rollout reliability for a production cloud service, especially around region launches and deployment automation.",
+    "Owned reliability work spanning alarm infrastructure, deployment automation, global feature parity, and operational rollouts for AWS Step Functions.",
   highlights: [
-    "Diagnosed deployment failures that surfaced during region launch paths rather than in routine steady-state operation.",
-    "Improved repeatability across regional build and deployment workflows by tightening dependency and automation assumptions.",
-    "Invested in CI/CD and test reliability so rollout fixes hold up beyond a single incident or launch cycle.",
+    "Consolidated alarm infrastructure from 1,016 managed resources to 75 and cut synthesis time from 93 to 26 minutes.",
+    "Drove feature launches across commercial, China, GovCloud, and isolated Regions while resolving cross-service failures.",
+    "Built tooling to roll out customer quota changes across 168 accounts and 24 Regions and monitor production regressions.",
   ],
   descriptionSections: [
     {
-      title: "Problem shape",
+      title: "Infrastructure modernization",
       body: [
-        "Region expansion exposes edge cases that are easy to miss in ordinary development loops. The work here was less about a single feature launch and more about understanding how service dependencies, build systems, permissions, and environment-specific behavior combine under pressure.",
-        "That often meant tracing failures across multiple automation layers, then turning one-off debugging into more repeatable deployment paths.",
+        "I owned the end-to-end modernization of Step Functions alarm infrastructure, including deployment automation. The work reduced 1,016 managed resources to 75, cut synthesis time from 93 to 26 minutes, and eliminated redundant per-service paging in migrated regions.",
+        "The result was a smaller, faster, and more consistent operational footprint for a large-scale serverless service.",
       ],
     },
     {
-      title: "Engineering focus",
+      title: "Global rollouts",
       body: [
-        "The target was not only fewer failures, but faster diagnosis, better testing signal, and rollout processes that are easier for other engineers to reason about.",
-        "It is systems work tied directly to how safely a platform can keep growing.",
+        "I drove Step Functions feature launches and parity across commercial, China, GovCloud, and isolated AWS Regions, resolving cross-service deployment failures in restricted environments.",
+        "I also built operational tooling for quota changes across 168 accounts and 24 Regions, with monitoring for production workflow regressions.",
       ],
     },
   ],
   tech: [
-    "Region launches",
+    "AWS Regions",
     "CI/CD",
     "Deployment automation",
-    "Service dependencies",
-    "Test reliability",
+    "CloudWatch",
+    "Service reliability",
   ],
   links: [],
   featured: true,

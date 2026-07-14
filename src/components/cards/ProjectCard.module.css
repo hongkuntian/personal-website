@@ -43,8 +43,7 @@
   align-content: center;
 }
 
-.metaLabel,
-.kind {
+.metaLabel {
   margin: 0;
   color: var(--color-accent);
   font-size: 0.72rem;
@@ -107,7 +106,7 @@
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 0.75rem;
   padding-top: 0.25rem;
 }

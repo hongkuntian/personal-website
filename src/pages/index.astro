@@ -8,7 +8,7 @@ import { formatDateRange, getFeaturedProjects } from "../utils/content"
 
 const selectedWork = getFeaturedProjects(projectEntries)
 const mobileHeadline =
-  "Distributed systems, backend platforms, and developer tooling."
+  "Backend systems, workflow platforms, and developer tooling."
 ---
 
 <BaseLayout
@@ -22,7 +22,7 @@ const mobileHeadline =
     <div class="homeHeroIntro">
       <div class="heroIdentity">
         <p class="heroName">{profile.name}</p>
-        <p class="heroRole">Software Engineer</p>
+        <p class="heroRole">Software Engineer · {profile.location}</p>
       </div>
       <h1 class="heroHeadlineDesktop">{profile.headline}</h1>
       <h1 class="heroHeadlineMobile">{mobileHeadline}</h1>
@@ -76,7 +76,7 @@ const mobileHeadline =
     <div class="sectionHeading">
       <p class="eyebrow">About</p>
       <h2 class="sectionTitle">
-        Technical work shaped around systems clarity and useful tooling.
+        Production systems work backed by measurable reliability gains.
       </h2>
     </div>
 
@@ -96,7 +96,7 @@ const mobileHeadline =
       <div class="stack">
         <p class="eyebrow">Experience</p>
         <h2 class="sectionTitle">
-          Current work centers on AWS Step Functions.
+          4+ years of backend and reliability work on AWS Step Functions.
         </h2>
       </div>
       <a class="inlineLink" href="/experience/"> All experience &rarr; </a>
@@ -166,7 +166,9 @@ const mobileHeadline =
           earlierRoles.map((role) => (
             <article class="earlierRole">
               <h3>{role.company}</h3>
-              <p class="earlierRoleMeta">{role.role}</p>
+              <p class="earlierRoleMeta">
+                {role.role} · {formatDateRange(role.start, role.end)}
+              </p>
               <p>{role.summary}</p>
             </article>
           ))

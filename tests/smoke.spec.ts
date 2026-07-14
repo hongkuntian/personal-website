@@ -1,156 +1,80 @@
 import { expect, test } from "@playwright/test"
 
-test("root route renders the exploration index", async ({ page }) => {
+test("homepage reflects the current resume", async ({ page }) => {
   await page.goto("/")
 
   await expect(
     page.getByRole("heading", {
-      name: /eleven routes, one content model, ten homepage directions/i,
+      name: /backend and distributed-systems engineer building reliable workflow platforms/i,
     })
   ).toBeVisible()
   await expect(
-    page.getByRole("link", { name: /existing astro portfolio/i })
+    page.getByText(/software engineer · vancouver, bc/i)
   ).toBeVisible()
-  await expect(page.getByRole("link", { name: /editorial/i })).toBeVisible()
-  await expect(page.getByRole("link", { name: /terminal/i })).toBeVisible()
-  await expect(page.getByRole("link", { name: /swiss/i })).toBeVisible()
+  await expect(page.getByText("Reliability", { exact: true })).toBeVisible()
+  await expect(page.getByText("Agentic tooling", { exact: true })).toBeVisible()
   await expect(
-    page.getByRole("link", { name: /warm brutalist/i })
-  ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: /soft modern/i })
-  ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: /warm broadsheet/i })
-  ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: /concrete warm/i })
-  ).toBeVisible()
-  await expect(page.getByRole("link", { name: /kiln/i })).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: /dusk forge/i })
-  ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: /woodblock/i })
-  ).toBeVisible()
+    page.getByRole("main").getByRole("link", { name: "Resume", exact: true })
+  ).toHaveAttribute("href", "/hk_resume.pdf")
 })
 
-test("current route preserves the original homepage content", async ({
-  page,
-}) => {
-  await page.goto("/current")
+test("experience pages show resume-backed impact", async ({ page }) => {
+  await page.goto("/experience/")
 
   await expect(
     page.getByRole("heading", {
-      name: /software engineer focused on distributed systems and developer-facing products/i,
+      name: /aws step functions is the center of my recent work/i,
+    })
+  ).toBeVisible()
+  await expect(page.getByText(/may 2021 - aug 2021/i)).toBeVisible()
+
+  await page.getByRole("link", { name: "Open AWS detail page" }).click()
+  await expect(page).toHaveURL(/\/experience\/aws-step-functions\/$/)
+  await expect(
+    page.getByRole("heading", {
+      name: "Software Development Engineer II",
+      exact: true,
     })
   ).toBeVisible()
   await expect(
-    page.getByRole("link", { name: "Resume", exact: true })
+    page.getByText(/cutting synthesis time from 93 to 26 minutes/i).first()
   ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: "All Experience", exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole("link", { name: "All Projects", exact: true })
-  ).toBeVisible()
-  await expect(page.getByRole("link", { name: "Email me" })).toBeVisible()
 })
 
-test("all exploration routes resolve", async ({ page }) => {
-  const explorations = [
-    {
-      path: "/explore/1",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/2",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/3",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/4",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/5",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/6",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/7",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/8",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/9",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-    {
-      path: "/explore/10",
-      heading:
-        /software engineer focused on distributed systems and developer-facing products/i,
-    },
-  ]
+test("selected work uses the current resume themes", async ({ page }) => {
+  await page.goto("/projects/")
 
-  for (const exploration of explorations) {
-    await page.goto(exploration.path)
-    // Every exploration shows the profile name as h1
-    await expect(
-      page.getByRole("heading", { name: /hong kun/i }).first()
-    ).toBeVisible()
-  }
-})
-
-test("experience index and detail pages resolve", async ({ page }) => {
-  await page.goto("/experience/")
   await expect(
-    page.getByRole("heading", { name: /roles that connect product judgment/i })
+    page.getByRole("heading", {
+      name: /workflow platforms, production reliability, and operational tooling/i,
+    })
+  ).toBeVisible()
+  await expect(
+    page.getByRole("link", { name: "SOP-driven LLM automation", exact: true })
   ).toBeVisible()
 
   await page
-    .getByRole("link", { name: /software development engineer/i })
-    .first()
+    .getByRole("link", { name: "SOP-driven LLM automation", exact: true })
     .click()
-  await expect(page).toHaveURL(/\/experience\/aws-step-functions\/$/)
+  await expect(page).toHaveURL(/\/projects\/agent-workflows-and-automation\/$/)
   await expect(
-    page.getByRole("heading", { name: "Software Development Engineer" })
+    page.getByText(/reduced manual triage by approximately 80%/i).first()
   ).toBeVisible()
 })
 
-test("projects index and detail pages resolve", async ({ page }) => {
+test("archive project detail pages still resolve", async ({ page }) => {
   await page.goto("/projects/")
-  await expect(
-    page.getByRole("heading", {
-      name: /representative work that shows how i build/i,
-    })
-  ).toBeVisible()
 
   await page.getByRole("link", { name: "MindBook", exact: true }).click()
   await expect(page).toHaveURL(/\/projects\/mindbook\/$/)
-  await expect(page.getByRole("heading", { name: "MindBook" })).toBeVisible()
+  await expect(
+    page.getByRole("heading", { name: "MindBook", exact: true })
+  ).toBeVisible()
 })
 
-test("resume route redirects to the pdf asset", async ({ page }) => {
+test("resume route points to the current pdf asset", async ({ page }) => {
   await page.goto("/resume/")
+
   await expect(page.locator("link[rel='canonical']")).toHaveAttribute(
     "href",
     "/hk_resume.pdf"

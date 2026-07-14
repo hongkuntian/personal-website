@@ -36,6 +36,8 @@ export interface ProfileHighlight {
 export interface EarlierRole {
   company: string
   role: string
+  start: string
+  end: string
   summary: string
 }
 

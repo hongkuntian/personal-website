@@ -4,19 +4,25 @@ export const earlierRoles: EarlierRole[] = [
   {
     company: "Amazon Web Services",
     role: "Software Development Engineer Intern, AWS Step Functions",
+    start: "2021-05",
+    end: "2021-08",
     summary:
-      "Built reusable React components and workflow visualization integrations across AWS consoles, with integration tests covering cross-service UI behavior.",
+      "Built reusable React components, workflow visualizations, and cross-service integration tests for AWS Step Functions console integrations.",
   },
   {
     company: "Ericsson",
     role: "Software Developer Intern",
+    start: "2021-01",
+    end: "2021-04",
     summary:
-      "Automated deployment workflows through Jenkins pipelines with Bash and Groovy, reinforcing an early focus on infrastructure automation and repeatable delivery paths.",
+      "Automated Jenkins deployment workflows across VMware and OpenStack environments using Bash and Groovy.",
   },
   {
-    company: "UMAknow / Cloudockit",
+    company: "UMAknow",
     role: "Software Developer Intern",
+    start: "2019-06",
+    end: "2020-08",
     summary:
-      "Worked across responsive UI, backend APIs, diagram generation, and automated acceptance testing for a cloud documentation product.",
+      "Built cloud-infrastructure diagram generation, a server-side REST API, responsive UI, and automated acceptance tests for Cloudockit.",
   },
 ]

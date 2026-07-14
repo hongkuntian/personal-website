@@ -2,39 +2,38 @@ import type { ProjectEntry } from "../../types/content"
 
 const agentWorkflowsAndAutomation: ProjectEntry = {
   slug: "agent-workflows-and-automation",
-  name: "Agent workflows and internal automation",
+  name: "SOP-driven LLM automation",
   category: "selected-work",
-  tagline:
-    "Operational tooling and agent-assisted workflows for engineering teams.",
+  tagline: "Human-reviewed automation for complex quota-safety triage.",
   summary:
-    "Built internal tooling that combines operational context, structured workflows, and LLM assistance for triage, reporting, debugging, and repetitive engineering tasks.",
+    "Built an LLM agent with reusable tools that applies a complex quota-safety decision tree while keeping engineers in the review loop.",
   highlights: [
-    "Built internal tooling for on-call debugging, batch operations, and visibility into service behavior.",
-    "Created research-oriented tools for navigating large codebases and documentation during investigations.",
-    "Integrated LLM-powered workflows into operational tasks such as triage, reporting, and assistance-oriented automation.",
+    "Reduced manual triage by approximately 80% across 10-20 weekly requests.",
+    "Encoded an SOP-driven decision tree through reusable agent tools.",
+    "Retained human review for quota-safety decisions.",
   ],
   descriptionSections: [
     {
       title: "Scope",
       body: [
-        "This work sits inside a broader tooling and automation stack rather than off to the side as a separate experiment. The useful systems are the ones that reduce manual overhead, improve context gathering, and fit into the way engineers already work during incidents or operational reviews.",
-        "That leads to practical designs: constrained tools, explicit workflow boundaries, and outputs that are easy to inspect.",
+        "The agent applies a complex quota-safety decision tree to recurring operational requests. Reusable tools give the workflow structured actions instead of relying on unconstrained text generation.",
+        "The system handles 10-20 weekly requests and reduced manual triage by approximately 80% while preserving human review.",
       ],
     },
     {
       title: "Why it matters",
       body: [
-        "This work grows out of the same operational pain points as the rest of the tooling effort: too much manual triage, scattered context, and repetitive debugging steps.",
-        "The challenge is connecting language-model capabilities to real systems and operators without losing clarity or engineering discipline.",
+        "The workflow turns a detailed operating procedure into inspectable automation without removing engineers from safety-sensitive decisions.",
+        "It demonstrates how LLM agents, tool calling, and explicit review boundaries can reduce repetitive work in production operations.",
       ],
     },
   ],
   tech: [
-    "Developer tooling",
-    "Operational automation",
-    "LLM workflows",
-    "Triage systems",
-    "Codebase navigation",
+    "LLM agents",
+    "Tool calling",
+    "SOP-driven automation",
+    "Human-in-the-loop",
+    "Operational tooling",
   ],
   links: [],
   featured: true,
