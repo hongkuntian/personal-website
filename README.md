@@ -4,13 +4,15 @@ Modernized personal website built with Astro, TypeScript, and Netlify-friendly s
 
 ## Stack
 
-- Astro 5
+- Astro 7
 - TypeScript
 - CSS variables + CSS Modules
 - Vitest + Playwright
 - Plausible-ready analytics
 
 ## Local development
+
+Use Node.js 22.12 or newer.
 
 ```bash
 npm install
