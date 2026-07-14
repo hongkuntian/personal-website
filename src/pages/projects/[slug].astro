@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import { profile } from "../../data/profile"
 import { projectEntries } from "../../data/projects"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
@@ -91,6 +92,27 @@ const sectionLabel =
         </section>
       )
     }
+
+    <section class="ctaPanel detailCta" aria-labelledby="project-next-step">
+      <div class="stack">
+        <p class="eyebrow">Next step</p>
+        <h2 class="detailCtaTitle" id="project-next-step">
+          Interested in this kind of systems work?
+        </h2>
+        <p>Review my resume or get in touch directly.</p>
+      </div>
+      <div class="ctaActions">
+        <a
+          class="button"
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open resume
+        </a>
+        <a class="buttonSecondary" href={`mailto:${profile.email}`}>Email me</a>
+      </div>
+    </section>
 
     <a class="inlineLink" href="/projects/"> Back to all projects </a>
   </article>

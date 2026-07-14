@@ -1,5 +1,6 @@
 ---
 import { experienceEntries } from "../../data/experience"
+import { profile } from "../../data/profile"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import { formatDateRange } from "../../utils/content"
 
@@ -24,47 +25,64 @@ const { entry } = Astro.props
     <p class="eyebrow">Experience</p>
     <h1>{entry.role}</h1>
     <p class="detailLead">
-      {entry.company} · {entry.location} · {formatDateRange(entry.start, entry.end)}
+      {entry.company} · {entry.location} · {
+        formatDateRange(entry.start, entry.end)
+      }
     </p>
     <p class="detailSummary">{entry.summary}</p>
 
     <div class="tagList">
-      {entry.tech.map((item) => (
-        <span class="tag">{item}</span>
-      ))}
+      {entry.tech.map((item) => <span class="tag">{item}</span>)}
     </div>
 
     <section class="detailSection">
       <h2>Highlights</h2>
       <ul class="detailList">
-        {entry.highlights.map((highlight) => (
-          <li>{highlight}</li>
-        ))}
+        {entry.highlights.map((highlight) => <li>{highlight}</li>)}
       </ul>
     </section>
 
     <section class="detailSection">
       <h2>Core impact</h2>
       <div class="tagList">
-        {entry.impact.map((item) => (
-          <span class="tag">{item}</span>
-        ))}
+        {entry.impact.map((item) => <span class="tag">{item}</span>)}
       </div>
     </section>
 
-    {entry.detailSections.map((section) => (
-      <section class="detailSection">
-        <h2>{section.title}</h2>
-        <div class="stack">
-          {section.body.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-    ))}
+    {
+      entry.detailSections.map((section) => (
+        <section class="detailSection">
+          <h2>{section.title}</h2>
+          <div class="stack">
+            {section.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ))
+    }
 
-    <a class="inlineLink" href="/experience/">
-      Back to all experience
-    </a>
+    <section class="ctaPanel detailCta" aria-labelledby="experience-next-step">
+      <div class="stack">
+        <p class="eyebrow">Next step</p>
+        <h2 class="detailCtaTitle" id="experience-next-step">
+          Interested in this kind of systems work?
+        </h2>
+        <p>Review my resume or get in touch directly.</p>
+      </div>
+      <div class="ctaActions">
+        <a
+          class="button"
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open resume
+        </a>
+        <a class="buttonSecondary" href={`mailto:${profile.email}`}>Email me</a>
+      </div>
+    </section>
+
+    <a class="inlineLink" href="/experience/"> Back to all experience </a>
   </article>
 </BaseLayout>

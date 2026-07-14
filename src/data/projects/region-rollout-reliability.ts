@@ -9,7 +9,7 @@ const regionRolloutReliability: ProjectEntry = {
   summary:
     "Owned reliability work spanning alarm infrastructure, deployment automation, global feature parity, and operational rollouts for AWS Step Functions.",
   highlights: [
-    "Consolidated alarm infrastructure from 1,016 managed resources to 75 and cut synthesis time from 93 to 26 minutes.",
+    "Consolidated alarm infrastructure from 1,016 managed resources to 75 and cut alarm-infrastructure synthesis time from 93 to 26 minutes.",
     "Drove feature launches across commercial, China, GovCloud, and isolated Regions while resolving cross-service failures.",
     "Built tooling to roll out customer quota changes across 168 accounts and 24 Regions and monitor production regressions.",
   ],
@@ -17,7 +17,7 @@ const regionRolloutReliability: ProjectEntry = {
     {
       title: "Infrastructure modernization",
       body: [
-        "I owned the end-to-end modernization of Step Functions alarm infrastructure, including deployment automation. The work reduced 1,016 managed resources to 75, cut synthesis time from 93 to 26 minutes, and eliminated redundant per-service paging in migrated regions.",
+        "I owned the end-to-end modernization of Step Functions alarm infrastructure, including deployment automation. The work reduced 1,016 managed resources to 75, cut alarm-infrastructure synthesis time from 93 to 26 minutes, and eliminated redundant per-service paging in migrated regions.",
         "The result was a smaller, faster, and more consistent operational footprint for a large-scale serverless service.",
       ],
     },

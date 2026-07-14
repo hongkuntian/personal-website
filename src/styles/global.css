@@ -331,6 +331,19 @@ main {
   height: auto;
 }
 
+.detailCta {
+  margin-top: 0.5rem;
+}
+
+.detailCtaTitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
 /* ── Responsive ────────────────────────────────────────── */
 
 @media (max-width: 1024px) {

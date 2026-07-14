@@ -12,7 +12,7 @@ test("homepage reflects the current positioning", async ({ page }) => {
     })
   ).toBeVisible()
   await expect(
-    page.getByText(/software engineer · vancouver, bc/i)
+    page.getByText(/backend \/ platform engineer · vancouver, bc/i)
   ).toBeVisible()
   await expect(page.getByText("Reliability", { exact: true })).toBeVisible()
   await expect(page.getByText("Agentic tooling", { exact: true })).toBeVisible()
@@ -66,7 +66,10 @@ test("homepage metadata and navigation are shareable and accessible", async ({
   await expect(menu).toHaveAttribute("aria-hidden", "true")
   await expect(menu).toHaveAttribute("inert", "")
 
-  await page.getByRole("button", { name: "Toggle navigation menu" }).click()
+  const menuToggle = page.getByRole("button", {
+    name: "Toggle navigation menu",
+  })
+  await menuToggle.click()
   await expect(menu).toHaveAttribute("aria-hidden", "false")
   await expect(menu).not.toHaveAttribute("inert", "")
   await expect(menu.getByRole("link", { name: "Experience" })).toHaveAttribute(
@@ -80,6 +83,10 @@ test("homepage metadata and navigation are shareable and accessible", async ({
   await expect(menu.getByRole("link", { name: "All Experience" })).toHaveCount(
     0
   )
+
+  await page.keyboard.press("Escape")
+  await expect(menu).toHaveAttribute("aria-hidden", "true")
+  await expect(menuToggle).toBeFocused()
 })
 
 test("experience pages show resume-backed impact", async ({ page }) => {
@@ -105,8 +112,18 @@ test("experience pages show resume-backed impact", async ({ page }) => {
     })
   ).toBeVisible()
   await expect(
-    page.getByText(/cutting synthesis time from 93 to 26 minutes/i).first()
+    page
+      .getByText(
+        /cutting alarm-infrastructure synthesis time from 93 to 26 minutes/i
+      )
+      .first()
   ).toBeVisible()
+  await expect(
+    page.getByRole("link", { name: "Open resume", exact: true })
+  ).toHaveAttribute("href", "/hk_resume.pdf")
+  await expect(
+    page.getByRole("link", { name: "Email me", exact: true })
+  ).toHaveAttribute("href", "mailto:hongkun.tian@hotmail.com")
 })
 
 test("selected work uses the current resume themes", async ({ page }) => {
@@ -137,6 +154,12 @@ test("selected work uses the current resume themes", async ({ page }) => {
   await expect(
     page.getByText(/reduced manual triage by approximately 80%/i).first()
   ).toBeVisible()
+  await expect(
+    page.getByRole("link", { name: "Open resume", exact: true })
+  ).toHaveAttribute("href", "/hk_resume.pdf")
+  await expect(
+    page.getByRole("link", { name: "Email me", exact: true })
+  ).toHaveAttribute("href", "mailto:hongkun.tian@hotmail.com")
 })
 
 test("archive project detail pages still resolve", async ({ page }) => {

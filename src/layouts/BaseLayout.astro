@@ -3,6 +3,8 @@ import SiteFooter from "../components/navigation/SiteFooter.astro"
 import SiteHeader from "../components/navigation/SiteHeader.astro"
 import { profile } from "../data/profile"
 import type { SeoMeta } from "../types/content"
+import "@fontsource-variable/dm-sans/wght.css"
+import "@fontsource/instrument-serif/latin-400.css"
 import "../styles/tokens.css"
 import "../styles/global.css"
 
@@ -68,14 +70,6 @@ const personJsonLd = {
         document.documentElement.setAttribute("data-theme", theme)
       })()
     </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
-      rel="stylesheet"
-    />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
