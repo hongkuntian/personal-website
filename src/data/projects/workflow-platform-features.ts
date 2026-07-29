@@ -6,18 +6,18 @@ const workflowPlatformFeatures: ProjectEntry = {
   category: "selected-work",
   tagline: "Developer-facing workflow capabilities and validation.",
   summary:
-    "Built backend capabilities that let customers version, validate, and deploy state machines with safer production behavior and clearer diagnostics.",
+    "Contributed backend capabilities for state machine versioning and aliases, workflow validation, and safer production rollouts.",
   highlights: [
-    "Designed state machine versioning and aliases for immutable workflow releases and safe production traffic shifts.",
+    "Helped deliver state machine versioning and aliases by implementing publish-path idempotency, legacy compatibility, CloudFormation resource behavior, and integration tests.",
     "Built throttling, monitoring canaries, and global rollout infrastructure for the ValidateStateMachineDefinition API.",
     "Delivered JSONata validation that prevents invalid runtime references and improves developer diagnostics.",
-    "Added CloudFormation resource-provider lifecycle handlers and automated integration tests.",
+    "Consolidated two CloudFormation publishing pipelines, improving successful runs from roughly 20% to 99% over one year.",
   ],
   descriptionSections: [
     {
       title: "Scope",
       body: [
-        "The work spans core backend behavior and the developer-facing paths used to manage workflows. Versioning and aliases give customers immutable releases and controlled traffic shifts, while pre-deployment validation catches errors earlier.",
+        "I helped deliver state machine versioning and aliases by implementing publish-path idempotency, legacy compatibility, CloudFormation resource behavior, and integration tests for safe traffic shifting and rollback.",
         "The implementation also includes global rollout infrastructure, monitoring canaries, throttling, and infrastructure-as-code integration points.",
       ],
     },
@@ -25,7 +25,7 @@ const workflowPlatformFeatures: ProjectEntry = {
       title: "Focus",
       body: [
         "For a workflow platform, correctness includes diagnostics and rollout safety as well as API behavior. JSONata validation prevents invalid runtime references, and ValidateStateMachineDefinition lets customers catch definition errors before deployment.",
-        "CloudFormation resource-provider capabilities extend the same platform behavior to infrastructure-as-code workflows through lifecycle handlers and integration tests.",
+        "My CloudFormation work covered versioning resource behavior and publishing pipelines, including resolving contract-test and cache-sensitive failures.",
       ],
     },
   ],

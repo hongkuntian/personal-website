@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto"
 import { expect, test } from "@playwright/test"
 
 test("homepage reflects the current positioning", async ({ page }) => {
@@ -23,6 +24,7 @@ test("homepage reflects the current positioning", async ({ page }) => {
       )
       .first()
   ).toBeVisible()
+  await expect(page.getByText(/relocating to nyc/i)).toHaveCount(0)
   await expect(page.locator(".primaryExperienceBlock li")).toHaveCount(3)
   await expect(
     page.locator(".selectedWorkCard").first().locator("li")
@@ -114,10 +116,22 @@ test("experience pages show resume-backed impact", async ({ page }) => {
   await expect(
     page
       .getByText(
-        /cutting alarm-infrastructure synthesis time from 93 to 26 minutes/i
+        /consolidating 1,016 pipeline deployment groups to 75, cutting package build time from 93 to 26 minutes/i
       )
       .first()
   ).toBeVisible()
+  await expect(
+    page
+      .getByText(/helped deliver state machine versioning and aliases/i)
+      .first()
+  ).toBeVisible()
+  await expect(
+    page.getByText(/cutting processing time by roughly 50%/i).first()
+  ).toBeVisible()
+  await expect(page.getByText(/168 accounts/i)).toHaveCount(0)
+  await expect(page.getByText(/24 (aws )?regions/i)).toHaveCount(0)
+  await expect(page.getByText(/managed resources/i)).toHaveCount(0)
+  await expect(page.getByText(/synthesis time/i)).toHaveCount(0)
   await expect(
     page.getByRole("link", { name: "Open resume", exact: true })
   ).toHaveAttribute("href", "/hk_resume.pdf")
@@ -184,15 +198,53 @@ test("archive project detail pages still resolve", async ({ page }) => {
   ).toBeVisible()
 })
 
-test("resume route points to the current pdf asset", async ({ page }) => {
-  await page.goto("/resume/")
+test("every resume link points to the current pdf asset", async ({
+  page,
+  request,
+}) => {
+  const routes = [
+    "/",
+    "/404/",
+    "/experience/",
+    "/experience/aws-step-functions/",
+    "/experience/umaknow-cloudockit/",
+    "/projects/",
+    "/projects/workflow-platform-features/",
+    "/projects/region-rollout-reliability/",
+    "/projects/agent-workflows-and-automation/",
+    "/projects/mindbook/",
+    "/projects/nlpure/",
+    "/projects/travelcc/",
+    "/projects/painttrix/",
+    "/projects/sureviews/",
+    "/resume/",
+  ]
 
+  for (const route of routes) {
+    await page.goto(route)
+    const resumeLinks = page.locator("a").filter({ hasText: /resume/i })
+    expect(
+      await resumeLinks.count(),
+      `${route} should expose a resume link`
+    ).toBeGreaterThan(0)
+
+    for (const link of await resumeLinks.all()) {
+      await expect(link).toHaveAttribute("href", "/hk_resume.pdf")
+    }
+  }
+
+  await page.goto("/resume/")
   await expect(page.locator("link[rel='canonical']")).toHaveAttribute(
     "href",
     "/hk_resume.pdf"
   )
-  await expect(page.getByRole("link", { name: "resume" })).toHaveAttribute(
-    "href",
-    "/hk_resume.pdf"
-  )
+
+  const response = await request.get("/hk_resume.pdf")
+  expect(response.ok()).toBe(true)
+  expect(response.headers()["content-type"]).toContain("application/pdf")
+  expect(
+    createHash("sha256")
+      .update(await response.body())
+      .digest("hex")
+  ).toBe("49b4e04f8c1b80b1268248efa774a031f476c3a24373efd01323bc8529b5acfe")
 })

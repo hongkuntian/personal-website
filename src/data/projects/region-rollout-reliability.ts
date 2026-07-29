@@ -7,25 +7,26 @@ const regionRolloutReliability: ProjectEntry = {
   tagline:
     "Infrastructure modernization and safe launches across global AWS Regions.",
   summary:
-    "Owned reliability work spanning alarm infrastructure, deployment automation, global feature parity, and operational rollouts for AWS Step Functions.",
+    "Owned reliability work spanning alarm infrastructure across roughly 40 AWS Regions, deployment automation, an isolated AWS launch, and operational quota tooling for Step Functions.",
   highlights: [
-    "Consolidated alarm infrastructure from 1,016 managed resources to 75 and cut alarm-infrastructure synthesis time from 93 to 26 minutes.",
-    "Drove feature launches across commercial, China, GovCloud, and isolated Regions while resolving cross-service failures.",
-    "Built tooling to roll out customer quota changes across 168 accounts and 24 Regions and monitor production regressions.",
+    "Consolidated 1,016 pipeline deployment groups to 75 and cut package build time from 93 to 26 minutes.",
+    "Owned Step Functions work from internal availability to GA in an isolated AWS environment, launching in September 2025.",
+    "Redesigned operational quota tooling with batching, validation, and safe retry, cutting processing time by roughly 50%.",
+    "Consolidated two CloudFormation publishing pipelines, improving successful runs from roughly 20% to 99% over one year.",
   ],
   descriptionSections: [
     {
       title: "Infrastructure modernization",
       body: [
-        "I owned the end-to-end modernization of Step Functions alarm infrastructure, including deployment automation. The work reduced 1,016 managed resources to 75, cut alarm-infrastructure synthesis time from 93 to 26 minutes, and eliminated redundant per-service paging in migrated regions.",
-        "The result was a smaller, faster, and more consistent operational footprint for a large-scale serverless service.",
+        "I owned the end-to-end modernization of Step Functions alarm infrastructure across roughly 40 AWS Regions, consolidating 1,016 pipeline deployment groups to 75, cutting package build time from 93 to 26 minutes, and aggregating duplicate paging.",
+        "I also consolidated two CloudFormation publishing pipelines and resolved contract-test and cache-sensitive failures, improving successful runs from roughly 20% to 99% over one year.",
       ],
     },
     {
       title: "Global rollouts",
       body: [
-        "I drove Step Functions feature launches and parity across commercial, China, GovCloud, and isolated AWS Regions, resolving cross-service deployment failures in restricted environments.",
-        "I also built operational tooling for quota changes across 168 accounts and 24 Regions, with monitoring for production workflow regressions.",
+        "I owned Step Functions work from internal availability to GA in an isolated AWS environment, diagnosing cross-service failures through remote operators and launching in September 2025.",
+        "I also redesigned operational quota tooling after recurring abuse events, batching related changes under one approval, adding validation and safe retry, and cutting processing time by roughly 50%.",
       ],
     },
   ],

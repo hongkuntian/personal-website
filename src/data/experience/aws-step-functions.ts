@@ -9,12 +9,14 @@ const awsStepFunctions: ExperienceEntry = {
   summary:
     "Owning production reliability, workflow-platform capabilities, global region launches, deployment automation, and operational tooling for AWS Step Functions.",
   highlights: [
-    "Modernized alarm infrastructure end to end, consolidating 1,016 managed resources to 75 and cutting alarm-infrastructure synthesis time from 93 to 26 minutes.",
-    "Designed core backend functionality for state machine versioning and aliases, enabling immutable workflow versions and safer production traffic shifts.",
+    "Owned end-to-end modernization of Step Functions alarm infrastructure across roughly 40 AWS Regions, consolidating 1,016 pipeline deployment groups to 75, cutting package build time from 93 to 26 minutes, and aggregating duplicate paging.",
+    "Helped deliver state machine versioning and aliases by implementing publish-path idempotency, legacy compatibility, CloudFormation resource behavior, and integration tests for safe traffic shifting and rollback.",
     "Built an SOP-driven LLM agent that reduced manual quota-safety triage by approximately 80% across 10-20 weekly requests while retaining human review.",
-    "Drove feature launches and parity across commercial, China, GovCloud, and isolated AWS Regions, resolving cross-service failures in restricted environments.",
+    "Owned Step Functions work from internal availability to GA in an isolated AWS environment, diagnosing cross-service failures through remote operators and launching in September 2025.",
     "Built validation, throttling, canaries, and rollout infrastructure that catches workflow-definition errors before deployment and improves diagnostics.",
-    "Created operational tooling for quota changes across 168 accounts and 24 AWS Regions and delivered CloudFormation resource-provider capabilities.",
+    "Delivered JSONata expression validation that prevented invalid runtime references and improved developer diagnostics for a major workflow-language launch.",
+    "Redesigned operational quota tooling with batching, validation, and safe retry, cutting processing time by roughly 50%.",
+    "Consolidated two CloudFormation publishing pipelines and resolved contract-test and cache-sensitive failures, improving successful runs from roughly 20% to 99% over one year.",
   ],
   impact: [
     "Production reliability ownership",
@@ -39,21 +41,21 @@ const awsStepFunctions: ExperienceEntry = {
     {
       title: "Workflow-platform capabilities",
       body: [
-        "I designed and implemented core backend functionality for state machine versioning and aliases, enabling customers to publish immutable workflow versions and safely shift production traffic.",
-        "I also built throttling, monitoring canaries, and global rollout infrastructure for the ValidateStateMachineDefinition API; delivered JSONata expression validation that prevents invalid runtime references; and added CloudFormation resource-provider lifecycle handlers with automated integration tests.",
+        "I helped deliver state machine versioning and aliases by implementing publish-path idempotency, legacy compatibility, CloudFormation resource behavior, and integration tests for safe traffic shifting and rollback.",
+        "I also built throttling, monitoring canaries, and global rollout infrastructure for the ValidateStateMachineDefinition API; delivered JSONata expression validation that prevents invalid runtime references; and consolidated two CloudFormation publishing pipelines while resolving contract-test and cache-sensitive failures.",
       ],
     },
     {
       title: "Production reliability and infrastructure",
       body: [
-        "I owned the end-to-end modernization of Step Functions alarm infrastructure, automating deployments, reducing the managed resource count from 1,016 to 75, cutting alarm-infrastructure synthesis time from 93 to 26 minutes, and eliminating redundant per-service paging in migrated regions.",
-        "I also built operational tooling to safely roll out customer quota changes across 168 accounts and 24 AWS Regions while monitoring production workflow regressions.",
+        "I owned the end-to-end modernization of Step Functions alarm infrastructure across roughly 40 AWS Regions, consolidating 1,016 pipeline deployment groups to 75, cutting package build time from 93 to 26 minutes, and aggregating duplicate paging.",
+        "I also redesigned operational quota tooling after recurring abuse events, batching related changes under one approval, adding validation and safe retry, and cutting processing time by roughly 50%.",
       ],
     },
     {
       title: "Global launches and LLM tooling",
       body: [
-        "I drove Step Functions feature launches and parity across commercial, China, GovCloud, and isolated AWS Regions, resolving cross-service deployment failures in restricted environments.",
+        "I owned Step Functions work from internal availability to GA in an isolated AWS environment, diagnosing cross-service failures through remote operators and launching in September 2025.",
         "For operational support, I built an SOP-driven LLM agent with reusable tools that applies a complex quota-safety decision tree. It reduced manual triage by approximately 80% across 10-20 weekly requests while preserving human review.",
       ],
     },
