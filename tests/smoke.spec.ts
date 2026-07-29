@@ -100,6 +100,12 @@ test("experience pages show resume-backed impact", async ({ page }) => {
     })
   ).toBeVisible()
   await expect(page.getByText(/may 2021 - aug 2021/i)).toBeVisible()
+  await expect(
+    page.getByText(
+      /software development engineer \(l4\), aws step functions/i
+    )
+  ).toBeVisible()
+  await expect(page.getByText(/jul 2022 - apr 2024/i).first()).toBeVisible()
   await expect(page.locator(".experienceFeaturePanel li")).toHaveCount(3)
   await expect(
     page.getByRole("heading", { name: "Workflow-platform capabilities" })
@@ -109,7 +115,14 @@ test("experience pages show resume-backed impact", async ({ page }) => {
   await expect(page).toHaveURL(/\/experience\/aws-step-functions\/$/)
   await expect(
     page.getByRole("heading", {
-      name: "Software Development Engineer II",
+      name: "Software Development Engineer II (L5), AWS Step Functions",
+      exact: true,
+    })
+  ).toBeVisible()
+  await expect(page.getByText(/apr 2024 - present/i).first()).toBeVisible()
+  await expect(
+    page.getByRole("heading", {
+      name: "Software Development Engineer (L4), AWS Step Functions",
       exact: true,
     })
   ).toBeVisible()
@@ -246,5 +259,5 @@ test("every resume link points to the current pdf asset", async ({
     createHash("sha256")
       .update(await response.body())
       .digest("hex")
-  ).toBe("49b4e04f8c1b80b1268248efa774a031f476c3a24373efd01323bc8529b5acfe")
+  ).toBe("9b3e360fa51da9473fa5bd276c662e1bccaacc78df3c9ee242d3b3b47e426593")
 })
