@@ -1,0 +1,617 @@
+---
+import { Image } from "astro:assets"
+import AwsCareer from "../../components/redesign/AwsCareer.astro"
+import ArchiveLink from "../../components/redesign/ArchiveLink.astro"
+import portrait from "../../assets/profile-2026.png"
+import RedesignLayout from "../../layouts/RedesignLayout.astro"
+import { profile } from "../../data/profile"
+import { workNotes } from "../../data/redesigns"
+import {
+  experienceSummary,
+  educationSummary,
+} from "../../data/redesign-content"
+---
+
+<RedesignLayout design="poster">
+  <header class="poster-nav">
+    <a href="/redesigns/poster/">HKT</a><p>
+      SOFTWARE ENGINEER<br />VANCOUVER, CANADA
+    </p><nav aria-label="Main navigation">
+      <a href="#work">Work</a><a href="#about">Experience</a><a
+        href={profile.resumeUrl}>Résumé</a
+      ><a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="poster-hero">
+      <div class="hero-top">
+        <span>AWS STEP FUNCTIONS</span><span
+          >SOFTWARE DEVELOPMENT ENGINEER II</span
+        >
+      </div><h1>
+        <span>HONG KUN</span><span class="surname">TIAN</span>
+      </h1><Image
+        class="hero-portrait"
+        src={portrait}
+        alt="Hong Kun Tian"
+        width={400}
+        height={450}
+        loading="eager"
+      /><div class="hero-bottom">
+        <p>Backend systems<br />& workflow APIs.</p><div>
+          I own alarm infrastructure and operational tooling, and help deliver
+          workflow features and regional launches.<a href="#work">AWS work ↓</a>
+        </div>
+      </div>
+    </section>
+    <section class="work-index" id="work">
+      <div class="section-label">
+        <h2>Selected AWS work</h2><span>AWS Step Functions</span>
+      </div>{
+        workNotes.map((work, i) => (
+          <a class="work-row" href={`/redesigns/poster/projects/${work.slug}/`}>
+            <>
+              <span class="index">0{i + 1}</span>
+              <div>
+                <>
+                  <h3>{work.title}</h3>
+                  <p>{work.description}</p>
+                </>
+              </div>
+              <div class="work-stat">
+                <>
+                  <strong>{work.stat}</strong>
+                  <span>{work.caption}</span>
+                </>
+              </div>
+              <span class="arrow">↗</span>
+            </>
+          </a>
+        ))
+      }
+    </section>
+    <section class="poster-info" id="about">
+      <div class="info-image">
+        <Image
+          src={portrait}
+          alt="Hong Kun Tian"
+          width={800}
+          height={950}
+        /><span>HONG KUN TIAN / VANCOUVER</span>
+      </div><div class="info-copy">
+        <span class="mono">Experience</span><h2>
+          AWS<br /><em>experience.</em>
+        </h2><p>{experienceSummary}</p><AwsCareer /><p class="education">
+          {educationSummary}
+        </p><a class="resume" href={profile.resumeUrl}>View résumé ↗</a>
+      </div>
+    </section>
+    <footer id="contact">
+      <div class="footer-top">
+        <span>Contact</span><span>Open to backend & platform roles</span>
+      </div><a class="contact" href={`mailto:${profile.email}`}
+        >GET IN TOUCH<span>↗</span></a
+      ><div class="footer-bottom">
+        <a href={`mailto:${profile.email}`}>{profile.email}</a><div>
+          {
+            profile.socialLinks
+              .slice(1)
+              .map((link) => <a href={link.href}>{link.label} ↗</a>)
+          }
+        </div>
+      </div>
+      <ArchiveLink design="poster" />
+    </footer>
+  </main>
+</RedesignLayout>
+<style>
+  :global(body.poster) {
+    background: #161814;
+    color: #f2f3ec;
+  }
+  .poster-nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 25px 50px;
+    border-bottom: 1px solid #ffffff40;
+  }
+  .poster-nav > a {
+    font-size: 40px;
+    letter-spacing: -3px;
+    line-height: 1;
+    font-weight: 900;
+    text-decoration: none;
+  }
+  .poster-nav > a span {
+    font-size: 15px;
+    vertical-align: top;
+    letter-spacing: 0;
+  }
+  .poster-nav p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  .poster-nav nav {
+    margin-left: auto;
+    display: flex;
+    gap: 36px;
+    font-size: 12px;
+  }
+  .poster-nav nav a {
+    text-decoration: none;
+  }
+  .poster-nav nav a:hover {
+    color: #d3e5a7;
+  }
+  .poster-hero {
+    background: #d3e5a7;
+    color: #161814;
+    padding: 27px 50px 40px;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  h1 {
+    font-size: clamp(72px, 12.5vw, 180px);
+    line-height: 0.83;
+    letter-spacing: -0.09em;
+    font-weight: 850;
+    margin: 28px 0;
+  }
+  h1 > span {
+    display: block;
+  }
+  .surname {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .asterisk {
+    font-size: 1.06em;
+    line-height: 0.7;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-right: 4vw;
+  }
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  .hero-bottom > p {
+    font-size: clamp(28px, 3.5vw, 48px);
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+  .hero-bottom > div {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+  .hero-bottom a {
+    display: block;
+    width: fit-content;
+    margin-top: 20px;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    font-size: 12px;
+  }
+  .work-index {
+    padding: 55px 50px 80px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+  }
+  .section-label h2,
+  .section-label span {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .work-row {
+    display: grid;
+    grid-template-columns: 65px 1fr 200px 50px;
+    align-items: center;
+    gap: 22px;
+    padding: 34px 0;
+    border-top: 1px solid #ffffff50;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .work-row:last-child {
+    border-bottom: 1px solid #ffffff50;
+  }
+  .index {
+    font:
+      13px "Courier New",
+      monospace;
+    color: #afba9c;
+  }
+  .work-row h3 {
+    font-size: clamp(23px, 2.7vw, 38px);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.055em;
+  }
+  .work-row p {
+    font-size: 16px;
+    color: #c2c6ba;
+    margin-top: 11px;
+  }
+  .work-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .work-stat strong {
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+  .work-stat span {
+    font-size: 12px;
+    color: #a9afa1;
+    margin-top: 5px;
+  }
+  .arrow {
+    font-size: 42px;
+  }
+  .work-row:hover {
+    color: #d3e5a7;
+  }
+  .poster-info {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 90px;
+    padding: 0 50px 100px;
+    align-items: center;
+  }
+  .info-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    filter: none;
+  }
+  .info-image > span {
+    font-size: 11px;
+    display: block;
+    margin-top: 12px;
+    letter-spacing: 0.06em;
+  }
+  .info-copy h2 {
+    font-size: clamp(50px, 6vw, 84px);
+    letter-spacing: -0.06em;
+    line-height: 0.97;
+    font-weight: 500;
+    margin: 25px 0;
+  }
+  .info-copy h2 em {
+    font-family: "Instrument Serif", serif;
+    color: #d3e5a7;
+    font-weight: 400;
+  }
+  .info-copy p {
+    max-width: 470px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #c2c6ba;
+    margin-bottom: 20px;
+  }
+  .resume {
+    display: inline-block;
+    border: 1px solid #c2c6ba;
+    padding: 12px 30px;
+    margin-top: 10px;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .resume:hover {
+    color: #161814;
+    background: #d3e5a7;
+  }
+  footer {
+    background: #d3e5a7;
+    color: #161814;
+    padding: 35px 50px 110px;
+  }
+  .footer-top,
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    gap: 20px;
+  }
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(50px, 12.6vw, 195px);
+    line-height: 1.2;
+    font-weight: 650;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+    border-bottom: 2px solid;
+    margin: 20px 0 28px;
+  }
+  .contact span {
+    font-weight: 400;
+  }
+  .footer-bottom div {
+    display: flex;
+    gap: 25px;
+  }
+  @media (min-width: 1600px) {
+    .poster-nav,
+    .poster-hero,
+    .work-index,
+    .poster-info,
+    footer {
+      padding-left: max(50px, calc((100vw - 1500px) / 2));
+      padding-right: max(50px, calc((100vw - 1500px) / 2));
+    }
+    h1 {
+      font-size: 180px;
+    }
+  }
+  @media (max-width: 900px) {
+    .poster-nav {
+      gap: 35px;
+    }
+    .poster-nav,
+    .poster-hero,
+    .work-index,
+    .poster-info,
+    footer {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+    .poster-info {
+      gap: 35px;
+    }
+    .info-image img {
+      height: 320px;
+    }
+    .work-row {
+      grid-template-columns: 30px 1fr 150px 30px;
+    }
+    .work-stat strong {
+      font-size: 21px;
+    }
+    .arrow {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: 600px) {
+    .poster-nav {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .poster-nav p {
+      display: none;
+    }
+    .poster-nav nav {
+      gap: 20px;
+      font-size: 10px;
+    }
+    .hero-top {
+      font-size: 9px;
+    }
+    .hero-top span:last-child {
+      display: none;
+    }
+    h1 {
+      font-size: 17vw;
+      margin-top: 40px;
+      margin-bottom: 35px;
+    }
+    .asterisk {
+      margin-right: 0;
+    }
+    .poster-hero {
+      padding-bottom: 30px;
+    }
+    .hero-bottom {
+      display: block;
+    }
+    .hero-bottom > p {
+      font-size: 38px;
+    }
+    .hero-bottom > div {
+      margin-top: 25px;
+      font-size: 14px;
+    }
+    .work-index {
+      padding-top: 35px;
+      padding-bottom: 50px;
+    }
+    .work-row {
+      grid-template-columns: 23px 1fr 25px;
+      gap: 12px;
+      padding: 26px 0;
+    }
+    .work-stat {
+      grid-column: 2;
+      grid-row: 2;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+    }
+    .work-stat strong {
+      font-size: 18px;
+    }
+    .work-stat span {
+      font-size: 10px;
+      margin: 0;
+    }
+    .arrow {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    .work-row h3 {
+      font-size: 27px;
+    }
+    .poster-info {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding-bottom: 55px;
+    }
+    .info-image img {
+      height: 300px;
+    }
+    .info-copy h2 {
+      font-size: clamp(48px, 14vw, 64px);
+    }
+    .footer-top {
+      font-size: 9px;
+      max-width: 100%;
+    }
+    .footer-top span {
+      max-width: 48%;
+    }
+    .contact {
+      font-size: 12vw;
+      margin-top: 35px;
+      margin-bottom: 25px;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      font-size: 11px;
+    }
+  }
+  .poster-nav nav {
+    font-size: 14px;
+  }
+  .work-row p {
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .section-label h2,
+  .section-label span {
+    font-size: 14px;
+  }
+  .contact {
+    font-size: clamp(42px, 10.5vw, 160px);
+  }
+  @media (max-width: 600px) {
+    .poster-nav {
+      display: block;
+    }
+    .poster-nav nav {
+      margin-top: 20px;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+    .contact {
+      font-size: 10.5vw;
+    }
+    .work-row p {
+      font-size: 14px;
+    }
+  }
+  .poster-info {
+    align-items: start;
+  }
+  .info-image {
+    position: sticky;
+    top: 30px;
+  }
+  .info-copy h2 {
+    font-size: clamp(45px, 5.5vw, 78px);
+  }
+  .info-copy .education {
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    .info-image {
+      position: static;
+    }
+  }
+
+  .poster-hero {
+    position: relative;
+  }
+  .hero-portrait {
+    position: absolute;
+    top: 83px;
+    right: 50px;
+    width: clamp(140px, 17vw, 240px);
+    height: clamp(160px, 19vw, 275px);
+    border-radius: 6px;
+  }
+  .hero-bottom > div {
+    font-size: 16px;
+    max-width: 450px;
+  }
+  .hero-top,
+  .poster-nav p {
+    font-size: 13px;
+  }
+  .work-row p {
+    font-size: 16px;
+    color: #c2c6ba;
+  }
+  .work-index {
+    padding-top: 32px;
+  }
+  .section-label h2 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .work-stat span {
+    font-size: 13px;
+  }
+  .info-image {
+    max-width: 330px;
+  }
+  @media (max-width: 900px) {
+    .hero-portrait {
+      right: 25px;
+    }
+  }
+  @media (max-width: 600px) {
+    .poster-nav {
+      padding-bottom: 10px;
+    }
+    .poster-nav nav {
+      margin-top: 12px;
+    }
+    h1 {
+      font-size: 12.5vw;
+      line-height: 0.93;
+      letter-spacing: -0.075em;
+      margin: 24px 0;
+    }
+    .hero-top {
+      font-size: 12px;
+    }
+    .hero-portrait {
+      top: 76px;
+      width: 70px;
+      height: 82px;
+    }
+    .hero-bottom > p {
+      font-size: 30px;
+    }
+    .hero-bottom > div {
+      margin-top: 18px;
+    }
+    .work-stat {
+      flex-wrap: wrap;
+    }
+    .work-stat span {
+      font-size: 13px;
+    }
+    .section-label > span {
+      display: none;
+    }
+  }
+</style>

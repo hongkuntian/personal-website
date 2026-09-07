@@ -1,0 +1,89 @@
+---
+import { awsCareer } from "../../data/aws-work"
+---
+
+<div class="aws-career">
+  <ol aria-label="AWS career timeline">
+    {
+      awsCareer.map((item) => (
+        <li>
+          <>
+            <span class="career-period">{item.period}</span>
+            <div>
+              <>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </>
+            </div>
+          </>
+        </li>
+      ))
+    }
+  </ol>
+  <p class="career-mentoring">
+    I also help new engineers take on CloudFormation ownership and coach
+    region-build owners through launch planning and troubleshooting.
+  </p>
+</div>
+<style>
+  .aws-career {
+    margin: 28px 0 30px;
+    color: inherit;
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid currentColor;
+    border-color: color-mix(in srgb, currentColor 22%, transparent);
+  }
+  .career-period {
+    font:
+      12px/1.6 "DM Sans Variable",
+      sans-serif;
+    opacity: 0.78;
+    padding-top: 3px;
+  }
+  h3 {
+    font:
+      550 17px/1.4 "DM Sans Variable",
+      sans-serif;
+    letter-spacing: -0.02em;
+    margin: 0 0 9px;
+  }
+  p {
+    font:
+      16px/1.75 "DM Sans Variable",
+      sans-serif;
+    margin: 0;
+    max-width: 700px;
+  }
+  .career-mentoring {
+    margin-top: 25px;
+  }
+  .career-period {
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 21px 0;
+    }
+    h3 {
+      font-size: 17px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .career-period {
+      font-size: 12px;
+    }
+  }
+</style>

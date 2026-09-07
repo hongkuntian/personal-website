@@ -1,0 +1,566 @@
+---
+import { Image } from "astro:assets"
+import AwsCareer from "../../components/redesign/AwsCareer.astro"
+import ArchiveLink from "../../components/redesign/ArchiveLink.astro"
+import portrait from "../../assets/profile-2026.png"
+import RedesignLayout from "../../layouts/RedesignLayout.astro"
+import { profile } from "../../data/profile"
+import { workNotes } from "../../data/redesigns"
+import {
+  experienceSummary,
+  educationSummary,
+} from "../../data/redesign-content"
+---
+
+<RedesignLayout design="letter">
+  <aside class="margin-nav">
+    <a
+      class="monogram"
+      href="/redesigns/letter/"
+      aria-label="Hong Kun Tian home">hk.</a
+    ><nav aria-label="Main navigation">
+      <a href="#work">Work</a><a href="#about">Experience</a><a
+        href={profile.resumeUrl}>Résumé</a
+      ><a href="#contact">Contact</a>
+    </nav><span>Vancouver,<br />British Columbia</span>
+  </aside>
+  <main id="main" class="letter-page">
+    <header><span>SOFTWARE ENGINEER</span><span>VANCOUVER, BC</span></header>
+    <section class="letter-intro">
+      <div class="salutation">
+        <h1>Hi, I'm<br /><em>Hong Kun.</em></h1><Image
+          src={portrait}
+          alt="Hong Kun Tian"
+          width={400}
+          height={450}
+          loading="eager"
+        />
+      </div><p class="lead">
+        I'm a software engineer at AWS Step Functions, based in Vancouver.
+      </p><p>
+        I work on workflow APIs, production infrastructure, and tools for
+        engineers. My scope includes alarm infrastructure, the JSONata launch,
+        regional feature expansion, and production incident response.
+      </p>
+    </section>
+    <section id="work" class="letter-work">
+      <h2>Selected AWS work</h2>{
+        workNotes.map((work, i) => (
+          <article class="work-entry">
+            <>
+              <span class="number">0{i + 1}</span>
+              <div>
+                <>
+                  <h3>
+                    <a href={`/redesigns/letter/projects/${work.slug}/`}>
+                      {work.title} ↗
+                    </a>
+                  </h3>
+                  <>
+                    <p class="work-period">{work.period}</p>
+                    <p>{work.description}</p>
+                  </>
+                </>
+              </div>
+            </>
+          </article>
+        ))
+      }
+    </section>
+    <section id="about" class="small-things">
+      <h2>AWS experience</h2><p>{experienceSummary}</p><AwsCareer /><p
+        class="education"
+      >
+        {educationSummary}
+      </p><p><a href={profile.resumeUrl}>View my résumé →</a></p>
+    </section>
+    <footer id="contact">
+      <h2>Contact</h2><p>
+        I'm open to backend and platform engineering roles in New York City,
+        Seattle, Vancouver, Montreal, and Toronto.
+      </p><p><a href={`mailto:${profile.email}`}>{profile.email}</a></p><div
+        class="footer-links"
+      >
+        <span>Hong Kun Tian</span><div>
+          {
+            profile.socialLinks
+              .slice(1)
+              .map((link) => <a href={link.href}>{link.label} ↗</a>)
+          }
+        </div>
+      </div>
+      <ArchiveLink design="letter" />
+    </footer>
+  </main>
+</RedesignLayout>
+<style>
+  :global(body.letter) {
+    background: #faf8f3;
+    color: #343c43;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .margin-nav {
+    position: fixed;
+    top: 50px;
+    left: max(35px, calc((100vw - 1200px) / 2));
+    width: 130px;
+    bottom: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .monogram {
+    font:
+      italic 54px/1 "Instrument Serif",
+      serif;
+    color: #284f94;
+    text-decoration: none;
+  }
+  .margin-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    font:
+      13px/1.4 "DM Sans Variable",
+      sans-serif;
+    margin-top: 48px;
+    color: #626a70;
+  }
+  .margin-nav nav a {
+    text-decoration: none;
+  }
+  .margin-nav nav a:hover {
+    color: #284f94;
+    text-decoration: underline;
+  }
+  .margin-nav > span {
+    margin-top: auto;
+    font:
+      12px/1.6 "DM Sans Variable",
+      sans-serif;
+    color: #626971;
+  }
+  .letter-page {
+    max-width: 710px;
+    margin: 0 auto;
+    padding: 57px 0 120px;
+    transform: translateX(50px);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    color: #626971;
+    font:
+      11px/1.4 "DM Sans Variable",
+      sans-serif;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid #d9dde0;
+    padding-bottom: 19px;
+  }
+  .letter-intro {
+    padding-top: 52px;
+  }
+  .salutation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 33px;
+  }
+  h1 {
+    font:
+      400 73px/0.98 "Instrument Serif",
+      serif;
+    letter-spacing: -0.035em;
+    color: #2e3f56;
+  }
+  h1 em {
+    font-weight: 400;
+    color: #315a9a;
+  }
+  .salutation img {
+    width: 150px;
+    height: 170px;
+    border-radius: 6px;
+    object-fit: cover;
+    filter: none;
+    margin-right: 8px;
+  }
+  .letter-page p {
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+  }
+  .letter-page .lead {
+    font-size: 23px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #303c4b;
+  }
+  .letter-page a:not(.monogram) {
+    color: #315a9a;
+    text-decoration-color: #315a9a70;
+  }
+  .letter-page a:hover {
+    text-decoration-color: currentColor;
+  }
+  h2 {
+    font:
+      400 36px/1.2 "Instrument Serif",
+      serif;
+    color: #2e3f56;
+    letter-spacing: -0.02em;
+    margin-bottom: 17px;
+  }
+  .letter-work {
+    margin-top: 50px;
+  }
+  .letter-work .section-note {
+    font-size: 15px;
+    color: #626971;
+    margin-bottom: 23px;
+    font-style: italic;
+  }
+  details {
+    border-top: 1px solid #d9dde0;
+  }
+  details:last-child {
+    border-bottom: 1px solid #d9dde0;
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 19px 0;
+    cursor: pointer;
+    list-style: none;
+    font:
+      15px/1.45 "DM Sans Variable",
+      sans-serif;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .number {
+    font-size: 11px;
+    color: #626971;
+  }
+  .plus {
+    margin-left: auto;
+    font-size: 22px;
+    font-weight: 300;
+    color: #315a9a;
+  }
+  details[open] .plus {
+    transform: rotate(45deg);
+  }
+  .expanded {
+    padding: 0 0 24px 35px;
+  }
+  .expanded p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .expanded .result {
+    color: #315a9a;
+    font-family: "DM Sans Variable", sans-serif;
+    font-size: 14px;
+  }
+  .result span {
+    color: #626971;
+  }
+  .expanded a {
+    font-size: 15px;
+  }
+  .small-things {
+    margin-top: 50px;
+  }
+  .postscript {
+    display: flex;
+    gap: 25px;
+    border-left: 2px solid #b9c6d6;
+    margin: 44px 0 55px;
+    padding: 2px 0 2px 22px;
+  }
+  .ps-label {
+    font:
+      italic 27px/1.4 "Instrument Serif",
+      serif;
+    color: #315a9a;
+  }
+  .postscript p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .postscript p:last-child {
+    margin-bottom: 0;
+  }
+  footer {
+    padding-top: 30px;
+    border-top: 1px solid #d9dde0;
+  }
+  .signature {
+    font:
+      italic 49px/1.3 "Instrument Serif",
+      serif;
+    color: #315a9a;
+    transform: rotate(-6deg);
+    width: fit-content;
+    margin: 25px 0 46px;
+  }
+  .footer-links {
+    font:
+      11px/1.5 "DM Sans Variable",
+      sans-serif;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #626971;
+  }
+  .footer-links div {
+    display: flex;
+    gap: 25px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+  @media (max-width: 1050px) {
+    .letter-page {
+      max-width: 600px;
+      margin-left: 220px;
+      margin-right: 45px;
+      transform: none;
+    }
+    .margin-nav {
+      left: 35px;
+      width: 120px;
+    }
+    h1 {
+      font-size: 64px;
+    }
+    .salutation img {
+      width: 85px;
+      height: 85px;
+    }
+  }
+  @media (max-width: 750px) {
+    .margin-nav {
+      position: static;
+      flex-direction: row;
+      width: auto;
+      margin: 25px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .monogram {
+      font-size: 32px;
+      line-height: 1.25;
+      padding-right: 5px;
+    }
+    .margin-nav nav {
+      flex-direction: row;
+      margin: 0;
+      gap: 22px;
+    }
+    .margin-nav > span {
+      display: none;
+    }
+    .letter-page {
+      margin: 0 auto;
+      max-width: 650px;
+      padding: 15px 25px 110px;
+    }
+    .letter-intro {
+      padding-top: 40px;
+    }
+    header {
+      font-size: 10px;
+    }
+    h1 {
+      font-size: 60px;
+    }
+    .letter-page p {
+      font-size: 17px;
+    }
+    .letter-page .lead {
+      font-size: 21px;
+    }
+    .salutation {
+      gap: 15px;
+    }
+    .salutation img {
+      width: 72px;
+      height: 72px;
+      margin: 0;
+    }
+    .letter-work {
+      margin-top: 38px;
+    }
+    h2 {
+      font-size: 33px;
+    }
+    summary {
+      font-size: 14px;
+      gap: 12px;
+    }
+    .expanded {
+      padding-left: 25px;
+    }
+    .postscript {
+      gap: 15px;
+      padding-left: 15px;
+    }
+    .footer-links {
+      align-items: start;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  @media (max-width: 380px) {
+    h1 {
+      font-size: 51px;
+    }
+    .salutation img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .work-entry {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 15px;
+    padding: 24px 0;
+    border-top: 1px solid #d9dde0;
+  }
+  .work-entry:last-child {
+    border-bottom: 1px solid #d9dde0;
+  }
+  .work-entry .number {
+    padding-top: 4px;
+  }
+  .work-entry h3 {
+    font:
+      600 20px/1.4 "DM Sans Variable",
+      sans-serif;
+    margin-bottom: 12px;
+  }
+  .work-entry h3 a {
+    text-decoration: none;
+  }
+  .work-entry h3 a:hover {
+    text-decoration: underline;
+  }
+  .letter-page .work-entry p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+  }
+  .letter-page footer {
+    margin-top: 45px;
+  }
+  .footer-links {
+    margin-top: 30px;
+  }
+  @media (max-width: 750px) {
+    .margin-nav {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .margin-nav nav {
+      gap: 19px;
+      flex-wrap: wrap;
+    }
+    .work-entry {
+      grid-template-columns: 15px minmax(0, 1fr);
+      gap: 12px;
+    }
+  }
+  .letter-page .work-entry .work-period {
+    font:
+      12px/1.5 "DM Sans Variable",
+      sans-serif;
+    color: #626971;
+    margin-bottom: 10px;
+  }
+  .letter-page .education {
+    font-size: 15px;
+    color: #626971;
+  }
+
+  .letter-intro {
+    padding-top: 38px;
+  }
+  .salutation {
+    margin-bottom: 26px;
+  }
+  .salutation img {
+    border: 6px solid #e9e2d5;
+    object-position: center 55%;
+  }
+  .letter-work {
+    margin-top: 34px;
+  }
+  .margin-nav nav {
+    gap: 8px;
+    font-size: 15px;
+    margin-top: 32px;
+  }
+  .letter-page .work-entry .work-period {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .letter-page .work-entry p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .work-entry {
+    padding: 24px 0;
+  }
+  .work-entry h3 {
+    margin-bottom: 8px;
+  }
+  @media (max-width: 1050px) {
+    .salutation img {
+      width: 125px;
+      height: 145px;
+    }
+  }
+  @media (max-width: 750px) {
+    .margin-nav {
+      margin: 20px 25px 10px;
+    }
+    .margin-nav nav {
+      margin-top: 0;
+      gap: 8px 18px;
+    }
+    .letter-intro {
+      padding-top: 27px;
+    }
+    .salutation img {
+      width: 100px;
+      height: 122px;
+      flex-shrink: 0;
+    }
+    .salutation h1 {
+      font-size: clamp(44px, 10vw, 60px);
+    }
+    .letter-page p {
+      line-height: 1.7;
+    }
+    .letter-page .work-entry p {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 380px) {
+    .salutation img {
+      width: 78px;
+      height: 100px;
+      border-width: 4px;
+    }
+    .salutation h1 {
+      font-size: 42px;
+    }
+  }
+</style>

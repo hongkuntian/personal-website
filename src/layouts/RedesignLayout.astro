@@ -1,0 +1,258 @@
+---
+import "@fontsource-variable/dm-sans"
+import "@fontsource/instrument-serif/400.css"
+import "@fontsource/instrument-serif/400-italic.css"
+import { redesigns, type Design } from "../data/redesigns"
+interface Props {
+  design?: Design
+  title?: string
+}
+const { design, title } = Astro.props
+const current = redesigns.find((item) => item.slug === design)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Hong Kun Tian | software engineer in Vancouver. Selected work, experience, and contact information."
+    />
+    <link rel="icon" href="/favicon.png" />
+    <title>
+      {title ?? `${current?.name ?? "Five directions"} | Hong Kun Tian`}
+    </title>
+  </head>
+  <body class={design ?? "gallery"}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    {
+      design && (
+        <details class="preview-controls">
+          <>
+            <summary>Compare designs</summary>
+            <nav class="design-switcher" aria-label="Compare redesigns">
+              <a
+                class="switcher-home"
+                href="/redesigns/"
+                aria-label="All five designs"
+              >
+                ← <span>Designs</span>
+              </a>
+              <span class="switcher-divider" aria-hidden="true" />
+              {redesigns.map((item) => (
+                <a
+                  href={`/redesigns/${item.slug}/`}
+                  aria-current={design === item.slug ? "page" : undefined}
+                  aria-label={`${item.number}: ${item.name}`}
+                  title={item.name}
+                >
+                  {item.number}
+                </a>
+              ))}
+              <span class="switcher-label">{current?.name}</span>
+            </nav>
+          </>
+        </details>
+      )
+    }
+  </body>
+</html>
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+  body {
+    margin: 0;
+    font-family: "DM Sans Variable", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  p,
+  figure {
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+  }
+  button,
+  input {
+    font: inherit;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    cursor: pointer;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid #dc622a;
+    outline-offset: 5px;
+  }
+  ::selection {
+    background: #e4a455;
+    color: #171717;
+  }
+  .skip-link {
+    position: fixed;
+    top: -100px;
+    left: 16px;
+    background: white;
+    color: black;
+    z-index: 999;
+    padding: 12px;
+  }
+  .skip-link:focus {
+    top: 12px;
+  }
+  .design-switcher {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border: 1px solid #ffffff35;
+    border-radius: 100px;
+    background: #1d2024f5;
+    color: #fff;
+    box-shadow: 0 5px 24px #0002;
+    font:
+      13px/1.2 "DM Sans Variable",
+      sans-serif;
+    white-space: nowrap;
+  }
+  .design-switcher a {
+    text-decoration: none;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50px;
+  }
+  .design-switcher a:hover {
+    background: #ffffff20;
+  }
+  .design-switcher a[aria-current] {
+    background: #faf8f1;
+    color: #111;
+  }
+  .switcher-divider {
+    height: 20px;
+    width: 1px;
+    background: #ffffff40;
+    margin: 0 5px;
+  }
+  .switcher-label {
+    padding: 0 10px;
+    color: #d0d0d0;
+  }
+  .mono {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  @media (max-width: 550px) {
+    .switcher-label {
+      display: none;
+    }
+    .design-switcher {
+      bottom: 10px;
+      gap: 2px;
+      padding: 6px;
+    }
+  }
+  @media (max-width: 350px) {
+    .switcher-home span {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  body nav[aria-label="Main navigation"] a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 15px;
+  }
+  .preview-controls {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 100;
+    color: white;
+    background: #252a2d;
+    border: 1px solid #ffffff35;
+    border-radius: 12px;
+    font:
+      13px/1.4 "DM Sans Variable",
+      sans-serif;
+    box-shadow: 0 3px 16px #0002;
+  }
+  .preview-controls summary {
+    cursor: pointer;
+    padding: 12px 16px;
+    min-height: 44px;
+  }
+  .design-switcher {
+    position: static;
+    transform: none;
+    border: 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: none;
+  }
+  .design-switcher a {
+    min-height: 44px;
+    min-width: 36px;
+    display: grid;
+    place-items: center;
+  }
+  .switcher-label {
+    display: none;
+  }
+  @media (max-width: 380px) {
+    body nav[aria-label="Main navigation"] a {
+      font-size: 14px;
+    }
+    .preview-controls {
+      right: 8px;
+      bottom: 8px;
+    }
+  }
+</style>

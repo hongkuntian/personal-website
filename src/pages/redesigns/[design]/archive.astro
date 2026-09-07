@@ -1,0 +1,128 @@
+---
+import RedesignLayout from "../../../layouts/RedesignLayout.astro"
+import { redesigns, type Design } from "../../../data/redesigns"
+import { previewProjects } from "../../../data/redesign-content"
+export function getStaticPaths() {
+  return redesigns.map((design) => ({
+    params: { design: design.slug },
+    props: { design: design.slug },
+  }))
+}
+interface Props {
+  design: Design
+}
+const { design } = Astro.props
+const projects = previewProjects.filter(
+  (project) => project.category === "archive"
+)
+---
+
+<RedesignLayout design={design} title="Earlier projects | Hong Kun Tian">
+  <main id="main" class:list={["archive", design]}>
+    <a class="back" href={`/redesigns/${design}/`}>← Back to AWS work</a>
+    <header>
+      <span>PROJECT ARCHIVE</span><h1>Earlier projects</h1><p>
+        Projects from before AWS.
+      </p>
+    </header>
+    <div class="archive-list">
+      {
+        projects.map((project) => (
+          <a href={`/redesigns/${design}/projects/${project.slug}/`}>
+            <>
+              <h2>
+                {project.name} <span>↗</span>
+              </h2>
+              <p>{project.summary}</p>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</RedesignLayout>
+<style>
+  .archive {
+    --background: #f5f1e8;
+    --ink: #272a22;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--ink);
+    padding: 45px max(25px, calc((100vw - 780px) / 2)) 115px;
+  }
+  .back {
+    font-size: 14px;
+  }
+  header {
+    padding: 45px 0 35px;
+  }
+  header > span {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  h1 {
+    font:
+      400 65px/1.1 "Instrument Serif",
+      serif;
+    margin: 20px 0;
+  }
+  header p {
+    font-size: 17px;
+  }
+  .archive-list > a {
+    display: block;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+    padding: 26px 0;
+    text-decoration: none;
+  }
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  h2 span {
+    font-weight: 400;
+  }
+  .archive-list p {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .archive-list a:hover h2 {
+    text-decoration: underline;
+  }
+  .scrapbook {
+    --background: #f9f9f4;
+    --ink: #213c9c;
+  }
+  .poster {
+    --background: #161814;
+    --ink: #cefc53;
+  }
+  .desktop {
+    --background: #f5f4ec;
+    --ink: #26372e;
+    border: 15px solid #315b55;
+  }
+  .letter {
+    --background: #fcfcfa;
+    --ink: #343c43;
+  }
+  .letter h1 {
+    color: #315a9a;
+  }
+  @media (max-width: 600px) {
+    .archive {
+      padding-top: 30px;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    .desktop {
+      border-width: 8px;
+    }
+  }
+</style>

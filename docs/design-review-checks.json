@@ -1,0 +1,426 @@
+{
+  "metrics": [
+    {
+      "s": "journal",
+      "width": 1440,
+      "overflow": false,
+      "workTop": 653,
+      "firstProjectTop": 775,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "scrapbook",
+      "width": 1440,
+      "overflow": false,
+      "workTop": 589,
+      "firstProjectTop": 714,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "poster",
+      "width": 1440,
+      "overflow": false,
+      "workTop": 643,
+      "firstProjectTop": 732,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "desktop",
+      "width": 1440,
+      "overflow": false,
+      "workTop": 477,
+      "firstProjectTop": 522,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44.25,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "letter",
+      "width": 1440,
+      "overflow": false,
+      "workTop": 509,
+      "firstProjectTop": 596,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "journal",
+      "width": 390,
+      "overflow": false,
+      "workTop": 594,
+      "firstProjectTop": 672,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "scrapbook",
+      "width": 390,
+      "overflow": false,
+      "workTop": 634,
+      "firstProjectTop": 753,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "poster",
+      "width": 390,
+      "overflow": false,
+      "workTop": 555,
+      "firstProjectTop": 644,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "desktop",
+      "width": 390,
+      "overflow": false,
+      "workTop": 561,
+      "firstProjectTop": 605,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "letter",
+      "width": 390,
+      "overflow": false,
+      "workTop": 559,
+      "firstProjectTop": 642,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "journal",
+      "width": 320,
+      "overflow": false,
+      "workTop": 719,
+      "firstProjectTop": 832,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 14,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "scrapbook",
+      "width": 320,
+      "overflow": false,
+      "workTop": 757,
+      "firstProjectTop": 875,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 14,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "poster",
+      "width": 320,
+      "overflow": false,
+      "workTop": 632,
+      "firstProjectTop": 721,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 14,
+      "photoFilters": [
+        "none",
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "desktop",
+      "width": 320,
+      "overflow": false,
+      "workTop": 671,
+      "firstProjectTop": 715,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 15,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    },
+    {
+      "s": "letter",
+      "width": 320,
+      "overflow": false,
+      "workTop": 653,
+      "firstProjectTop": 735,
+      "awsLinks": 6,
+      "careerItems": 5,
+      "archiveLinks": 1,
+      "mainTextMin": 16,
+      "navMinHeight": 44,
+      "navMinFont": 14,
+      "photoFilters": [
+        "none"
+      ],
+      "legacyVisible": false
+    }
+  ],
+  "a11y": [
+    {
+      "s": "journal",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".read-link[href$=\"#work\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "s": "scrapbook",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "poster",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "letter",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "journal",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".read-link[href$=\"#work\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "s": "scrapbook",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "poster",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "desktop",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "letter",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "journal",
+      "width": 320,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".read-link[href$=\"#work\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "s": "journal-case",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "scrapbook",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "scrapbook-case",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "poster",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "poster-case",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "desktop",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "desktop-case",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "s": "letter",
+      "width": 320,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".monogram"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "s": "letter-case",
+      "width": 320,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "errors": [],
+  "casePageChecks": 90,
+  "internalLinks": 42
+}

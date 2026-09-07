@@ -1,0 +1,588 @@
+---
+import { Image } from "astro:assets"
+import AwsCareer from "../../components/redesign/AwsCareer.astro"
+import ArchiveLink from "../../components/redesign/ArchiveLink.astro"
+import portrait from "../../assets/profile-2026.png"
+import RedesignLayout from "../../layouts/RedesignLayout.astro"
+import { profile } from "../../data/profile"
+import { workNotes } from "../../data/redesigns"
+import {
+  introduction,
+  experienceSummary,
+  educationSummary,
+} from "../../data/redesign-content"
+---
+
+<RedesignLayout design="journal">
+  <div class="journal-page">
+    <header class="masthead">
+      <a href="/redesigns/journal/" class="wordmark"
+        >Hong Kun Tian<span>Software engineer</span></a
+      ><nav aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#about">Experience</a><a
+          href={profile.resumeUrl}>Résumé</a
+        ><a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="edition mono">
+        <span>Vancouver, BC</span><span>AWS Step Functions</span>
+      </div>
+      <section class="journal-hero">
+        <div class="hero-copy">
+          <p class="eyeline">Software Development Engineer II</p><div
+            class="mobile-heading"
+          >
+            <Image
+              class="mobile-portrait"
+              src={portrait}
+              alt="Hong Kun Tian"
+              width={220}
+              height={240}
+              loading="eager"
+            /><h1>
+              Hong Kun Tian.<br /><em>Software engineer.</em>
+            </h1>
+          </div><p class="intro">{introduction}</p><a
+            class="read-link"
+            href="#work">AWS work <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <figure class="portrait">
+          <Image
+            src={portrait}
+            alt="Hong Kun Tian"
+            width={900}
+            height={1050}
+            loading="eager"
+          /><figcaption>
+            <span>Hong Kun Tian</span><span>Vancouver, BC</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="work" class="journal-work">
+        <div class="section-heading">
+          <h2>Selected AWS work</h2><span class="mono">AWS Step Functions</span>
+        </div><div class="stories">
+          {
+            workNotes.map((work) => (
+              <a
+                href={`/redesigns/journal/projects/${work.slug}/`}
+                class="story"
+              >
+                <>
+                  <span class="mono">
+                    {work.period} / {work.label}
+                  </span>
+                  <h3>{work.title}</h3>
+                  <p>{work.description}</p>
+                  <span class="story-bottom">
+                    Project details <span>↗</span>
+                  </span>
+                </>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+      <section id="about" class="journal-about">
+        <p class="mono">About</p><div>
+          <h2>AWS experience.</h2><p>{experienceSummary}</p><AwsCareer /><p
+            class="education"
+          >
+            {educationSummary}
+          </p><a class="read-link" href={profile.resumeUrl}>View résumé ↗</a>
+        </div>
+      </section>
+      <footer id="contact">
+        <p>Open to backend and platform engineering roles.</p><a
+          href={`mailto:${profile.email}`}>Contact me <span>↗</span></a
+        ><div class="footer-bottom">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a><div>
+            {
+              profile.socialLinks
+                .slice(1)
+                .map((link) => <a href={link.href}>{link.label} ↗</a>)
+            }
+          </div>
+        </div>
+        <ArchiveLink design="journal" />
+      </footer>
+    </main>
+  </div>
+</RedesignLayout>
+<style>
+  :global(body.journal) {
+    background: #f5f1e8;
+    color: #272a22;
+  }
+  .journal-page {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 64px;
+  }
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 29px 0 26px;
+    border-bottom: 2px solid #292d25;
+  }
+  .wordmark {
+    font-family: "Instrument Serif", serif;
+    font-size: 34px;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .wordmark span {
+    display: block;
+    font:
+      12px/1.5 "DM Sans Variable",
+      sans-serif;
+    margin-top: 9px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  nav {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+  }
+  nav a {
+    text-decoration: none;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .edition {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 28px;
+    font-size: 12px;
+  }
+  .journal-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 68px;
+    padding-bottom: 48px;
+    align-items: center;
+  }
+  .eyeline {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 23px;
+  }
+  .eyeline span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #aa492d;
+  }
+  h1 {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(50px, 5.4vw, 78px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+  }
+  h1 em {
+    color: #a7492d;
+    font-weight: 400;
+  }
+  .intro {
+    max-width: 540px;
+    margin: 30px 0;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .portrait {
+    position: relative;
+    align-self: start;
+    margin-top: 14px;
+    padding-bottom: 40px;
+  }
+  .portrait img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    filter: none;
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 12px;
+    gap: 14px;
+  }
+  .photo-note {
+    position: absolute;
+    right: -22px;
+    bottom: 60px;
+    background: #e7e5cf;
+    padding: 18px 25px;
+    transform: rotate(-6deg);
+    font:
+      italic 23px/1.2 "Instrument Serif",
+      serif;
+    box-shadow: 0 3px 5px #0001;
+  }
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-top: 2px solid;
+    border-bottom: 1px solid #bcbcae;
+  }
+  h2 {
+    font:
+      400 43px/1.1 "Instrument Serif",
+      serif;
+    letter-spacing: -0.02em;
+  }
+  .stories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 32px;
+  }
+  .story {
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #bcbcae;
+  }
+  .story:first-child {
+    padding-left: 0;
+  }
+  .story:last-child {
+    padding-right: 0;
+    border: 0;
+  }
+  .story .mono {
+    font-size: 12px;
+    color: #80503c;
+  }
+  h3 {
+    font:
+      400 35px/1.1 "Instrument Serif",
+      serif;
+    margin: 20px 0 16px;
+  }
+  .story p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .story-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 28px;
+    font-size: 14px;
+  }
+  .story:hover h3 {
+    color: #a7492d;
+  }
+  .journal-about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    border-top: 1px solid #bcbcae;
+    padding: 56px 0 80px;
+    margin-top: 65px;
+  }
+  .journal-about h2 {
+    font-size: 64px;
+    margin-bottom: 30px;
+  }
+  .journal-about h2 em {
+    color: #a7492d;
+  }
+  .journal-about p:not(.mono) {
+    max-width: 650px;
+    margin: 0 0 20px;
+    line-height: 1.85;
+  }
+  footer {
+    background: #292e25;
+    color: #f5f1e8;
+    margin: 0 -64px;
+    padding: 55px 64px 110px;
+  }
+  footer > p {
+    font-size: 15px;
+  }
+  footer > a {
+    display: flex;
+    justify-content: space-between;
+    font:
+      64px/1.3 "Instrument Serif",
+      serif;
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff50;
+    padding: 15px 0 30px;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    font-size: 13px;
+  }
+  .footer-bottom div {
+    display: flex;
+    gap: 24px;
+  }
+  @media (min-width: 1450px) {
+    .journal-hero {
+      gap: 90px;
+    }
+    .portrait img {
+      height: 380px;
+    }
+  }
+  @media (max-width: 800px) {
+    .journal-page {
+      padding: 0 25px;
+    }
+    .masthead {
+      gap: 20px;
+    }
+    .wordmark {
+      font-size: 28px;
+    }
+    .wordmark span {
+      font-size: 10px;
+    }
+    nav {
+      gap: 15px;
+    }
+    .edition span:last-child {
+      display: none;
+    }
+    .journal-hero {
+      gap: 30px;
+    }
+    h1 {
+      font-size: 64px;
+    }
+    .portrait img {
+      height: 300px;
+    }
+    .photo-note {
+      right: -10px;
+      font-size: 19px;
+    }
+    .stories {
+      gap: 20px;
+    }
+    .story {
+      padding: 0 15px;
+    }
+    h3 {
+      font-size: 29px;
+    }
+    footer {
+      margin: 0 -25px;
+      padding: 45px 25px 100px;
+    }
+  }
+  @media (max-width: 600px) {
+    .masthead {
+      align-items: flex-start;
+    }
+    nav {
+      flex-direction: column;
+      gap: 3px;
+      font-size: 12px;
+    }
+    .edition {
+      font-size: 10px;
+      margin-bottom: 28px;
+    }
+    .journal-hero {
+      grid-template-columns: 1fr;
+      padding-bottom: 40px;
+    }
+    h1 {
+      font-size: clamp(46px, 9vw, 62px);
+    }
+    .portrait {
+      max-width: 440px;
+      width: 100%;
+    }
+    .portrait img {
+      height: 160px;
+    }
+    .intro {
+      max-width: 100%;
+    }
+    .section-heading {
+      align-items: start;
+      gap: 20px;
+    }
+    .section-heading h2 {
+      font-size: 32px;
+    }
+    .section-heading .mono {
+      max-width: 110px;
+      font-size: 10px;
+    }
+    .stories {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+      gap: 0;
+    }
+    .story,
+    .story:first-child,
+    .story:last-child {
+      padding: 25px 0;
+      border-right: 0;
+      border-bottom: 1px solid #bcbcae;
+    }
+    .journal-about {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 40px;
+      padding-top: 30px;
+    }
+    .journal-about h2 {
+      font-size: 52px;
+    }
+    footer > a {
+      font-size: 46px;
+    }
+    .footer-bottom {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  }
+  .masthead {
+    gap: 25px;
+  }
+  .eyeline {
+    color: #80503c;
+  }
+  @media (max-width: 600px) {
+    .masthead {
+      display: block;
+    }
+    nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  }
+  .stories {
+    row-gap: 42px;
+  }
+  .story:nth-child(3n + 1) {
+    padding-left: 0;
+  }
+  .story:nth-child(3n) {
+    border-right: 0;
+    padding-right: 0;
+  }
+  .journal-about {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+  .journal-about .education {
+    font-size: 15px;
+    color: #676d5e;
+  }
+  @media (max-width: 800px) {
+    .journal-about {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+  @media (max-width: 600px) {
+    .stories {
+      row-gap: 0;
+    }
+    .story,
+    .story:nth-child(3n + 1),
+    .story:nth-child(3n) {
+      padding: 25px 0;
+    }
+  }
+
+  .portrait {
+    max-width: 360px;
+    justify-self: end;
+    padding: 10px;
+    background: #e9e1d3;
+    margin-top: 0;
+  }
+  .portrait img {
+    object-position: center 55%;
+  }
+  figcaption {
+    gap: 12px;
+    padding: 10px 2px 0;
+  }
+  @media (max-width: 600px) {
+    .masthead {
+      display: block;
+      padding: 22px 0 10px;
+    }
+    nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin-top: 14px;
+    }
+    .edition {
+      margin: 16px 0 24px;
+    }
+    .journal-hero {
+      gap: 20px;
+    }
+    .eyeline {
+      margin-bottom: 12px;
+    }
+    .intro {
+      margin: 20px 0 12px;
+    }
+    .portrait {
+      display: none;
+    }
+  }
+
+  .mobile-portrait {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    .mobile-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 86px;
+      gap: 14px;
+      align-items: center;
+    }
+    .mobile-portrait {
+      display: block;
+      grid-column: 2;
+      grid-row: 1;
+      width: 86px;
+      height: 110px;
+      border-radius: 5px;
+    }
+    .mobile-heading h1 {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: clamp(40px, 9vw, 54px);
+    }
+  }
+</style>
