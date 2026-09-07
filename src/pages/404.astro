@@ -5,15 +5,14 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 <BaseLayout
   meta={{
     title: "Page not found",
-    description: "The page you requested could not be found.",
+    description: "The requested page could not be found.",
     path: "/404/",
     noindex: true,
   }}
 >
-  <section class="pageIntro">
-    <p class="eyebrow">404</p>
-    <h1>That page doesn't exist.</h1>
-    <p>The site is small — the homepage is the fastest way back.</p>
-    <a class="button" href="/">Back home</a>
+  <section class="page-intro">
+    <p class="eyebrow">404</p><h1>Page not found.</h1><p>
+      This page may have moved.
+    </p><a href="/">Back to the homepage →</a>
   </section>
 </BaseLayout>

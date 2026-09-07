@@ -1,88 +1,61 @@
 ---
 import { experienceEntries } from "../../data/experience"
-import { profile } from "../../data/profile"
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import AwsCareer from "../../components/AwsCareer.astro"
+import WorkList from "../../components/WorkList.astro"
+import { experienceSummary } from "../../data/site-content"
 import { formatDateRange } from "../../utils/content"
-
 export function getStaticPaths() {
   return experienceEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }))
 }
-
 const { entry } = Astro.props
+const isAws = entry.slug === "aws-step-functions"
 ---
 
 <BaseLayout
   meta={{
-    title: `${entry.role} at ${entry.company}`,
-    description: entry.summary,
+    title: isAws
+      ? "AWS Step Functions experience"
+      : `${entry.role} at ${entry.company}`,
+    description: isAws ? experienceSummary : entry.summary,
     path: `/experience/${entry.slug}/`,
   }}
 >
-  <article class="detailShell">
-    <p class="eyebrow">Experience</p>
-    <h1>{entry.role}</h1>
-    <p class="detailLead">
-      {entry.company} · {entry.location} · {
-        formatDateRange(entry.start, entry.end)
+  <header class="page-intro">
+    <a class="back-link" href="/#about">← Back to experience</a>
+    <h1>{isAws ? "AWS Step Functions" : entry.company}</h1>
+    <p class="lead">
+      {
+        isAws
+          ? experienceSummary
+          : `${entry.role} · ${formatDateRange(entry.start, entry.end)}`
       }
     </p>
-    <p class="detailSummary">{entry.summary}</p>
-
-    <div class="tagList">
-      {entry.tech.map((item) => <span class="tag">{item}</span>)}
-    </div>
-
-    <section class="detailSection">
-      <h2>Highlights</h2>
-      <ul class="detailList">
-        {entry.highlights.map((highlight) => <li>{highlight}</li>)}
-      </ul>
-    </section>
-
-    <section class="detailSection">
-      <h2>Core impact</h2>
-      <div class="tagList">
-        {entry.impact.map((item) => <span class="tag">{item}</span>)}
-      </div>
-    </section>
-
-    {
-      entry.detailSections.map((section) => (
-        <section class="detailSection">
-          <h2>{section.title}</h2>
-          <div class="stack">
+  </header>
+  {
+    isAws ? (
+      <>
+        <>
+          <AwsCareer />
+          <h2>Selected AWS work</h2>
+          <WorkList />
+        </>
+      </>
+    ) : (
+      <>
+        <p>{entry.summary}</p>
+        {entry.detailSections.map((section) => (
+          <section class="detail-section">
+            <h2>{section.title}</h2>
             {section.body.map((paragraph) => (
               <p>{paragraph}</p>
             ))}
-          </div>
-        </section>
-      ))
-    }
-
-    <section class="ctaPanel detailCta" aria-labelledby="experience-next-step">
-      <div class="stack">
-        <p class="eyebrow">Next step</p>
-        <h2 class="detailCtaTitle" id="experience-next-step">
-          Interested in this kind of systems work?
-        </h2>
-        <p>Review my resume or get in touch directly.</p>
-      </div>
-      <div class="ctaActions">
-        <a
-          class="button"
-          href={profile.resumeUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open resume
-        </a>
-        <a class="buttonSecondary" href={`mailto:${profile.email}`}>Email me</a>
-      </div>
-    </section>
-
-    <a class="inlineLink" href="/experience/"> Back to all experience </a>
-  </article>
+          </section>
+        ))}
+      </>
+    )
+  }
 </BaseLayout>

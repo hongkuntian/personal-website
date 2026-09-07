@@ -7,20 +7,13 @@ const nlpure: ProjectEntry = {
   category: "archive",
   tagline: "First-place text toxicity detection project from McGill CodeJam.",
   summary:
-    "A text toxicity detection project built with machine learning and a lightweight web interface.",
+    "A text toxicity detection app that won first place at McGill CodeJam.",
   descriptionSections: [
     {
-      title: "What it does",
+      title: "Toxicity detection",
       body: [
-        "NLPure focused on detecting toxic language and turning a machine learning workflow into a usable product experience.",
-        "It was a compact project, but a useful demonstration of combining model work with practical delivery constraints.",
-      ],
-    },
-    {
-      title: "Why it matters",
-      body: [
-        "The project reflects an early pattern in my work: taking technically interesting systems and shaping them into something understandable for end users.",
-        "It also gave me experience working across ML tooling and product implementation in the same build cycle.",
+        "NLPure detects toxic language through a web interface. The project uses Keras and scikit-learn for machine learning, with React and Node.js for the app.",
+        "It won first place at McGill CodeJam.",
       ],
     },
   ],

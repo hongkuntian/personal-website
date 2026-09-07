@@ -3,10 +3,10 @@ import SiteFooter from "../components/navigation/SiteFooter.astro"
 import SiteHeader from "../components/navigation/SiteHeader.astro"
 import { profile } from "../data/profile"
 import type { SeoMeta } from "../types/content"
-import "@fontsource-variable/dm-sans/wght.css"
-import "@fontsource/instrument-serif/latin-400.css"
-import "../styles/tokens.css"
-import "../styles/global.css"
+import "@fontsource-variable/dm-sans"
+import "@fontsource/instrument-serif/400.css"
+import "@fontsource/instrument-serif/400-italic.css"
+import "../styles/personal.css"
 
 interface Props {
   meta: SeoMeta
@@ -30,7 +30,7 @@ const personJsonLd = {
   familyName: profile.familyName,
   url: site.toString(),
   email: `mailto:${profile.email}`,
-  jobTitle: "Backend and distributed-systems engineer",
+  jobTitle: "Software Development Engineer II",
   homeLocation: {
     "@type": "Place",
     name: profile.location,
@@ -53,23 +53,9 @@ const personJsonLd = {
       name="robots"
       content={meta.noindex ? "noindex,nofollow" : "index,follow"}
     />
-    <meta name="theme-color" content="#1a1612" />
+    <meta name="theme-color" content="#faf8f3" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Theme init — runs before paint to prevent flash of wrong theme -->
-    <script is:inline>
-      ;(function () {
-        var stored = localStorage.getItem("theme-preference")
-        var theme =
-          stored === "dark" || stored === "light"
-            ? stored
-            : window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light"
-        document.documentElement.setAttribute("data-theme", theme)
-      })()
-    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -108,62 +94,14 @@ const personJsonLd = {
     }
   </head>
   <body>
-    <a class="skipLink" href="#main-content">Skip to content</a>
-    <div class="siteChrome">
-      <SiteHeader />
-      <main class="pageShell" id="main-content">
-        <slot />
-      </main>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main" class="personal-page">
+      <div class="page-meta">
+        <span>Software engineer</span><span>Vancouver, BC</span>
+      </div>
+      <slot />
       <SiteFooter />
-    </div>
-
-    <script is:inline>
-      ;(function () {
-        var STORAGE_KEY = "theme-preference"
-
-        function applyTheme(theme) {
-          document.documentElement.setAttribute("data-theme", theme)
-          updateThemeControls(theme)
-        }
-
-        function updateThemeControls(theme) {
-          var next = theme === "dark" ? "light" : "dark"
-          var label = `Switch to ${next} mode`
-
-          document
-            .querySelectorAll("[data-theme-toggle]")
-            .forEach(function (btn) {
-              btn.setAttribute("aria-label", label)
-              btn.setAttribute("title", label)
-              var text = btn.querySelector("[data-theme-label]")
-              if (text) text.textContent = label
-            })
-        }
-
-        updateThemeControls(
-          document.documentElement.getAttribute("data-theme") || "light"
-        )
-
-        document
-          .querySelectorAll("[data-theme-toggle]")
-          .forEach(function (btn) {
-            btn.addEventListener("click", function () {
-              var next =
-                document.documentElement.getAttribute("data-theme") === "dark"
-                  ? "light"
-                  : "dark"
-              localStorage.setItem(STORAGE_KEY, next)
-              applyTheme(next)
-            })
-          })
-
-        window
-          .matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", function (e) {
-            if (!localStorage.getItem(STORAGE_KEY))
-              applyTheme(e.matches ? "dark" : "light")
-          })
-      })()
-    </script>
+    </main>
   </body>
 </html>

@@ -1,0 +1,22 @@
+---
+import { awsWork } from "../data/aws-work"
+---
+
+<div class="work-list">
+  {
+    awsWork.map((work, i) => (
+      <article class="work-entry">
+        <span class="number" aria-hidden="true">
+          {String(i + 1).padStart(2, "0")}
+        </span>
+        <div>
+          <h3>
+            <a href={`/projects/${work.slug}/`}>{work.name} ↗</a>
+          </h3>
+          <p class="work-period">{work.period}</p>
+          <p>{work.summary}</p>
+        </div>
+      </article>
+    ))
+  }
+</div>

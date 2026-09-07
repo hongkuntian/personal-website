@@ -1,120 +1,21 @@
 ---
-import ProjectCard from "../../components/cards/ProjectCard.astro"
-import { projectEntries } from "../../data/projects"
 import BaseLayout from "../../layouts/BaseLayout.astro"
-import { getProjectsByCategory } from "../../utils/content"
-
-const selectedWork = getProjectsByCategory(projectEntries, "selected-work")
-const archiveProjects = getProjectsByCategory(projectEntries, "archive")
-const archivePriority = new Map([
-  ["nlpure", 1],
-  ["painttrix", 2],
-  ["mindbook", 3],
-])
-const prioritizedArchiveProjects = [...archiveProjects].sort(
-  (left, right) =>
-    (archivePriority.get(left.slug) ?? 99) -
-    (archivePriority.get(right.slug) ?? 99)
-)
-const featuredArchiveProjects = prioritizedArchiveProjects.slice(0, 3)
-const remainingArchiveProjects = prioritizedArchiveProjects.slice(3)
+import WorkList from "../../components/WorkList.astro"
 ---
 
 <BaseLayout
   meta={{
-    title: "Projects",
+    title: "AWS work",
     description:
-      "Selected AWS Step Functions work across workflow-platform features, production reliability, global rollouts, and LLM-assisted operational tooling.",
+      "Selected work at AWS Step Functions: workflow APIs, region launches, production infrastructure, incident response, and operational tooling.",
     path: "/projects/",
   }}
 >
-  <section class="pageIntro">
-    <p class="eyebrow">Projects</p>
-    <h1>
-      Workflow platforms, production reliability, and operational tooling.
-    </h1>
-    <p>
-      Selected work highlights recent impact across workflow platforms,
-      production reliability, global rollouts, and operational tooling. Earlier
-      hackathon and student projects are collected below.
+  <header class="page-intro">
+    <h1>Selected AWS work</h1><p>
+      My work on AWS Step Functions, from workflow APIs to production
+      operations.
     </p>
-    <a href="/" class="inlineLink">&larr; Back home</a>
-  </section>
-
-  <section class="sectionShell">
-    <div class="sectionHeading">
-      <p class="eyebrow">Selected Work</p>
-      <h2 class="sectionTitle">
-        Three recent areas that best represent the current engineering work.
-      </h2>
-    </div>
-
-    <div class="cardGrid cardGridTight">
-      {selectedWork.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-
-  <section class="sectionShell">
-    <div class="sectionHeading">
-      <p class="eyebrow">Archive</p>
-      <h2 class="sectionTitle">Older public projects.</h2>
-      <p>
-        These are earlier hackathon and student builds that still show product
-        instincts and technical range.
-      </p>
-    </div>
-
-    <div class="cardGrid cardGridTight">
-      {
-        featuredArchiveProjects.map((project) => (
-          <ProjectCard project={project} />
-        ))
-      }
-    </div>
-
-    {
-      remainingArchiveProjects.length > 0 && (
-        <details class="archiveDisclosure">
-          <summary>
-            View {remainingArchiveProjects.length} more earlier projects
-          </summary>
-          <div class="cardGrid cardGridTight archiveExtraGrid">
-            {remainingArchiveProjects.map((project) => (
-              <ProjectCard project={project} />
-            ))}
-          </div>
-        </details>
-      )
-    }
-  </section>
+  </header>
+  <WorkList />
 </BaseLayout>
-
-<style>
-  .archiveDisclosure {
-    margin-top: 1.25rem;
-  }
-
-  .archiveDisclosure summary {
-    width: fit-content;
-    color: var(--color-accent);
-    cursor: pointer;
-    font-weight: 700;
-    list-style: none;
-  }
-
-  .archiveDisclosure summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .archiveDisclosure summary::after {
-    content: " +";
-  }
-
-  .archiveDisclosure[open] summary::after {
-    content: " -";
-  }
-
-  .archiveExtraGrid {
-    margin-top: 1.25rem;
-  }
-</style>

@@ -1,32 +1,19 @@
 ---
 import { profile } from "../../data/profile"
-import styles from "./SiteFooter.module.css"
-
-const year = new Date().getFullYear()
 ---
 
-<footer class={styles.footer}>
-  <div class={styles.inner}>
-    <div class={styles.left}>
-      <p class={styles.name}>{profile.name}</p>
-      <p class={styles.tagline}>{profile.headline}</p>
-    </div>
-
-    <div class={styles.links}>
+<footer id="contact" class="site-footer">
+  <h2>Contact</h2>
+  <p>{profile.availability}</p>
+  <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+  <div class="footer-links">
+    <span>{profile.name}</span><div>
       {
-        profile.socialLinks.map((link) => (
-          <a
-            href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel="noreferrer"
-            class={styles.link}
-          >
-            {link.label}
-          </a>
-        ))
+        profile.socialLinks
+          .filter((link) => link.href.startsWith("https://"))
+          .map((link) => <a href={link.href}>{link.label} ↗</a>)
       }
     </div>
-
-    <p class={styles.copy}>&copy; {year} {profile.name}</p>
   </div>
+  <div class="archive-link"><a href="/archive/">Earlier projects ↗</a></div>
 </footer>

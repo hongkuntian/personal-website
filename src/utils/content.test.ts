@@ -27,15 +27,18 @@ describe("content utilities", () => {
     expect(
       getFeaturedProjects(projectEntries).map((entry) => entry.slug)
     ).toEqual([
-      "workflow-platform-features",
+      "alarm-infrastructure",
+      "jsonata-and-variables",
       "region-rollout-reliability",
+      "workflow-platform-features",
+      "incident-response-and-capacity",
       "agent-workflows-and-automation",
     ])
   })
 
   it("separates selected work from archive projects", () => {
     expect(getProjectsByCategory(projectEntries, "selected-work")).toHaveLength(
-      3
+      6
     )
     expect(getProjectsByCategory(projectEntries, "archive")).toHaveLength(5)
   })

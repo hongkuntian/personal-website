@@ -28,3 +28,22 @@ from = "/personal-website/*"
 to = "/:splat"
 status = 301
 force = true
+
+# Retired design previews now lead to their canonical production pages.
+[[redirects]]
+from = "/redesigns/:design/projects/:slug"
+to = "/projects/:slug/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/redesigns/:design/archive"
+to = "/archive/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/redesigns/*"
+to = "/"
+status = 301
+force = true

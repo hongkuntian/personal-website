@@ -7,20 +7,13 @@ const sureviews: ProjectEntry = {
   category: "archive",
   tagline: "Review summarization for locations on Google Maps.",
   summary:
-    "A web app that summarizes review data and generates sentiment-driven subcategory insights for places.",
+    "A web app that summarizes Google Maps reviews and groups sentiment by subcategory.",
   descriptionSections: [
     {
-      title: "What it does",
+      title: "Review summaries",
       body: [
-        "Sureviews condenses large numbers of reviews into a faster read for users trying to assess a location.",
-        "The product idea was to turn noisy review text into something more actionable than scrolling through dozens of comments.",
-      ],
-    },
-    {
-      title: "Technical focus",
-      body: [
-        "The implementation combined Python services, frontend code, and third-party platform data to produce summarized outputs.",
-        "It was another useful example of stitching together external data, model behavior, and a UI into a coherent product loop.",
+        "Sureviews summarizes Google Maps reviews and groups sentiment by subcategory so users can compare aspects of a location.",
+        "It uses Python and Flask for the backend, JavaScript for the interface, and data from Google Maps Platform.",
       ],
     },
   ],

@@ -6,7 +6,8 @@ export default defineConfig({
   output: "static",
   integrations: [
     sitemap({
-      filter: (page) => !new URL(page).pathname.startsWith("/redesigns"),
+      filter: (page) =>
+        !/^\/(redesigns|resume|404)(\/|$)/.test(new URL(page).pathname),
     }),
   ],
   devToolbar: { enabled: false },

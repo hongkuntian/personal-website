@@ -7,20 +7,13 @@ const painttrix: ProjectEntry = {
   category: "archive",
   tagline: "Gesture-based drawing powered by pose estimation.",
   summary:
-    "A Python application that lets users draw on-screen through controlled hand movements.",
+    "A Python app for drawing on screen with hand gestures captured by a camera.",
   descriptionSections: [
     {
-      title: "What it does",
+      title: "Drawing with gestures",
       body: [
-        "PaintTrix turns pose estimation into a playful drawing interface, using camera input as the control surface.",
-        "It was a good example of building a lightweight product around a novel interaction model.",
-      ],
-    },
-    {
-      title: "Technical focus",
-      body: [
-        "The project combined computer-vision inputs with a desktop application flow, which meant thinking carefully about responsiveness and user feedback.",
-        "Even in a smaller build, the challenge was translating model output into something stable enough for a person to actually use.",
+        "PaintTrix uses camera input and pose estimation to let people draw on screen with hand movements. The desktop app uses Python and TkInter.",
+        "The implementation translates pose estimates into drawing controls, with attention to responsiveness and stable input.",
       ],
     },
   ],

@@ -1,0 +1,21 @@
+---
+import { projectEntries } from "../../data/projects"
+export function getStaticPaths() {
+  const designs = ["journal", "scrapbook", "poster", "desktop", "letter"]
+  return [
+    { params: { path: undefined }, props: { destination: "/" } },
+    ...designs.flatMap((design) => [
+      { params: { path: design }, props: { destination: "/" } },
+      {
+        params: { path: `${design}/archive` },
+        props: { destination: "/archive/" },
+      },
+      ...projectEntries.map((project) => ({
+        params: { path: `${design}/projects/${project.slug}` },
+        props: { destination: `/projects/${project.slug}/` },
+      })),
+    ]),
+  ]
+}
+return Astro.redirect(Astro.props.destination, 301)
+---

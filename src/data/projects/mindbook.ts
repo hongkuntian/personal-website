@@ -7,20 +7,18 @@ const mindbook: ProjectEntry = {
   category: "archive",
   tagline: "Sentiment-aware journaling app built at ConUHacks.",
   summary:
-    "A journaling web app that analyzes user entries and recommends activities based on predicted mood.",
+    "A journaling app that analyzes entries and recommends activities based on the user's mood.",
   descriptionSections: [
     {
-      title: "What it does",
+      title: "The app",
       body: [
-        "MindBook lets users log journal entries, stores them in Firebase, and runs sentiment analysis to tailor recommendations to the user's mood.",
-        "The project was built as a hackathon product, so the emphasis was on delivering a coherent end-to-end experience quickly without losing implementation quality.",
+        "MindBook is a journaling app built at ConUHacks. It uses sentiment analysis to recommend activities based on a journal entry.",
       ],
     },
     {
       title: "My contribution",
       body: [
-        "I worked on the React frontend and on connecting the client experience to a Node.js backend and Firebase persistence.",
-        "The project reinforced my preference for products that combine a clear interface with meaningful backend behavior rather than treating frontend work as a thin wrapper.",
+        "I worked on the React frontend and its connections to the Node.js backend and Firebase storage. IBM Tone Analyzer handled sentiment analysis.",
       ],
     },
   ],

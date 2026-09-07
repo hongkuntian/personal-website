@@ -1,19 +1,27 @@
 ---
 import { Image } from "astro:assets"
-import { profile } from "../../data/profile"
-import { projectEntries } from "../../data/projects"
 import BaseLayout from "../../layouts/BaseLayout.astro"
-
+import { projectEntries } from "../../data/projects"
+import type { ProjectEntry } from "../../types/content"
 export function getStaticPaths() {
   return projectEntries.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }))
 }
-
+interface Props {
+  project: ProjectEntry & { period?: string }
+}
 const { project } = Astro.props
-const sectionLabel =
-  project.category === "selected-work" ? "Selected Work" : "Archive Project"
+const related = projectEntries.filter(
+  (item) => item.category === project.category
+)
+const next =
+  related[
+    (related.findIndex((item) => item.slug === project.slug) + 1) %
+      related.length
+  ]
+const archived = project.category === "archive"
 ---
 
 <BaseLayout
@@ -23,97 +31,56 @@ const sectionLabel =
     path: `/projects/${project.slug}/`,
   }}
 >
-  <article class="detailShell">
-    <p class="eyebrow">{sectionLabel}</p>
-    <h1>{project.name}</h1>
-    <p class="detailLead">{project.tagline}</p>
-    <p class="detailSummary">{project.summary}</p>
-
+  <article class="project-detail">
+    <header class="page-intro">
+      <a class="back-link" href={archived ? "/archive/" : "/#work"}
+        >{archived ? "← Earlier projects" : "← All AWS work"}</a
+      >
+      <p class="eyebrow">
+        {archived ? "Earlier project" : "AWS Step Functions"}{
+          project.period && ` / ${project.period}`
+        }
+      </p>
+      <h1>{project.name}</h1><p class="lead">{project.summary}</p>
+    </header>
     {
-      project.image && project.imageAlt && (
-        <div class="detailMedia">
+      project.image && (
+        <figure class="project-image">
           <Image
             src={project.image}
-            alt={project.imageAlt}
-            widths={[320]}
-            sizes="(max-width: 900px) 70vw, 320px"
-            class="detailImage"
+            alt={project.imageAlt ?? project.name}
+            width={420}
+            height={300}
           />
-        </div>
+        </figure>
       )
     }
-
-    <div class="tagList">
-      {project.tech.map((item) => <span class="tag">{item}</span>)}
-    </div>
-
-    {
-      project.highlights && (
-        <section class="detailSection">
-          <h2>Highlights</h2>
-          <ul class="detailList">
-            {project.highlights.map((highlight) => (
-              <li>{highlight}</li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
     {
       project.descriptionSections.map((section) => (
-        <section class="detailSection">
+        <section class="detail-section">
           <h2>{section.title}</h2>
-          <div class="stack">
-            {section.body.map((paragraph) => (
-              <p>{paragraph}</p>
-            ))}
-          </div>
+          {section.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
         </section>
       ))
     }
-
+    <div class="technologies">
+      <h2>Technologies</h2><p>{project.tech.join(" · ")}</p>
+    </div>
     {
       project.links.length > 0 && (
-        <section class="detailSection">
-          <h2>Links</h2>
-          <div class="chipRow">
-            {project.links.map((link) => (
-              <a
-                class="chipLink"
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </section>
+        <div class="project-links">
+          {project.links.map((link) => (
+            <a href={link.url}>{link.label} ↗</a>
+          ))}
+        </div>
       )
     }
-
-    <section class="ctaPanel detailCta" aria-labelledby="project-next-step">
-      <div class="stack">
-        <p class="eyebrow">Next step</p>
-        <h2 class="detailCtaTitle" id="project-next-step">
-          Interested in this kind of systems work?
-        </h2>
-        <p>Review my resume or get in touch directly.</p>
-      </div>
-      <div class="ctaActions">
-        <a
-          class="button"
-          href={profile.resumeUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open resume
-        </a>
-        <a class="buttonSecondary" href={`mailto:${profile.email}`}>Email me</a>
-      </div>
-    </section>
-
-    <a class="inlineLink" href="/projects/"> Back to all projects </a>
+    <nav class="related-work" aria-label="Project navigation">
+      <a href={archived ? "/archive/" : "/#work"}
+        >{archived ? "← Earlier projects" : "← All AWS work"}</a
+      ><a href={`/projects/${next.slug}/`}>Next: {next.name} →</a>
+    </nav>
   </article>
 </BaseLayout>

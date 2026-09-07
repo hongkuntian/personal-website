@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { projectEntries } from "../data/projects"
+const projects = projectEntries.filter(
+  (project) => project.category === "archive"
+)
+---
+
+<BaseLayout
+  meta={{
+    title: "Earlier projects",
+    description: "A small archive of projects from before AWS.",
+    path: "/archive/",
+  }}
+>
+  <header class="page-intro">
+    <a class="back-link" href="/#work">← Back to AWS work</a><h1>
+      Earlier projects
+    </h1><p>Projects from before AWS.</p>
+  </header>
+  <div class="archive-list">
+    {
+      projects.map((project) => (
+        <article>
+          <>
+            <h2>
+              <a href={`/projects/${project.slug}/`}>{project.name} ↗</a>
+            </h2>
+            <p>{project.summary}</p>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>

@@ -7,20 +7,18 @@ const travelcc: ProjectEntry = {
   category: "archive",
   tagline: "Hack The North project for currency recognition and conversion.",
   summary:
-    "An Android app that recognizes foreign currency from captured images and converts it into the user's home currency.",
+    "An Android app that identifies foreign banknotes and converts their value into the user's home currency.",
   descriptionSections: [
     {
-      title: "What it does",
+      title: "Currency recognition",
       body: [
-        "TravelCC uses a smartphone camera to identify foreign bills and pair that recognition flow with live currency conversion data.",
-        "The project was designed around a clear user problem: making travel less awkward when dealing with unfamiliar cash.",
+        "TravelCC is an Android app built at Hack The North. It recognizes foreign banknotes from a camera image and converts their value into the user's home currency.",
       ],
     },
     {
-      title: "Implementation notes",
+      title: "My contribution",
       body: [
-        "I worked on API integration and data flow between the mobile app, Firebase-backed services, and currency conversion APIs.",
-        "The build reinforced how much product value can come from connecting a few focused capabilities into a fast, low-friction experience.",
+        "I worked on API integration and data flow between the Android app, Firebase services, and the XE Currency Data API.",
       ],
     },
   ],
